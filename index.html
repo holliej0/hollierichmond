@@ -114,10 +114,10 @@
     padding-top:clamp(24px,3vw,36px);
     border-top:var(--rule);
   }
-  @media (min-width:860px){.hero-lede{grid-template-columns:1fr 1fr;align-items:start}}
+  .hero-lede p{max-width:70ch}
   .hero-lede p{
-    margin:0;color:#D6D2DC;max-width:56ch;
-    font-size:clamp(15.5px,1.45vw,18px);line-height:1.62;
+    margin:0;color:#D6D2DC;
+    font-size:clamp(15.5px,1.5vw,19px);line-height:1.6;
   }
   .hero-lede strong{color:var(--paper);font-weight:500}
   /* the contact line still uses .role */
@@ -294,6 +294,16 @@
     transition:background-size .45s cubic-bezier(.2,.7,.3,1),color .3s;
   }
   .contact .mail-link:hover{background-size:100% 2px;color:var(--accent)}
+  .resume-row{margin:clamp(26px,3.5vw,40px) 0 0}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--mono);font-size:12px;font-weight:500;
+    letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink);background:var(--accent);
+    padding:15px 26px;border-radius:999px;
+    transition:background .25s,transform .25s cubic-bezier(.2,.7,.3,1);
+  }
+  .btn:hover{background:var(--paper);transform:translateY(-2px)}
   .elsewhere{
     display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:clamp(26px,4vw,44px);
     font-family:var(--mono);font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
@@ -334,6 +344,7 @@
     <nav>
       <a href="#work">Work</a>
       <a href="#contact">Contact</a>
+      <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
       <a class="mail" href="mailto:hollie@hollierichmond.com">hollie@hollierichmond.com</a>
     </nav>
   </div>
@@ -352,7 +363,6 @@
       <h1 data-px="-0.06">Digital experience designer working across <em>product, brand and systems</em>.</h1>
       <div class="hero-lede" data-px="0.04">
         <p>I design digital experiences for organizations where the interface, the brand and the system behind them all have to agree — <strong>enterprise product UI, design systems, websites, and the campaign work that carries them into the world</strong>.</p>
-        <p>That has meant a territory modeling tool for life sciences sales teams, a twelve-step color ramp and component library, a private markets site from wireframe through redlined style guide, and a spatial meeting room for an AI product. Regulated industries, mostly. Long-lived systems, usually.</p>
       </div>
     <div class="caps hero-caps" data-rise>
       <div class="cap">
@@ -392,6 +402,25 @@
       <div class="proj-in">
         <div class="rail" data-rise>
           <span class="rail-n">01</span>
+          <p class="client">Sola Salons</p>
+          <h2>UI Style Guide</h2>
+          <dl class="spec">
+            <dt>Role</dt><dd>Design systems</dd>
+            <dt>Scope</dt><dd>Color, typography, buttons, cards, accessibility standards</dd>
+            <dt>Output</dt><dd>Published Figma library</dd>
+          </dl>
+        </div>
+        <div class="plate-wrap">
+          <span class="ghost" aria-hidden="true" data-px="0.3">01</span>
+          <button class="plate" type="button" data-view="13" aria-label="Expand this project's work"><img src="img/w13.jpg" alt="Four pages of the Sola UI Style Guide: brand and accent colors with usage rules, the primary button matrix across four sizes and three states, a contrast table giving measured ratios and pass or fail for every text-on-background pairing, and card surface rules with the card type scale." width="1500" height="1062" loading="eager" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
+        </div>
+      </div>
+    </article>
+
+    <article class="proj" id="p2">
+      <div class="proj-in">
+        <div class="rail" data-rise>
+          <span class="rail-n">02</span>
           <p class="client">IQVIA</p>
           <h2>Territory Designer</h2>
           <dl class="spec">
@@ -401,15 +430,15 @@
           </dl>
         </div>
         <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">01</span>
+          <span class="ghost" aria-hidden="true" data-px="0.3">02</span>
           <button class="plate" type="button" data-view="01" aria-label="Expand this project's work"><img src="img/w01.jpg" alt="Territory Designer interface screens for IQVIA: a scenario dashboard over a mapped sales territory, a model creation panel, a data import mapping step, and a refinement view with coverage metrics and plotted accounts." width="1500" height="1094" loading="eager" fetchpriority="high" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
         </div>
       </div>
     </article>
-    <article class="proj" id="p2">
+    <article class="proj" id="p3">
       <div class="proj-in">
         <div class="rail" data-rise>
-          <span class="rail-n">02</span>
+          <span class="rail-n">03</span>
           <p class="client">IQVIA</p>
           <h2>Data Visualizations Redesign</h2>
           <dl class="spec">
@@ -419,15 +448,15 @@
           </dl>
         </div>
         <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">02</span>
+          <span class="ghost" aria-hidden="true" data-px="0.3">03</span>
           <button class="plate" type="button" data-view="02" aria-label="Expand this project's work"><img src="img/w02.jpg" alt="Before-and-after chart component sheets: the existing IQVIA chart set beside a redesigned library of line, bar, donut, funnel and calendar components with tooltip states." width="1500" height="1433" loading="eager" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
         </div>
       </div>
     </article>
-    <article class="proj" id="p3">
+    <article class="proj" id="p4">
       <div class="proj-in">
         <div class="rail" data-rise>
-          <span class="rail-n">03</span>
+          <span class="rail-n">04</span>
           <p class="client">IQVIA</p>
           <h2>Product Design &amp; Marketing</h2>
           <dl class="spec">
@@ -437,15 +466,15 @@
           </dl>
         </div>
         <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">03</span>
+          <span class="ghost" aria-hidden="true" data-px="0.3">04</span>
           <button class="plate" type="button" data-view="03" aria-label="Expand this project's work"><img src="img/w03.jpg" alt="IQVIA marketing collateral: presentation slides on technology for life sciences, a multi-page Salesforce white paper, a vertical trade banner, and an Apollo product launch graphic." width="1500" height="1299" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
         </div>
       </div>
     </article>
-    <article class="proj" id="p4">
+    <article class="proj" id="p5">
       <div class="proj-in">
         <div class="rail" data-rise>
-          <span class="rail-n">04</span>
+          <span class="rail-n">05</span>
           <p class="client">IQVIA</p>
           <h2>Orchestrated Customer Engagement</h2>
           <dl class="spec">
@@ -455,15 +484,15 @@
           </dl>
         </div>
         <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">04</span>
+          <span class="ghost" aria-hidden="true" data-px="0.3">05</span>
           <button class="plate" type="button" data-view="12" aria-label="Expand this project's work"><img src="img/w12.jpg" alt="Five OCE iPad screens: a dashboard of appointments, to-dos and plans; a week calendar of scheduled calls; a branded login; a territory search pairing an HCP list with a map; and a review-and-sign screen capturing a physician signature." width="1500" height="940" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
         </div>
       </div>
     </article>
-    <article class="proj" id="p5">
+    <article class="proj" id="p6">
       <div class="proj-in">
         <div class="rail" data-rise>
-          <span class="rail-n">05</span>
+          <span class="rail-n">06</span>
           <p class="client">Unisys</p>
           <h2>Design System</h2>
           <dl class="spec">
@@ -473,15 +502,15 @@
           </dl>
         </div>
         <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">05</span>
+          <span class="ghost" aria-hidden="true" data-px="0.3">06</span>
           <button class="plate" type="button" data-view="04" aria-label="Expand this project's work"><img src="img/w04.jpg" alt="Unisys design system pages: cover, icon grid, checkbox and radio states, a Tomato Grotesk type scale, button states, twelve-step color ramps, and alert message patterns." width="1500" height="1272" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
         </div>
       </div>
     </article>
-    <article class="proj" id="p6">
+    <article class="proj" id="p7">
       <div class="proj-in">
         <div class="rail" data-rise>
-          <span class="rail-n">06</span>
+          <span class="rail-n">07</span>
           <p class="client">KKR</p>
           <h2>Style Guide &amp; Web Design</h2>
           <dl class="spec">
@@ -491,15 +520,15 @@
           </dl>
         </div>
         <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">06</span>
+          <span class="ghost" aria-hidden="true" data-px="0.3">07</span>
           <button class="plate" type="button" data-view="05" aria-label="Expand this project's work"><img src="img/w05.jpg" alt="KKR K-PRIME work: an annotated wireframe of the About page, a UI style guide covering color palette, cards and form fields with redlines, and the finished web pages." width="1500" height="1305" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
         </div>
       </div>
     </article>
-    <article class="proj" id="p7">
+    <article class="proj" id="p8">
       <div class="proj-in">
         <div class="rail" data-rise>
-          <span class="rail-n">07</span>
+          <span class="rail-n">08</span>
           <p class="client">KKR</p>
           <h2>Social Media</h2>
           <dl class="spec">
@@ -509,15 +538,15 @@
           </dl>
         </div>
         <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">07</span>
+          <span class="ghost" aria-hidden="true" data-px="0.3">08</span>
           <button class="plate" type="button" data-view="06" aria-label="Expand this project's work"><img src="img/w06.jpg" alt="KKR social media system: announcement and quote cards, statistic cards on investor sentiment, vertical video frames, and YouTube Shorts covers featuring partners." width="1500" height="1185" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
         </div>
       </div>
     </article>
-    <article class="proj" id="p8">
+    <article class="proj" id="p9">
       <div class="proj-in">
         <div class="rail" data-rise>
-          <span class="rail-n">08</span>
+          <span class="rail-n">09</span>
           <p class="client">Mobeus</p>
           <h2>Airspace</h2>
           <dl class="spec">
@@ -527,15 +556,15 @@
           </dl>
         </div>
         <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">08</span>
+          <span class="ghost" aria-hidden="true" data-px="0.3">09</span>
           <button class="plate" type="button" data-view="07" aria-label="Expand this project's work"><img src="img/w07.jpg" alt="Mobeus Airspace screens: a welcome entry state over live video, an immersive virtual room with participants and an HCP engagement panel, and product training content shared inside the room." width="1500" height="920" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
         </div>
       </div>
     </article>
-    <article class="proj" id="p9">
+    <article class="proj" id="p10">
       <div class="proj-in">
         <div class="rail" data-rise>
-          <span class="rail-n">09</span>
+          <span class="rail-n">10</span>
           <p class="client">Northeastern University</p>
           <h2>Global Leadership Summit</h2>
           <dl class="spec">
@@ -545,15 +574,15 @@
           </dl>
         </div>
         <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">09</span>
+          <span class="ghost" aria-hidden="true" data-px="0.3">10</span>
           <button class="plate" type="button" data-view="08" aria-label="Expand this project's work"><img src="img/w08.jpg" alt="Global Leadership Summit campaign: a London 2026 one pager with speaker lineup, a two-sided postcard, and a run of eight email designs in the same system." width="1500" height="1292" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
         </div>
       </div>
     </article>
-    <article class="proj" id="p10">
+    <article class="proj" id="p11">
       <div class="proj-in">
         <div class="rail" data-rise>
-          <span class="rail-n">10</span>
+          <span class="rail-n">11</span>
           <p class="client">Northeastern University</p>
           <h2>EXP Site</h2>
           <dl class="spec">
@@ -563,15 +592,15 @@
           </dl>
         </div>
         <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">10</span>
+          <span class="ghost" aria-hidden="true" data-px="0.3">11</span>
           <button class="plate" type="button" data-view="09" aria-label="Expand this project's work"><img src="img/w09.jpg" alt="Three full page designs for Northeastern's EXP research building: a welcome page, a mission page with building statistics, and a research page with facility galleries and news." width="1500" height="1328" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
         </div>
       </div>
     </article>
-    <article class="proj" id="p11">
+    <article class="proj" id="p12">
       <div class="proj-in">
         <div class="rail" data-rise>
-          <span class="rail-n">11</span>
+          <span class="rail-n">12</span>
           <p class="client">Underscore Marketing</p>
           <h2>Design Refresh</h2>
           <dl class="spec">
@@ -581,15 +610,15 @@
           </dl>
         </div>
         <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">11</span>
+          <span class="ghost" aria-hidden="true" data-px="0.3">12</span>
           <button class="plate" type="button" data-view="10" aria-label="Expand this project's work"><img src="img/w10.jpg" alt="Underscore Marketing refresh: a pharma marketing white paper spread across six pages, and two web page designs including the PINNACLE Planning Suite product page." width="1500" height="1331" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
         </div>
       </div>
     </article>
-    <article class="proj" id="p12">
+    <article class="proj" id="p13">
       <div class="proj-in">
         <div class="rail" data-rise>
-          <span class="rail-n">12</span>
+          <span class="rail-n">13</span>
           <p class="client">Rebound</p>
           <h2>Visual Communications</h2>
           <dl class="spec">
@@ -599,7 +628,7 @@
           </dl>
         </div>
         <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">12</span>
+          <span class="ghost" aria-hidden="true" data-px="0.3">13</span>
           <button class="plate" type="button" data-view="11" aria-label="Expand this project's work"><img src="img/w11.jpg" alt="Rebound visual communications: a numbered social card series on GTM decision friction, team spotlight and holiday cards, two fact sheets, and a marketing independence map infographic." width="1500" height="1121" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
         </div>
       </div>
@@ -613,6 +642,9 @@
       <p class="sec-label">Contact</p>
       <div data-rise>
         <a class="mail-link" href="mailto:hollie@hollierichmond.com">hollie@hollierichmond.com</a>
+        <p class="resume-row">
+          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span></a>
+        </p>
         <div class="elsewhere">
           <a href="https://www.linkedin.com/in/holliejrichmond" target="_blank" rel="noopener">LinkedIn</a>
           <a href="tel:+19739789680">973.978.9680</a>
