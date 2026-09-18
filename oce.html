@@ -296,15 +296,11 @@
         <div>
           <div class="col">
             <p>Field software in life sciences tends to get built for the audit rather than for the rep. Every sample handed to a physician counts against a per-call limit and a per-period limit. Some products can't go to some accounts at all. A signature only means something if it carries a state license number, a DEA number, expiration dates, lot numbers and a return address. A shared meal split across three attendees has to be allocated to the cent.</p>
-            <p>The tools that came before handled all of that by making the rep the compliance engine. They had to know the rules, do the math, and hope the system agreed with them at submission. So calls got logged in the parking lot an hour later from memory, or they didn't get logged at all. That hurts the rep, and it hurts the company more, because the entire commercial model runs on field data being complete.</p>
+            <p>The tools that came before handled all of that by making the rep the compliance engine. They had to know the rules, do the math, and hope the system agreed at submission. So calls got logged in the parking lot an hour later from memory, or they didn't get logged at all.</p>
             <p>Orchestrated Customer Engagement was the replacement. My brief covered the part the rep actually touches: a tablet interface quick enough for a doorway conversation and careful enough to survive an audit.</p>
           </div>
 
           <p class="pull">Screen space was never the hard part. Being wrong had consequences.</p>
-
-          <div class="col">
-            <p>Three things shaped everything that followed. <strong>The environment fights you.</strong> Hospital corridors have no signal, and a sync that fails quietly costs somebody a day of work. <strong>The user is expert but rushed.</strong> Reps know their products better than any interface can teach them, so the job is taking friction out, not explaining things. <strong>And the record is legal.</strong> Whatever the interface claims about a limit or an eligibility rule has to be true, and the rep needs to see where it came from.</p>
-          </div>
 
           <figure class="fig" data-rise>
             <svg viewBox="0 0 1020 226" role="img" aria-label="A day in the field across five stages: plan the route, drive, in the room, log the call, and sync. For each stage the diagram shows what broke in the previous generation of tools and what the new product does instead.">
@@ -378,6 +374,7 @@
           <div class="col">
             <p>The sample flow tells the rep what governs the product they're holding: how many are allowed on this call, how many in the current period, how long the period runs, when the last drop happened, how many are left. Products that sit in a restricted class carry a marker in the picker itself, so nobody discovers it at submission.</p>
             <p>Of everything we changed, this is the one reps mentioned. The limit stopped being something you carried in your head and became something the screen told you, at the moment you were deciding.</p>
+            <p>Where the rules allowed it, I pushed back on hard blocks. Going over a limit has its own path: here is what continuing means, and the choice gets logged. Block a rep who has a good reason and they will find a way around you. Make the exception visible and attributable and it stays inside the record, where compliance can actually see it.</p>
           </div>
 
           <figure class="fig">
@@ -436,21 +433,6 @@
 
       <div class="dec" data-rise>
         <div class="sec-head"><span class="sec-n">Decision 02</span></div>
-        <div>
-          <h3>Warn early, warn twice, and let the rep proceed on the record</h3>
-          <div class="col">
-            <p>When a product isn't eligible for an account, a toast fires the second it's added and a popover names the products. A warning that waits for submit arrives after the conversation is over and the sample is already gone.</p>
-            <p>Where the rules allowed it, I pushed back on hard blocks. Over-sampling got its own path: the product has hit its limit, here's what continuing means, and the choice gets logged. Block a rep who has a good reason and they will find a way around you. Make the exception visible and attributable and it stays inside the record, where compliance can actually see it.</p>
-          </div>
-          <div class="evidence">
-            <b>In the file</b>
-            Product restriction appears as a toast, a popover naming the ineligible products, and a distinct post-tap state. Over-sampling has its own picker, informational state, and confirmation modal.
-          </div>
-        </div>
-      </div>
-
-      <div class="dec" data-rise>
-        <div class="sec-head"><span class="sec-n">Decision 03</span></div>
         <div>
           <h3>One call screen with a tab strip, not a wizard</h3>
           <div class="col">
@@ -529,32 +511,7 @@
               <line class="sw-line" x1="640" y1="352" x2="700" y2="352" marker-end="url(#ar2)" stroke-dasharray="3 3"></line>
               <text class="sub" x="708" y="347">Submit stays visible and<tspan x="708" dy="16">says what is still missing</tspan></text>
             </svg>
-            <figcaption class="figcap">The call screen at wireframe stage. Every tab is reachable at any point, and nothing about the rep's progress hides behind a next button.</figcaption>
-          </figure>
-
-          <figure class="fig">
-            <svg viewBox="0 0 980 190" role="img" aria-label="Two tab strips compared. A standard face-to-face call shows attendees, details, samples, direct-to-practitioner, items, expenses and presentation. A call with colleagues present and follow-up owed adds an employees tab and a tasks tab to the same strip.">
-              <text class="tiny" x="0" y="26">FACE TO FACE</text>
-              <rect class="sw-box" x="0" y="40" width="96" height="28"></rect><text class="sub" x="12" y="59">Attendees</text>
-              <rect class="sw-box" x="104" y="40" width="80" height="28"></rect><text class="sub" x="116" y="59">Details</text>
-              <rect class="sw-box" x="192" y="40" width="88" height="28"></rect><text class="sub" x="204" y="59">Samples</text>
-              <rect class="sw-box" x="288" y="40" width="56" height="28"></rect><text class="sub" x="300" y="59">DTP</text>
-              <rect class="sw-box" x="352" y="40" width="66" height="28"></rect><text class="sub" x="364" y="59">Items</text>
-              <rect class="sw-box" x="426" y="40" width="92" height="28"></rect><text class="sub" x="438" y="59">Expenses</text>
-              <rect class="sw-box" x="526" y="40" width="118" height="28"></rect><text class="sub" x="538" y="59">Presentation</text>
-
-              <text class="tiny" x="0" y="126">COLLEAGUES PRESENT, FOLLOW-UP OWED</text>
-              <rect class="sw-box" x="0" y="140" width="96" height="28"></rect><text class="sub" x="12" y="159">Attendees</text>
-              <rect class="acc-box" x="104" y="140" width="102" height="28"></rect><text class="acc" x="116" y="159">Employees</text>
-              <rect class="sw-box" x="214" y="140" width="80" height="28"></rect><text class="sub" x="226" y="159">Details</text>
-              <rect class="sw-box" x="302" y="140" width="88" height="28"></rect><text class="sub" x="314" y="159">Samples</text>
-              <rect class="sw-box" x="398" y="140" width="56" height="28"></rect><text class="sub" x="410" y="159">DTP</text>
-              <rect class="sw-box" x="462" y="140" width="66" height="28"></rect><text class="sub" x="474" y="159">Items</text>
-              <rect class="sw-box" x="536" y="140" width="92" height="28"></rect><text class="sub" x="548" y="159">Expenses</text>
-              <rect class="sw-box" x="636" y="140" width="118" height="28"></rect><text class="sub" x="648" y="159">Presentation</text>
-              <rect class="acc-box" x="762" y="140" width="72" height="28"></rect><text class="acc" x="774" y="159">Tasks</text>
-            </svg>
-            <figcaption class="figcap">Same screen, different call. Only the tabs a call actually needs appear, which is how one surface covered every type.</figcaption>
+            <figcaption class="figcap">The call screen at wireframe stage. Every tab is reachable at any point, and the strip changes with the call: colleagues in the room add an employees tab, follow-up adds tasks.</figcaption>
           </figure>
 
           <div class="evidence">
@@ -576,33 +533,21 @@
       </div>
 
       <div class="dec" data-rise>
-        <div class="sec-head"><span class="sec-n">Decision 04</span></div>
+        <div class="sec-head"><span class="sec-n">Decision 03</span></div>
         <div>
           <h3>Treat the signature screen as the receipt</h3>
           <div class="col">
             <p>The signature turns a call into a legal document, so I designed that screen to be read by the person signing it rather than by the database. The physician sees what they're acknowledging, each product with its lot number, expiration and quantity, next to their own license details and the rep's. They sign above a line they can clear and do again.</p>
-            <p>It is the least interesting screen in the product to look at and the one I would argue hardest for. Everything else in the app is convenience. This one is the evidence.</p>
           </div>
         </div>
       </div>
 
       <div class="dec" data-rise>
-        <div class="sec-head"><span class="sec-n">Decision 05</span></div>
-        <div>
-          <h3>Take the arithmetic away from the rep</h3>
-          <div class="col">
-            <p>A shared meal has to be allocated across attendees and come to exactly 100%. Rather than leave that as math with an error waiting at the end, the running total sits in the header while the rep works, one tap splits it evenly, and the error state says what is actually wrong instead of refusing to move.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="dec" data-rise>
-        <div class="sec-head"><span class="sec-n">Decision 06</span></div>
+        <div class="sec-head"><span class="sec-n">Decision 04</span></div>
         <div>
           <h3>Design the planner around the drive, not the hour</h3>
           <div class="col">
             <p>A field day is a route more than it is a calendar. The planner carries month, seven-day, five-day and single-day views, plus a zoom that takes the visible window from twelve hours down to three. You can touch and hold to create, drag to move, drag an edge to change duration, and it handles overlapping events, which happen constantly. A map view shows the route and the drive time between stops. Time off territory is a real event type with repeats and predefined slots, because a calendar nobody can block out is a calendar nobody keeps current.</p>
-            <p>Only the zoom gesture needed teaching, so that got coachmarks. Nothing else did.</p>
           </div>
 
           <figure class="fig">
@@ -656,18 +601,7 @@
       </div>
 
       <div class="dec" data-rise>
-        <div class="sec-head"><span class="sec-n">Decision 07</span></div>
-        <div>
-          <h3>Make the assistant explainable and dismissible</h3>
-          <div class="col">
-            <p>The product shipped with a recommendation layer: accounts worth visiting, messages worth delivering, samples worth dropping. I built it as a column the rep can collapse, and gave every suggestion a <em>see why</em> plus a single tap to pull it into the call.</p>
-            <p>Reps ignore recommendations they can't interrogate, and they resent ones they can't dismiss. Either way they have stopped reading by the second week. Showing the reasoning and letting people close the panel is what gave the feature a chance of being used at all.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="dec" data-rise>
-        <div class="sec-head"><span class="sec-n">Decision 08</span></div>
+        <div class="sec-head"><span class="sec-n">Decision 05</span></div>
         <div>
           <h3>Design the offline and empty states first</h3>
           <div class="col">
@@ -726,8 +660,7 @@
         <div>
           <div class="col">
             <p>I led a team of five UX/UI designers. We split the product by surface and I reviewed the work as it came through, though at this scale the job has less to do with critiquing individual screens than with keeping five people's instincts pointed the same direction.</p>
-            <p>The harder half happened outside the design team. I worked directly with engineering and the product managers through implementation, because on a product like this a requirement that arrives correct and ships slightly wrong becomes a compliance bug rather than a visual one. Staying inside the build, instead of handing off ahead of it, is what kept the intent intact.</p>
-            <p>I also worked alongside the visual design team so the product read as the same brand as everything around it: the marketing site, the collateral, the demos it turned up in. A field tool that looks like it came from another company undercuts whatever the rest of the business is saying.</p>
+            <p>The harder half happened outside the design team. I worked directly with engineering and the product managers through implementation, because on a product like this a requirement that arrives correct and ships slightly wrong becomes a compliance bug rather than a visual one. I also sat with the visual design team, so the product read as the same brand as the marketing around it.</p>
           </div>
 
           <p class="pull">Consistency at this scale is a coordination problem before it's a design problem.</p>
@@ -742,8 +675,7 @@
         <div class="sec-head"><span class="sec-n">04</span><h2>The system underneath</h2></div>
         <div>
           <div class="col">
-            <p>None of this scales as one-off screens. The whole product came out of a symbol library: navigation, cards, pickers, popovers, toasts, modals, form rows, charts, keyboards. Change a pattern and it moved through every state using it. We organized master files by surface, versioned them by date, and handed them to engineering as living documents rather than as a delivery.</p>
-            <p>That mattered more than the component count. A new call type or a new compliance rule could be designed as a variation instead of a new screen, and the states nobody puts in a demo, the errors and the partial data and the sync failures, stayed current without a redesign every time.</p>
+            <p>None of this scales as one-off screens. The whole product came out of a symbol library, with master files organized by surface, versioned by date, and handed to engineering as living documents rather than as a delivery. That mattered more than the component count. A new call type or a new compliance rule got designed as a variation instead of a new screen, and the states nobody puts in a demo stayed current without a redesign every time.</p>
           </div>
 
           <div class="tally">
@@ -774,7 +706,7 @@
           </div>
 
           <div class="col" style="margin-top:clamp(28px,4vw,44px)">
-            <p>That reach is the real argument for the decisions above. Sample limits, product eligibility and signature requirements don't match across Japan, Germany and the United States. Had we drawn the compliance surface as fixed screens, every market would have meant a new one. Built as components whose rules are content, a market with a different limit structure gets a different picker and the same product.</p>
+            <p>That reach is the real argument for the decisions above. Sample limits, eligibility and signature requirements don't match across Japan, Germany and the United States. Drawn as fixed screens, every market would have meant a new one. Built as components whose rules are content, a market with a different limit structure gets a different picker and the same product.</p>
             <p>In April 2024 IQVIA licensed the OCE CRM software to Salesforce, which folded it into Salesforce Life Sciences Cloud, and committed to supporting existing OCE customers through 2029. The patterns outlasted the roadmap they were built for, which is about as much as a product designer gets to ask for.</p>
             <p>One thing I took with me. The hard part of regulated software was never fitting the rules onto a screen. It was deciding which rules a person should have to carry in their head, and the answer was almost always none of them.</p>
           </div>
