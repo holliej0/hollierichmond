@@ -101,6 +101,9 @@
     color:var(--muted);margin:14px 0 0;max-width:74ch;line-height:1.65;
   }
   .lead-plate{margin-top:clamp(30px,5vw,58px)}
+  /* screens exported with transparency sit on the page, not on a mat */
+  .bare{background:none;padding:0;box-shadow:none}
+  .bare img{filter:drop-shadow(0 26px 50px rgba(0,0,0,.55))}
   .duo{display:grid;gap:clamp(14px,2vw,26px);grid-template-columns:1fr;margin-block:clamp(26px,4vw,44px)}
   @media (min-width:760px){.duo{grid-template-columns:1fr 1fr}}
 
@@ -280,8 +283,8 @@
       </dl>
 
       <div class="lead-plate" data-rise>
-        <div class="plate">
-          <img src="img/oce/oce-result-launcher.jpg" alt="The shipped OCE iPad app shown at an angle: a customer dashboard for a cardiologist with contact card, recent activity and a prompt asking whether the rep logged a call from last Friday, with the radial module launcher open above it." width="1900" height="1157" fetchpriority="high" decoding="async">
+        <div class="plate bare">
+          <img src="img/oce/oce-result-launcher.png" alt="The shipped OCE iPad app shown at an angle: a customer dashboard for a cardiologist with contact card, recent activity and a prompt asking whether the rep logged a call from last Friday, with the radial module launcher open above it." width="1800" height="1054" fetchpriority="high" decoding="async">
         </div>
         <p class="plate-cap">The shipped product. Customer dashboard, module launcher, and a nudge to finish a call the rep started on Friday.</p>
       </div>
@@ -453,22 +456,22 @@
 
           <div class="duo">
             <figure>
-              <div class="plate"><img src="img/oce/oce-result-dashboard.jpg" alt="The shipped dashboard on iPad: today's four appointments with photos and locations, a to-do card of incomplete call logs colour coded by priority, a goal message, and product and promotional plan cards, beside a recent activity rail." width="1500" height="1210" loading="lazy" decoding="async"></div>
+              <div class="plate bare"><img src="img/oce/oce-result-dashboard.png" alt="The shipped dashboard on iPad: today's four appointments with photos and locations, a to-do card of incomplete call logs colour coded by priority, a goal message, and product and promotional plan cards, beside a recent activity rail." width="1400" height="1120" loading="lazy" decoding="async"></div>
               <figcaption class="figcap">Dashboard. The day's appointments, then the calls still waiting to be finished, ranked by how much they matter.</figcaption>
             </figure>
             <figure>
-              <div class="plate"><img src="img/oce/oce-result-calendar.jpg" alt="The shipped calendar on iPad: a filterable list of healthcare providers on the left beside a five day week grid of scheduled meetings, with a collapsible tasks row pinned under each day." width="1500" height="1210" loading="lazy" decoding="async"></div>
+              <div class="plate bare"><img src="img/oce/oce-result-calendar.png" alt="The shipped calendar on iPad: a filterable list of healthcare providers on the left beside a five day week grid of scheduled meetings, with a collapsible tasks row pinned under each day." width="1400" height="1120" loading="lazy" decoding="async"></div>
               <figcaption class="figcap">Planner. The provider list and the week sit side by side, so scheduling never means leaving the calendar.</figcaption>
             </figure>
           </div>
 
           <figure class="fig">
-            <div class="plate"><img src="img/oce/oce-result-customer.jpg" alt="The shipped customer dashboard on iPad: a cardiologist's contact card with location, email, phone, role, rating and status, above a recent activity timeline, with floating actions for logging a call, launching a presentation and placing an order." width="1500" height="1210" loading="lazy" decoding="async"></div>
+            <div class="plate bare"><img src="img/oce/oce-result-customer.png" alt="The shipped customer dashboard on iPad: a cardiologist's contact card with location, email, phone, role, rating and status, above a recent activity timeline, with floating actions for logging a call, launching a presentation and placing an order." width="1400" height="1120" loading="lazy" decoding="async"></div>
             <figcaption class="figcap">Customer. Everything the rep needs before walking in, with log a call, launch a presentation and place an order within thumb reach.</figcaption>
           </figure>
 
           <figure class="fig">
-            <div class="plate"><img src="img/oce/oce-result-recommend.jpg" alt="The shipped customer dashboard shown at an angle with the module launcher open, and a recommendation panel advising the rep to inform the medical science liaison on the account about an inquiry received today." width="1900" height="1127" loading="lazy" decoding="async"></div>
+            <div class="plate bare"><img src="img/oce/oce-result-recommend.png" alt="The shipped customer dashboard shown at an angle with the module launcher open, and a recommendation panel advising the rep to inform the medical science liaison on the account about an inquiry received today." width="1800" height="1028" loading="lazy" decoding="async"></div>
             <figcaption class="figcap">The recommendation layer, designed as a panel that explains itself and can be closed. Reps stop reading suggestions they cannot interrogate.</figcaption>
           </figure>
         </div>
