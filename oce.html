@@ -164,6 +164,14 @@
     letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;
   }
 
+  .src{
+    margin-top:clamp(26px,3.5vw,40px);padding-top:16px;border-top:1px solid var(--line-soft);
+    font-family:var(--mono);font-size:11.5px;font-weight:500;line-height:1.7;
+    letter-spacing:.04em;color:var(--muted);max-width:66ch;
+  }
+  .src a{color:var(--muted);border-bottom:1px solid var(--line);transition:color .25s,border-color .25s}
+  .src a:hover{color:var(--accent);border-color:var(--accent)}
+
   .tally{
     display:grid;gap:22px 34px;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
     margin:clamp(26px,4vw,42px) 0 0;padding-top:clamp(22px,3vw,30px);border-top:var(--rule);
@@ -243,11 +251,12 @@
       <p class="dek">A pharmaceutical sales rep has about two minutes in a physician's doorway. In those two minutes they have to log a regulated transaction — <strong>samples handed over, licenses verified, a signature captured, expenses split, restrictions honored</strong> — on an iPad, often with no signal. I led the UI design for the product that had to make that possible.</p>
 
       <dl class="facts">
-        <div class="fact"><dt>Role</dt><dd>UI design lead</dd></div>
+        <div class="fact"><dt>Role</dt><dd>UI design lead, team of five</dd></div>
         <div class="fact"><dt>Client</dt><dd>IQVIA</dd></div>
         <div class="fact"><dt>Platform</dt><dd>iPad, field-first</dd></div>
         <div class="fact"><dt>Surfaces</dt><dd>Home, Planner, Call, Account</dd></div>
-        <div class="fact"><dt>Team</dt><dd>Product, engineering, compliance, sales</dd></div>
+        <div class="fact"><dt>Partners</dt><dd>Engineering, product, visual design</dd></div>
+        <div class="fact"><dt>Shipped</dt><dd>December 2017, into 130+ countries</dd></div>
       </dl>
 
       <div class="lead-plate" data-rise>
@@ -404,7 +413,24 @@
   <section>
     <div class="wrap">
       <div class="grid">
-        <div class="sec-head"><span class="sec-n">03</span><h2>The system underneath</h2></div>
+        <div class="sec-head"><span class="sec-n">03</span><h2>Leading the work</h2></div>
+        <div>
+          <div class="col">
+            <p>I led a team of five UX/UI designers, splitting the product by surface and reviewing the work as it came through — which at this scale is less about critiquing screens than about keeping five people's instincts pointed the same way.</p>
+            <p>The harder half of the job was outside the design team. I worked directly with engineering and the product managers through implementation, because on a product like this a requirement that arrives correct and ships slightly wrong is not a visual problem — a sample limit that misses a state is a compliance bug. Being in the build, not just ahead of it, is what kept the intent intact.</p>
+            <p>And I worked alongside the visual design team so the product read as the same brand as everything around it: the marketing site, the collateral, the demos it showed up in. A field tool that looks like it came from a different company undermines the argument the rest of the business is making.</p>
+          </div>
+
+          <p class="pull">Consistency at this scale is a coordination problem before it's a design problem.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid">
+        <div class="sec-head"><span class="sec-n">04</span><h2>The system underneath</h2></div>
         <div>
           <div class="col">
             <p>None of this scales as one-off screens. The whole product was built from a symbol library — navigation, cards, pickers, popovers, toasts, modals, form rows, charts, keyboards — so a change to a pattern moved through every state that used it. Master files were organized by surface and versioned by date, and handed to engineering as living documents rather than a one-time delivery.</p>
@@ -425,13 +451,26 @@
   <section>
     <div class="wrap">
       <div class="grid">
-        <div class="sec-head"><span class="sec-n">04</span><h2>How it landed</h2></div>
+        <div class="sec-head"><span class="sec-n">05</span><h2>How it landed</h2></div>
         <div>
           <div class="col">
-            <p>The clearest signal is that the design files kept moving. The four surface masters carry dates spanning more than a year of active revision — the call screen through late 2018, the planner into 2019 — which is what a product in the field looks like, not a pitch shown once.</p>
-            <p>The same system was cut into persona-led demo builds, each one a different rep walking through their own day, with a recorded run used in sales conversations. Designing for the doorway turned out to make the product easier to sell: the demo didn't have to explain the compliance model, it just showed someone getting through a call in a couple of minutes.</p>
+            <p>OCE launched on 12 December 2017. Inside the first twelve months more than thirty life sciences companies had selected it — Novo Nordisk and Roche among them — and it was running in 115 countries. By 2024 it served close to 400 enterprise customers across more than 130. The field app went out with all of it.</p>
+          </div>
+
+          <div class="tally">
+            <div><span class="num">2017</span><span class="lab">Launched</span></div>
+            <div><span class="num">30+</span><span class="lab">Companies, year one</span></div>
+            <div><span class="num">~400</span><span class="lab">Enterprise customers</span></div>
+            <div><span class="num">130+</span><span class="lab">Countries</span></div>
+          </div>
+
+          <div class="col" style="margin-top:clamp(28px,4vw,44px)">
+            <p>That scale is the real argument for the decisions above. Sample limits, product eligibility and signature requirements are not the same in Japan as in Germany as in the United States. If the compliance surface had been drawn as fixed screens, every market would have meant a new one. Built as components whose rules are content, a market with a different limit structure gets a different picker — not a different product.</p>
+            <p>In April 2024 IQVIA licensed the OCE CRM software to Salesforce, which folded it into Salesforce Life Sciences Cloud, and committed to supporting existing OCE customers through 2029. The patterns outlasted the company's own roadmap for them, which is about as much as a product designer can ask.</p>
             <p>What I'd carry into the next enterprise product: the hard part of regulated software isn't fitting the rules on screen. It's deciding which rules the user should have to hold in their head. Almost always the answer is none of them.</p>
           </div>
+
+          <p class="src">Figures from IQVIA's <a href="https://ir.iqvia.com/press-releases/press-release-details/2019/IQVIAs-Orchestrated-Customer-Engagement-OCE-Solution-Adopted-by-More-than-30-Life-Sciences-Companies-in-First-Year-of-Launch/default.aspx" target="_blank" rel="noopener">January 2019 adoption release</a> and its <a href="https://www.iqvia.com/newsroom/2024/04/iqvia-and-salesforce-expand-global-partnership-to-accelerate-the-development-of-life-sciences-cloud" target="_blank" rel="noopener">April 2024 Salesforce partnership announcement</a>.</p>
         </div>
       </div>
     </div>
