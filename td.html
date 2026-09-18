@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Territory Designer · Case study · Hollie Richmond</title>
+<meta name="description" content="Case study: designing IQVIA Territory Designer, a global tool for balancing sales territories against workload, potential and driving distance.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&display=swap">
+<style>
+  :root{
+    color-scheme: dark;
+    --ink:#09090C;
+    --ink-raised:#131219;
+    --mat:#A4A1AC;
+    --paper:#EDEBF0;
+    --muted:#8B8796;
+    --line:rgba(237,235,240,.11);
+    --line-soft:rgba(237,235,240,.06);
+    --accent:#A39BF0;
+    --display:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --body:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --mono:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --gut:clamp(20px,5vw,72px);
+    --rule:1px solid var(--line);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--body);font-weight:400;font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:#0b0a10}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+  .wrap{width:100%;max-width:1440px;margin:0 auto;padding-inline:var(--gut)}
+  .col{max-width:64ch}
+
+  /* ---------- top bar ---------- */
+  .bar{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    padding-top:calc(14px + env(safe-area-inset-top,0px));padding-bottom:14px;
+    background:linear-gradient(to bottom,rgba(9,9,12,.92),rgba(9,9,12,.72) 60%,rgba(9,9,12,0));
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  }
+  .bar-in{display:flex;align-items:baseline;justify-content:space-between;gap:10px 16px;flex-wrap:wrap}
+  .sig{font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:-.01em;white-space:nowrap}
+  .sig span{color:var(--muted);font-weight:500;display:none}
+  @media (min-width:520px){.sig span{display:inline}}
+  .bar nav{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px clamp(13px,2.5vw,28px);
+    font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+  .bar nav a{transition:color .25s}
+  .bar nav a:hover{color:var(--paper)}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding-block:clamp(120px,18vh,190px) clamp(40px,6vh,72px);overflow:hidden}
+  .field{position:absolute;inset:-20% -10%;z-index:0;pointer-events:none}
+  .orb{position:absolute;border-radius:50%;filter:blur(90px)}
+  .orb.a{width:46vw;height:46vw;left:-10vw;top:2vh;background:radial-gradient(circle,#4A3FA8 0%,rgba(74,63,168,0) 70%);opacity:.5}
+  .orb.b{width:36vw;height:36vw;right:-6vw;top:-8vh;background:radial-gradient(circle,#2E5C8A 0%,rgba(46,92,138,0) 70%);opacity:.4}
+  .hero-in{position:relative;z-index:1}
+  .eyebrow{
+    font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 clamp(16px,2.4vw,26px);
+  }
+  .eyebrow .sep{color:var(--muted);margin-inline:10px}
+  h1{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(32px,5.4vw,72px);line-height:1.02;letter-spacing:-.034em;
+    margin:0;max-width:15ch;text-wrap:balance;
+  }
+  .dek{
+    margin:clamp(22px,3vw,34px) 0 0;color:#D6D2DC;max-width:62ch;
+    font-size:clamp(16px,1.6vw,20px);line-height:1.58;
+  }
+  .dek strong{color:var(--paper);font-weight:500}
+
+  .facts{
+    display:grid;gap:18px 34px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    margin-top:clamp(34px,5vw,58px);padding-top:clamp(24px,3vw,34px);border-top:var(--rule);
+  }
+  .fact dt{
+    font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 7px;
+  }
+  .fact dd{margin:0;font-size:15px;line-height:1.5}
+
+  /* ---------- plates and figures ---------- */
+  .plate{
+    background:var(--mat);padding:clamp(14px,2.4vw,34px);
+    box-shadow:0 30px 70px -30px rgba(0,0,0,.85);
+  }
+  .plate img{width:100%;height:auto}
+  .plate-cap,.figcap{
+    font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.06em;
+    color:var(--muted);margin:14px 0 0;max-width:74ch;line-height:1.65;
+  }
+  .lead-plate{margin-top:clamp(30px,5vw,58px)}
+  .duo{display:grid;gap:clamp(14px,2vw,26px);grid-template-columns:1fr;margin-block:clamp(26px,4vw,44px)}
+  @media (min-width:760px){.duo{grid-template-columns:1fr 1fr}}
+
+  figure{margin:0}
+  .fig{margin:clamp(30px,4.5vw,52px) 0 0}
+  .fig svg{
+    width:100%;height:auto;display:block;
+    color:var(--paper);
+    background:var(--ink-raised);
+    border:1px solid var(--line);
+    padding:clamp(10px,1.6vw,20px);
+  }
+  .fig .sw-line{stroke:currentColor;stroke-opacity:.34}
+  .fig .sw-box{fill:none;stroke:currentColor;stroke-opacity:.34}
+  .fig .lab{fill:currentColor;font-family:var(--mono);font-size:13px;font-weight:600}
+  .fig .sub{fill:currentColor;fill-opacity:.62;font-family:var(--mono);font-size:12px;font-weight:400}
+  .fig .tiny{fill:currentColor;fill-opacity:.5;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.11em}
+  .fig .acc{fill:#A39BF0;font-family:var(--mono);font-size:12px;font-weight:500}
+  .fig .acc-line{stroke:#A39BF0}
+  .fig .acc-box{fill:none;stroke:#A39BF0}
+
+  /* ---------- user stories ---------- */
+  .stories{
+    display:grid;gap:1px;background:var(--line);
+    border:1px solid var(--line);
+    margin:clamp(30px,4.5vw,52px) 0 0;
+  }
+  @media (min-width:700px){.stories{grid-template-columns:1fr 1fr}}
+  .story{background:var(--ink-raised);padding:clamp(18px,2.4vw,26px)}
+  .story .who{
+    display:block;font-family:var(--mono);font-size:10.5px;font-weight:500;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;
+  }
+  .story p{margin:0;font-size:15px;line-height:1.56;color:#D2CEDA}
+
+  /* ---------- body sections ---------- */
+  main section{padding-block:clamp(44px,7vw,92px);border-top:var(--rule)}
+  .grid{display:grid;gap:clamp(20px,3vw,54px);grid-template-columns:1fr;align-items:start}
+  @media (min-width:900px){
+    .grid{grid-template-columns:minmax(200px,1fr) minmax(0,2.35fr)}
+    .grid > .sec-head{position:sticky;top:calc(96px + env(safe-area-inset-top,0px))}
+  }
+  .sec-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:0 0 clamp(16px,2vw,0px)}
+  @media (min-width:900px){.sec-head{flex-direction:column;gap:12px;margin-bottom:0}}
+  .sec-n{font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  h2{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(24px,3.4vw,42px);line-height:1.04;letter-spacing:-.03em;margin:0;text-wrap:balance;
+  }
+  p{margin:0 0 1.15em;color:#D2CEDA;font-size:clamp(15.5px,1.35vw,17.5px);line-height:1.68}
+  p:last-child{margin-bottom:0}
+  strong{color:var(--paper);font-weight:600}
+  em{font-style:italic;color:var(--paper)}
+
+  .pull{
+    margin:clamp(30px,4.5vw,52px) 0;padding-left:clamp(18px,2.4vw,28px);
+    border-left:2px solid var(--accent);
+    font-family:var(--display);font-weight:600;
+    font-size:clamp(19px,2.4vw,30px);line-height:1.24;letter-spacing:-.022em;
+    color:var(--paper);max-width:24ch;
+  }
+
+  /* ---------- decisions ---------- */
+  .dec{
+    padding-block:clamp(30px,4vw,48px);border-top:1px solid var(--line-soft);
+    display:grid;gap:clamp(12px,2vw,54px);grid-template-columns:1fr;align-items:start;
+  }
+  @media (min-width:900px){.dec{grid-template-columns:minmax(200px,1fr) minmax(0,2.35fr)}}
+  .dec:first-of-type{border-top:0;padding-top:0}
+  h3{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(19px,2.1vw,27px);line-height:1.16;letter-spacing:-.022em;
+    margin:0 0 .7em;max-width:24ch;text-wrap:balance;
+  }
+  .evidence{
+    margin-top:clamp(16px,2vw,22px);padding:clamp(14px,2vw,20px) clamp(16px,2.2vw,24px);
+    background:var(--ink-raised);border-left:1px solid var(--line);
+    font-size:14.5px;line-height:1.62;color:var(--muted);max-width:66ch;
+  }
+  .evidence b{
+    display:block;font-family:var(--mono);font-size:10.5px;font-weight:500;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;
+  }
+
+  .src{
+    margin-top:clamp(26px,3.5vw,40px);padding-top:16px;border-top:1px solid var(--line-soft);
+    font-family:var(--mono);font-size:11.5px;font-weight:500;line-height:1.7;
+    letter-spacing:.04em;color:var(--muted);max-width:66ch;
+  }
+  .src a{color:var(--muted);border-bottom:1px solid var(--line);transition:color .25s,border-color .25s}
+  .src a:hover{color:var(--accent);border-color:var(--accent)}
+
+  .tally{
+    display:grid;gap:22px 34px;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    margin:clamp(26px,4vw,42px) 0 0;padding-top:clamp(22px,3vw,30px);border-top:var(--rule);
+  }
+  .tally div{min-width:0}
+  .tally .num{
+    display:block;font-family:var(--display);font-weight:700;
+    font-size:clamp(30px,4vw,50px);line-height:1;letter-spacing:-.035em;color:var(--paper);
+  }
+  .tally .lab{
+    display:block;margin-top:9px;font-family:var(--mono);font-size:11px;font-weight:500;
+    letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
+  }
+
+  /* ---------- foot ---------- */
+  .endnote{padding-block:clamp(50px,8vw,110px);border-top:var(--rule);position:relative;overflow:hidden}
+  .endnote .orb.d{
+    position:absolute;width:52vw;height:52vw;left:18vw;bottom:-34vw;border-radius:50%;
+    background:radial-gradient(circle,#5347B5 0%,rgba(83,71,181,0) 70%);opacity:.3;filter:blur(100px);pointer-events:none;
+  }
+  .endnote-in{position:relative;z-index:1}
+  .mail-link{
+    display:inline-block;font-family:var(--display);font-weight:700;
+    font-size:clamp(24px,5.4vw,66px);line-height:1;letter-spacing:-.035em;margin:clamp(14px,2vw,22px) 0 0;
+    word-break:break-word;
+    background-image:linear-gradient(var(--accent),var(--accent));
+    background-size:0 2px;background-position:0 100%;background-repeat:no-repeat;
+    transition:background-size .45s cubic-bezier(.2,.7,.3,1),color .3s;
+  }
+  .mail-link:hover{background-size:100% 2px;color:var(--accent)}
+  .elsewhere{
+    display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:clamp(24px,3.5vw,40px);
+    font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
+  }
+  .elsewhere a{transition:color .25s}
+  .elsewhere a:hover{color:var(--accent)}
+  .elsewhere a[target]::after{content:" ↗";letter-spacing:0}
+  footer{
+    padding-block:26px 34px;border-top:var(--rule);
+    font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;
+  }
+
+  /* ---------- motion ---------- */
+  .js [data-rise]{transform:translate3d(0,18px,0);transition:transform 1s cubic-bezier(.16,.84,.34,1)}
+  .js [data-rise].in{transform:none}
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition-duration:.01ms!important}
+    [data-rise]{transform:none!important}
+  }
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="sig" href="index.html">Hollie Richmond <span>&#183; Portfolio</span></a>
+    <nav>
+      <a href="index.html#work">&#8592; All work</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="field" aria-hidden="true">
+      <div class="orb a"></div>
+      <div class="orb b"></div>
+    </div>
+    <div class="wrap hero-in">
+      <p class="eyebrow">Case study <span class="sep">/</span> IQVIA</p>
+      <h1>Territory Designer</h1>
+      <p class="dek">A sales territory is a compromise between <strong>workload, sales potential and how far somebody can reasonably drive</strong>. Move one and the other two move with it. I designed the tool that lets a strategist redraw a country's worth of them and see what it costs before anyone signs off.</p>
+
+      <dl class="facts">
+        <div class="fact"><dt>Role</dt><dd>Product design</dd></div>
+        <div class="fact"><dt>Client</dt><dd>IQVIA</dd></div>
+        <div class="fact"><dt>Platform</dt><dd>Enterprise web</dd></div>
+        <div class="fact"><dt>Scope</dt><dd>Model, scenario, refine, review, import, export</dd></div>
+        <div class="fact"><dt>System</dt><dd>Apollo UI</dd></div>
+        <div class="fact"><dt>Reach</dt><dd>Global, on local geography</dd></div>
+      </dl>
+
+      <div class="lead-plate" data-rise>
+        <div class="plate">
+          <img src="img/full/w01.jpg" alt="Four Territory Designer screens: a scenario dashboard over a mapped sales territory, a model creation panel, a data import mapping step, and a refinement view with coverage metrics and plotted accounts." width="2600" height="1896" fetchpriority="high" decoding="async">
+        </div>
+        <p class="plate-cap">Territory Designer, from scenario dashboard through model creation, import and refinement.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid">
+        <div class="sec-head"><span class="sec-n">01</span><h2>The problem</h2></div>
+        <div>
+          <div class="col">
+            <p>Territory design is the work of balancing workload against sales potential to build territories that are compact enough to cover, while disturbing the existing sales force as little as possible. Those three goals pull against each other constantly. Give a rep a tidier drive and you have probably handed their best accounts to somebody else, and a territory is somebody's income, so getting it wrong costs you people as well as coverage.</p>
+            <p>The brief was to build that tool for global use. It had to run on whatever geography a market actually used, taking shape files from global and local vendors, so the same interface had to handle American postal codes, European bricks and everything in between without becoming a different product in each country.</p>
+            <p>Two use cases drove it. A new product or a new indication means standing up a sales force from nothing and sizing it, or realigning an existing one to cover new specialties. Separately, a structure already in the field needs periodic rebalancing as physicians move, reps move and the business changes, all inside a defined limit on how much any one rep's patch is allowed to shift.</p>
+          </div>
+
+          <figure class="fig" data-rise>
+            <div class="plate"><img src="img/td/td-usecases.jpg" alt="The use case document alongside a fan of greyscale wireframes: the scenario dashboard, model creation with a world map, the outlier analysis chart, and a refinement view showing colour-coded territories." width="1900" height="1204" loading="lazy" decoding="async"></div>
+            <figcaption class="figcap">What I started from. Product supplied the use cases and a set of wireframes, and those two documents set the whole shape of the work.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:clamp(26px,4vw,44px)"><span class="sec-n">02</span><h2>The decisions</h2></div>
+
+      <div class="dec" data-rise>
+        <div class="sec-head"><span class="sec-n">Decision 01</span></div>
+        <div>
+          <h3>Read the wireframes for intent, then build the spine</h3>
+          <div class="col">
+            <p>I was not starting from a blank page, and I did not want to. The wireframes already knew things about this business that I would have taken months to learn. The job was to work out what they were reaching for and then build it properly.</p>
+            <p>What came out of that reading was the navigation: Create, Refine, Review, Import. It is not a menu of features, it is the actual life of a territory plan, and once it was the permanent spine of the app every screen had an obvious home. The dashboard then had one job, which was to get you back to the scenario you were in the middle of.</p>
+          </div>
+
+          <div class="duo">
+            <figure>
+              <div class="plate"><img src="img/td/td-home-wire.jpg" alt="Greyscale wireframe of the Territory Designer dashboard: four action cards for create, refine, review and import over a faint map, with a previously viewed scenario card carrying coverage figures and example charts." width="1500" height="938" loading="lazy" decoding="async"></div>
+              <figcaption class="figcap">Wireframe.</figcaption>
+            </figure>
+            <figure>
+              <div class="plate"><img src="img/td/td-home-final.jpg" alt="The finished dashboard: the same four action cards in Apollo styling over a live map of the Bay Area with a territory outlined, and a scenario card showing 78 percent coverage, 32 full-time salespeople, ratio dials and a trend chart." width="1500" height="938" loading="lazy" decoding="async"></div>
+              <figcaption class="figcap">Designed, in Apollo.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="dec" data-rise>
+        <div class="sec-head"><span class="sec-n">Decision 02</span></div>
+        <div>
+          <h3>Treat the map as the document, not as a panel</h3>
+          <div class="col">
+            <p>Refining is where the real work happens, so the map gets the whole canvas and everything else sits on top of it in panels that collapse. The territory outlines, the provider and account pins, the sector labels: that is the document the strategist is editing, and it should never be squeezed into a viewport beside a form.</p>
+            <p>The numbers that move when you edit, coverage and headcount, sit at the top of the left panel where your eye already is after every change. The tools are a short list on purpose. Lasso, undo, redo, delete, plus layer toggles for providers and accounts. Everything else waits behind Optimize, Parameters and Change Log rather than crowding the thing you are pointing at.</p>
+          </div>
+
+          <div class="duo">
+            <figure>
+              <div class="plate"><img src="img/td/td-refine-wire.jpg" alt="Greyscale wireframe of the refine view: a left panel with coverage and headcount figures and an outliers scatter plot, a colour-blocked territory map filling the canvas, and a floating tool palette with lasso, delete, undo, redo and layer toggles." width="1500" height="938" loading="lazy" decoding="async"></div>
+              <figcaption class="figcap">Wireframe.</figcaption>
+            </figure>
+            <figure>
+              <div class="plate"><img src="img/td/td-refine-final.jpg" alt="The finished refine view: a live Oakland map with sector boundaries and provider pins, a left panel showing 78 percent coverage and 932 full-time salespeople above an outliers scatter plot, and a floating palette with lasso, undo, redo, delete and layer checkboxes." width="1500" height="938" loading="lazy" decoding="async"></div>
+              <figcaption class="figcap">Designed, with live geography and the pins the lasso actually catches.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="dec" data-rise>
+        <div class="sec-head"><span class="sec-n">Decision 03</span></div>
+        <div>
+          <h3>Show the outliers, not the average</h3>
+          <div class="col">
+            <p>A plan that averages beautifully can still contain the two territories that cause every argument. So the analysis view plots each territory as a point, sales against driving distance, draws the acceptable band across it, and rings everything that falls outside. Tabs carry the other cuts of the same question: customers to sales area, geography to sales area, the employee roster.</p>
+            <p>Averages hide the conversation you are about to have with a regional manager. The outliers are that conversation, so they are what the screen leads with, and each one opens into the detail you would need to defend or fix it.</p>
+          </div>
+
+          <figure class="fig">
+            <div class="plate"><img src="img/td/td-outliers.jpg" alt="The outliers analysis view: a scatter plot of sales in thousands of dollars against driving distance in miles, with normal territories in blue, outliers ringed in orange, and dotted boundary lines marking the acceptable band. Tabs above offer territory structure analysis, customer to sales area, geography to sales area and employee roster." width="1900" height="990" loading="lazy" decoding="async"></div>
+            <figcaption class="figcap">Sales against driving distance, with the acceptable band drawn on. The points outside it are the ones somebody will have to justify.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="dec" data-rise>
+        <div class="sec-head"><span class="sec-n">Decision 04</span></div>
+        <div>
+          <h3>Make importing somebody else's data a designed step</h3>
+          <div class="col">
+            <p>Every client arrives with their own columns, named their own way, and none of it matches the schema. In most enterprise tools that becomes a support ticket. Here it is a screen: the incoming file on the left, the schema on the right, drag to match, and save the mapping so the next upload from the same client takes one click.</p>
+            <p>It is unglamorous and it is the difference between a tool a consultant can hand to a client and one they have to run on the client's behalf forever.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid">
+        <div class="sec-head"><span class="sec-n">03</span><h2>Designed inside Apollo</h2></div>
+        <div>
+          <div class="col">
+            <p>IQVIA had a design system, Apollo, and Territory Designer is built from it: type scale, color, cards, form rows, inputs, charts, the lot. Working inside a system on a product this specific is mostly a question of what you do when the system does not have your component, and a map canvas with a lasso tool is not in anybody's UI kit.</p>
+            <p>So the rule I worked to was that anything Apollo covered came from Apollo unchanged, and anything it did not was built to look like it would have if Apollo had got there first. That kept the product recognisably part of the platform, and it meant the map tools did not read as a bolted-on third-party control, which is exactly what they would have become if I had designed them on their own terms.</p>
+          </div>
+
+          <figure class="fig">
+            <div class="plate"><img src="img/td/td-apollo.jpg" alt="The Apollo UI kit: a color library, type scale, alert bars, buttons, chips, form controls, a date picker, tabs and menus, alongside chart cards showing bar, line and donut examples and an application shell with a navigation bar and notification panel." width="1900" height="1248" loading="lazy" decoding="async"></div>
+            <figcaption class="figcap">The Apollo kit the product had to live inside. Reviewing it properly was step two, before a single Territory Designer screen got drawn.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid">
+        <div class="sec-head"><span class="sec-n">04</span><h2>Where it got to</h2></div>
+        <div>
+          <div class="col">
+            <p>The work ran from those first wireframes through to a complete interactive prototype. The exported build comes to 496 screens across login, dashboard, model and scenario creation, refinement and optimization, browsing, review and feedback, import and export, which is every state an engineer would need to build against rather than a walkthrough of the happy path.</p>
+            <p>The part I would carry into any tool like this: a territory plan is an argument someone has to win in a room. The interface is only doing its job if it hands them the evidence in the shape the argument actually takes.</p>
+          </div>
+
+          <div class="tally">
+            <div><span class="num">496</span><span class="lab">Prototype screens</span></div>
+            <div><span class="num">10</span><span class="lab">Flows</span></div>
+            <div><span class="num">6</span><span class="lab">Parameter groups</span></div>
+            <div><span class="num">1</span><span class="lab">Design system</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="endnote">
+    <div class="orb d" aria-hidden="true"></div>
+    <div class="wrap endnote-in">
+      <p class="eyebrow">Work with me</p>
+      <div data-rise>
+        <a class="mail-link" href="mailto:hollie@hollierichmond.com">hollie@hollierichmond.com</a>
+        <div class="elsewhere">
+          <a href="index.html#work">All work</a>
+          <a href="oce.html">OCE case study</a>
+          <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+          <a href="https://www.linkedin.com/in/holliejrichmond" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <footer>
+      <span>&#169; 2026 Hollie Richmond</span>
+      <span>Designed and built in New Jersey</span>
+    </footer>
+  </div>
+
+</main>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var rise = Array.prototype.slice.call(document.querySelectorAll('[data-rise]'));
+  if (!('IntersectionObserver' in window) || reduce) {
+    rise.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+  rise.forEach(function(el){ io.observe(el); });
+  requestAnimationFrame(function(){
+    rise.forEach(function(el){
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
