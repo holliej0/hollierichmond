@@ -432,8 +432,14 @@
         <div>
           <div class="col">
             <p>The work ran from requirements, through my wireframes, to a clickable prototype. The exported build comes to 496 screens: login, dashboard, model and scenario creation, refine and optimize, browsing, review and feedback, import and export. Not a walkthrough of the happy path, but every state an engineer would need to build against.</p>
+            <p>Login is the smallest example of what that meant in practice. Ten screens' worth of branching for one feature nobody thinks about until it fails: recovery, a temporary credential sent to whatever contact point the account has on file, a connectivity error, a credentials error, and three different places you can end up once you're through, depending on whether you were already in the middle of something.</p>
             <p>What I took from it: somebody has to stand up and defend this plan to the people it affects. The tool is only doing its job if it hands them what they need for that conversation.</p>
           </div>
+
+          <figure class="fig">
+            <div class="plate"><img src="img/td/td-loginflow.jpg" alt="The login user flow: a flowchart starting from any user and branching through currently logged in, forgot username, forgot password, credential recovery by email, text or phone, connectivity and credentials error states, password change and confirmation, and three exits to the previous UI, territory review, or the TDO landing page." width="1900" height="1401" loading="lazy" decoding="async"></div>
+            <figcaption class="figcap">The login flow, one of ten. Every branch here is a screen somebody had to build, which is why they get drawn before anyone starts building.</figcaption>
+          </figure>
 
           <div class="tally">
             <div><span class="num">496</span><span class="lab">Prototype screens</span></div>
