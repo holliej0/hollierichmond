@@ -174,6 +174,17 @@
   .spec dt{color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
   .spec dd{margin:0;color:var(--paper)}
 
+  .cs-link{
+    align-self:start;
+    font-family:var(--mono);font-size:11.5px;font-weight:500;
+    letter-spacing:.11em;text-transform:uppercase;color:var(--accent);
+    padding-bottom:4px;
+    background-image:linear-gradient(var(--accent),var(--accent));
+    background-size:100% 1px;background-position:0 100%;background-repeat:no-repeat;
+    transition:color .25s,background-size .35s cubic-bezier(.2,.7,.3,1);
+  }
+  .cs-link:hover{color:var(--paper);background-size:0 1px}
+
   .plate-wrap{position:relative}
   .ghost{
     position:absolute;z-index:0;pointer-events:none;
@@ -427,6 +438,7 @@
             <dt>Scope</dt><dd>Login, dashboard, calendar, territory search, review and sign</dd>
             <dt>Output</dt><dd>iPad product UI</dd>
           </dl>
+          <a class="cs-link" href="oce.html">Read the case study <span aria-hidden="true">↗</span></a>
         </div>
         <div class="plate-wrap">
           <span class="ghost" aria-hidden="true" data-px="0.3">02</span>

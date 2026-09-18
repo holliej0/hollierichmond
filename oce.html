@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Orchestrated Customer Engagement — Case study — Hollie Richmond</title>
+<meta name="description" content="Case study: designing the iPad product UI for IQVIA's Orchestrated Customer Engagement — a regulated field tool for pharmaceutical sales teams.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&display=swap">
+<style>
+  :root{
+    color-scheme: dark;
+    --ink:#09090C;
+    --ink-raised:#131219;
+    --mat:#A4A1AC;
+    --paper:#EDEBF0;
+    --muted:#8B8796;
+    --line:rgba(237,235,240,.11);
+    --line-soft:rgba(237,235,240,.06);
+    --accent:#A39BF0;
+    --display:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --body:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --mono:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --gut:clamp(20px,5vw,72px);
+    --rule:1px solid var(--line);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--body);font-weight:400;font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:#0b0a10}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+  .wrap{width:100%;max-width:1440px;margin:0 auto;padding-inline:var(--gut)}
+  .col{max-width:64ch}
+
+  /* ---------- top bar ---------- */
+  .bar{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    padding-top:calc(14px + env(safe-area-inset-top,0px));padding-bottom:14px;
+    background:linear-gradient(to bottom,rgba(9,9,12,.92),rgba(9,9,12,.72) 60%,rgba(9,9,12,0));
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  }
+  .bar-in{display:flex;align-items:baseline;justify-content:space-between;gap:10px 16px;flex-wrap:wrap}
+  .sig{font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:-.01em;white-space:nowrap}
+  .sig span{color:var(--muted);font-weight:500;display:none}
+  @media (min-width:520px){.sig span{display:inline}}
+  .bar nav{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px clamp(13px,2.5vw,28px);
+    font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+  .bar nav a{transition:color .25s}
+  .bar nav a:hover{color:var(--paper)}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding-block:clamp(120px,18vh,190px) clamp(40px,6vh,72px);overflow:hidden}
+  .field{position:absolute;inset:-20% -10%;z-index:0;pointer-events:none}
+  .orb{position:absolute;border-radius:50%;filter:blur(90px)}
+  .orb.a{width:46vw;height:46vw;left:-10vw;top:2vh;background:radial-gradient(circle,#4A3FA8 0%,rgba(74,63,168,0) 70%);opacity:.5}
+  .orb.b{width:36vw;height:36vw;right:-6vw;top:-8vh;background:radial-gradient(circle,#2E5C8A 0%,rgba(46,92,138,0) 70%);opacity:.4}
+  .hero-in{position:relative;z-index:1}
+  .eyebrow{
+    font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 clamp(16px,2.4vw,26px);
+  }
+  .eyebrow .sep{color:var(--muted);margin-inline:10px}
+  h1{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(32px,5.4vw,72px);line-height:1.02;letter-spacing:-.034em;
+    margin:0;max-width:15ch;text-wrap:balance;
+  }
+  .dek{
+    margin:clamp(22px,3vw,34px) 0 0;color:#D6D2DC;max-width:62ch;
+    font-size:clamp(16px,1.6vw,20px);line-height:1.58;
+  }
+  .dek strong{color:var(--paper);font-weight:500}
+
+  .facts{
+    display:grid;gap:18px 34px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    margin-top:clamp(34px,5vw,58px);padding-top:clamp(24px,3vw,34px);border-top:var(--rule);
+  }
+  .fact dt{
+    font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 7px;
+  }
+  .fact dd{margin:0;font-size:15px;line-height:1.5}
+
+  /* ---------- plates ---------- */
+  .plate{
+    background:var(--mat);padding:clamp(14px,2.4vw,34px);
+    box-shadow:0 30px 70px -30px rgba(0,0,0,.85);
+  }
+  .plate img{width:100%;height:auto}
+  .plate-cap,.figcap{
+    font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.06em;
+    color:var(--muted);margin:14px 0 0;max-width:70ch;
+  }
+  .lead-plate{margin-top:clamp(30px,5vw,58px)}
+  .duo{display:grid;gap:clamp(14px,2vw,26px);grid-template-columns:1fr;margin-block:clamp(26px,4vw,44px)}
+  @media (min-width:760px){.duo{grid-template-columns:1fr 1fr}}
+
+  /* ---------- body sections ---------- */
+  main section{padding-block:clamp(44px,7vw,92px);border-top:var(--rule)}
+  .grid{display:grid;gap:clamp(20px,3vw,54px);grid-template-columns:1fr;align-items:start}
+  @media (min-width:900px){
+    .grid{grid-template-columns:minmax(200px,1fr) minmax(0,2.35fr)}
+    .grid > .sec-head{position:sticky;top:calc(96px + env(safe-area-inset-top,0px))}
+  }
+  .sec-head{
+    display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+    margin:0 0 clamp(16px,2vw,0px);
+  }
+  @media (min-width:900px){
+    .sec-head{flex-direction:column;gap:12px;margin-bottom:0}
+  }
+  .sec-n{font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  h2{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(24px,3.4vw,42px);line-height:1.04;letter-spacing:-.03em;margin:0;text-wrap:balance;
+  }
+  p{margin:0 0 1.15em;color:#D2CEDA;font-size:clamp(15.5px,1.35vw,17.5px);line-height:1.68}
+  p:last-child{margin-bottom:0}
+  strong{color:var(--paper);font-weight:600}
+  em{font-style:italic;color:var(--paper)}
+
+  .pull{
+    margin:clamp(30px,4.5vw,52px) 0;padding-left:clamp(18px,2.4vw,28px);
+    border-left:2px solid var(--accent);
+    font-family:var(--display);font-weight:600;
+    font-size:clamp(19px,2.4vw,30px);line-height:1.24;letter-spacing:-.022em;
+    color:var(--paper);max-width:24ch;
+  }
+
+  /* ---------- decisions ---------- */
+  .dec{
+    padding-block:clamp(30px,4vw,48px);border-top:1px solid var(--line-soft);
+    display:grid;gap:clamp(12px,2vw,54px);grid-template-columns:1fr;align-items:start;
+  }
+  @media (min-width:900px){
+    .dec{grid-template-columns:minmax(200px,1fr) minmax(0,2.35fr)}
+  }
+  .dec:first-of-type{border-top:0;padding-top:0}
+  .dec-n{
+    font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 10px;
+  }
+  h3{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(19px,2.1vw,27px);line-height:1.16;letter-spacing:-.022em;
+    margin:0 0 .7em;max-width:24ch;text-wrap:balance;
+  }
+  .evidence{
+    margin-top:clamp(16px,2vw,22px);padding:clamp(14px,2vw,20px) clamp(16px,2.2vw,24px);
+    background:var(--ink-raised);border-left:1px solid var(--line);
+    font-size:14.5px;line-height:1.62;color:var(--muted);max-width:66ch;
+  }
+  .evidence b{
+    display:block;font-family:var(--mono);font-size:10.5px;font-weight:500;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;
+  }
+
+  .tally{
+    display:grid;gap:22px 34px;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    margin:clamp(26px,4vw,42px) 0 0;padding-top:clamp(22px,3vw,30px);border-top:var(--rule);
+  }
+  .tally div{min-width:0}
+  .tally .num{
+    display:block;font-family:var(--display);font-weight:700;
+    font-size:clamp(30px,4vw,50px);line-height:1;letter-spacing:-.035em;color:var(--paper);
+  }
+  .tally .lab{
+    display:block;margin-top:9px;font-family:var(--mono);font-size:11px;font-weight:500;
+    letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
+  }
+
+  /* ---------- foot ---------- */
+  .endnote{padding-block:clamp(50px,8vw,110px);border-top:var(--rule);position:relative;overflow:hidden}
+  .endnote .orb.d{
+    position:absolute;width:52vw;height:52vw;left:18vw;bottom:-34vw;border-radius:50%;
+    background:radial-gradient(circle,#5347B5 0%,rgba(83,71,181,0) 70%);opacity:.3;filter:blur(100px);pointer-events:none;
+  }
+  .endnote-in{position:relative;z-index:1}
+  .mail-link{
+    display:inline-block;font-family:var(--display);font-weight:700;
+    font-size:clamp(24px,5.4vw,66px);line-height:1;letter-spacing:-.035em;margin:clamp(14px,2vw,22px) 0 0;
+    word-break:break-word;
+    background-image:linear-gradient(var(--accent),var(--accent));
+    background-size:0 2px;background-position:0 100%;background-repeat:no-repeat;
+    transition:background-size .45s cubic-bezier(.2,.7,.3,1),color .3s;
+  }
+  .mail-link:hover{background-size:100% 2px;color:var(--accent)}
+  .elsewhere{
+    display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:clamp(24px,3.5vw,40px);
+    font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
+  }
+  .elsewhere a{transition:color .25s}
+  .elsewhere a:hover{color:var(--accent)}
+  .elsewhere a[target]::after{content:" ↗";letter-spacing:0}
+  footer{
+    padding-block:26px 34px;border-top:var(--rule);
+    font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;
+  }
+
+  /* ---------- motion ---------- */
+  .js [data-rise]{transform:translate3d(0,18px,0);transition:transform 1s cubic-bezier(.16,.84,.34,1)}
+  .js [data-rise].in{transform:none}
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition-duration:.01ms!important}
+    [data-rise]{transform:none!important}
+  }
+</style>
+</head>
+<body>
+
+<script>document.documentElement.classList.add('js');</script>
+
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="sig" href="index.html">Hollie Richmond <span>— Portfolio</span></a>
+    <nav>
+      <a href="index.html#work">← All work</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="field" aria-hidden="true">
+      <div class="orb a"></div>
+      <div class="orb b"></div>
+    </div>
+    <div class="wrap hero-in">
+      <p class="eyebrow">Case study <span class="sep">/</span> IQVIA</p>
+      <h1>Orchestrated Customer Engagement</h1>
+      <p class="dek">A pharmaceutical sales rep has about two minutes in a physician's doorway. In those two minutes they have to log a regulated transaction — <strong>samples handed over, licenses verified, a signature captured, expenses split, restrictions honored</strong> — on an iPad, often with no signal. I led the UI design for the product that had to make that possible.</p>
+
+      <dl class="facts">
+        <div class="fact"><dt>Role</dt><dd>UI design lead</dd></div>
+        <div class="fact"><dt>Client</dt><dd>IQVIA</dd></div>
+        <div class="fact"><dt>Platform</dt><dd>iPad, field-first</dd></div>
+        <div class="fact"><dt>Surfaces</dt><dd>Home, Planner, Call, Account</dd></div>
+        <div class="fact"><dt>Team</dt><dd>Product, engineering, compliance, sales</dd></div>
+      </dl>
+
+      <div class="lead-plate" data-rise>
+        <div class="plate">
+          <img src="img/full/w12.jpg" alt="Five screens from Orchestrated Customer Engagement: a dashboard of appointments, to-dos and plans; a week calendar of scheduled calls beside a filterable customer list; a branded login; a territory search pairing an HCP list with a map; and a review-and-sign screen capturing a physician signature." width="2600" height="1630" fetchpriority="high" decoding="async">
+        </div>
+        <p class="plate-cap">Five of roughly 190 designed states. Dashboard, planner, login, territory search, review and sign.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="wrap">
+      <div class="grid">
+        <div class="sec-head"><span class="sec-n">01</span><h2>The problem</h2></div>
+        <div>
+          <div class="col">
+            <p>Field software in life sciences has a habit of being built for the audit, not for the rep. Every sample handed to a physician counts against a per-call limit and a per-period limit. Some products can't be given to some accounts at all. A signature isn't a scribble — it's a record that has to carry a state license number, a DEA number, expiration dates, lot numbers and a return address. A shared meal split across three attendees has to be allocated to the cent.</p>
+            <p>The previous generation of tools handled all of that by making the rep the compliance engine. They had to know the rules, do the arithmetic, and hope the system agreed with them at submission. So calls got logged in the parking lot hours later from memory, or not at all — the worst outcome for everyone, because incomplete field data is what the rest of the commercial model is built on.</p>
+            <p>Orchestrated Customer Engagement was the replacement. My brief was the part the rep actually touches: a tablet interface fast enough for a doorway conversation and rigorous enough to stand up to an audit.</p>
+          </div>
+
+          <p class="pull">The constraint wasn't screen space. It was that being wrong has consequences.</p>
+
+          <div class="col">
+            <p>Three things shaped every decision that followed. <strong>The environment is hostile</strong> — hospital corridors have no signal, and a sync that fails quietly costs a day of work. <strong>The user is expert but rushed</strong> — reps know their products better than any interface can teach them, so the job is removing friction, not explaining. <strong>And the record is legal</strong> — anything the interface implies about a limit or an eligibility rule has to be true, and the rep has to be able to see why.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:clamp(26px,4vw,44px)"><span class="sec-n">02</span><h2>The decisions</h2></div>
+
+      <div class="dec" data-rise>
+        <div class="sec-head"><span class="sec-n">Decision 01</span></div>
+        <div>
+          <h3>Put the rule on the screen instead of behind a policy document</h3>
+          <div class="col">
+            <p>The sample flow shows the rep exactly what governs the product in front of them — how many are allowed on this call, how many in the current period, how long that period runs, when the last drop happened, and how many remain. Products belonging to a restricted class are marked in the picker itself rather than discovered at submission.</p>
+            <p>This was the single biggest change in the rep's day. It moved the limit from something they had to carry in their head to something the interface states plainly, at the moment of the decision.</p>
+          </div>
+          <div class="evidence">
+            <b>In the file</b>
+            Sample limit states include a per-product limit picker, a class-level alert with an expandable breakdown of parent and child products, an inline <em>subject to limits</em> marker, an over-limit picker, and a confirmation for exceeding one.
+          </div>
+        </div>
+      </div>
+
+      <div class="dec" data-rise>
+        <div class="sec-head"><span class="sec-n">Decision 02</span></div>
+        <div>
+          <h3>Warn early, warn twice, and let the rep proceed on the record</h3>
+          <div class="col">
+            <p>When a product isn't eligible for an account, the interface says so as a toast the moment it's added, and again as a popover that names the products. A warning that only appears at submit arrives after the conversation is over and the sample is already out of the bag.</p>
+            <p>Where the rule allowed it, I argued against hard blocks. Over-sampling gets its own explicit path — the product has reached its limit, here is what proceeding means, and the choice is logged. Blocking a rep who has a legitimate reason teaches them to work around the system. Making the exception visible and attributable keeps it inside the record.</p>
+          </div>
+          <div class="evidence">
+            <b>In the file</b>
+            Product restriction appears as a toast, a popover naming the ineligible products, and a distinct post-tap state. Over-sampling has its own picker, informational state, and confirmation modal.
+          </div>
+        </div>
+      </div>
+
+      <div class="dec" data-rise>
+        <div class="sec-head"><span class="sec-n">Decision 03</span></div>
+        <div>
+          <h3>One call screen with a tab strip, not a wizard</h3>
+          <div class="col">
+            <p>A call has attendees, employees, discussion details, samples, direct-to-practitioner shipments, leave-behind items, expenses, presentations and follow-up tasks. The obvious answer is a stepped flow. The right answer was a single screen with a tab strip, because reps don't complete a call in order — they complete it in the order the conversation went, and they often start mid-visit and finish in the car.</p>
+            <p>The tab strip is composed, not fixed: a remote call, a call with employees present, a call needing a custom entity and a call with tasks each show a different set. That kept the screen honest for every call type without shipping four screens.</p>
+          </div>
+          <div class="evidence">
+            <b>In the file</b>
+            The call surface carries 56 designed states across the tabs, including remote-call variants with attendee invitation status — accepted, tentative, and bounced with the reason.
+          </div>
+        </div>
+      </div>
+
+      <div class="duo">
+        <figure style="margin:0">
+          <div class="plate"><img src="img/cs/oce-sign.jpg" alt="The review and sign screen: samples disbursed with lot numbers and expiration dates, shipping and return addresses, physician state license and DEA numbers with expiry, and a handwritten signature above the line." width="850" height="630" loading="lazy" decoding="async"></div>
+          <figcaption class="figcap">Review and sign. Everything an auditor would ask for, on the screen the physician signs.</figcaption>
+        </figure>
+        <figure style="margin:0">
+          <div class="plate"><img src="img/cs/oce-territory.jpg" alt="Territory search: a filterable list of healthcare providers beside a map of plotted locations, with actions for directions, scheduling and logging a call." width="864" height="630" loading="lazy" decoding="async"></div>
+          <figcaption class="figcap">Territory search. The list and the map are one view, because the rep is choosing who to see and how to get there at the same time.</figcaption>
+        </figure>
+      </div>
+
+      <div class="dec" data-rise>
+        <div class="sec-head"><span class="sec-n">Decision 04</span></div>
+        <div>
+          <h3>Treat the signature screen as the receipt</h3>
+          <div class="col">
+            <p>The signature is the moment a call becomes a legal document, so I designed it to be read by the person signing it rather than by the database. The physician sees exactly what they're acknowledging — each product with its lot number, expiration and quantity — alongside their own license details and the rep's, and signs above a line that can be cleared and signed again.</p>
+            <p>It's the least fashionable screen in the product and the one I'd defend hardest. Everything else in the app is convenience. This one is evidence.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dec" data-rise>
+        <div class="sec-head"><span class="sec-n">Decision 05</span></div>
+        <div>
+          <h3>Take the arithmetic away from the rep</h3>
+          <div class="col">
+            <p>Expenses from a shared meal have to be allocated across attendees and total exactly 100%. Rather than leave that as a math problem with an error message at the end, the header carries the running total as the rep works, one tap distributes evenly, and the error state names what's wrong instead of just refusing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dec" data-rise>
+        <div class="sec-head"><span class="sec-n">Decision 06</span></div>
+        <div>
+          <h3>Design the planner around the drive, not the hour</h3>
+          <div class="col">
+            <p>A field day is a route, not a calendar. So the planner carries month, seven-day, five-day and single-day views, a zoom that changes visible density from twelve hours down to three, touch-and-hold to create, and drag to move or change duration — including the overlapping case, which happens constantly. A map view shows the route and the drive time between appointments. Time off territory is a first-class event type with repeats and predefined slots, because a day that can't be blocked out is a calendar nobody trusts.</p>
+            <p>The zoom gesture was the one thing that needed teaching, so it got coachmarks. Nothing else did.</p>
+          </div>
+          <div class="evidence">
+            <b>In the file</b>
+            78 planner states, including four view densities, drag and overlap behavior, map and route views, legends, and the time-off-territory creation and edit flows.
+          </div>
+        </div>
+      </div>
+
+      <div class="dec" data-rise>
+        <div class="sec-head"><span class="sec-n">Decision 07</span></div>
+        <div>
+          <h3>Make the assistant explainable and dismissible</h3>
+          <div class="col">
+            <p>The product included a recommendation layer — suggested accounts to visit, messages to deliver, samples to drop. I designed it as a column the rep can collapse, with every suggestion carrying a <em>see why</em> and a single tap to accept it into the call.</p>
+            <p>Recommendations that can't be interrogated get ignored, and recommendations that can't be dismissed get resented. Both end the same way: the rep stops reading them. Making the reasoning visible and the panel optional is what gave the feature a chance of being used.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dec" data-rise>
+        <div class="sec-head"><span class="sec-n">Decision 08</span></div>
+        <div>
+          <h3>Design the offline and empty states first</h3>
+          <div class="col">
+            <p>Hospitals eat signal, so sync isn't a background detail — it's a visible state with its own vocabulary: last synced, syncing, complete, failed with the reason, and a tap to retry. Every list has a designed empty state that tells the rep what to do rather than showing a blank panel, and the home screen surfaces unsubmitted calls until they're cleared.</p>
+            <p>These are the screens that get cut from a demo and decide whether the product survives a Tuesday.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid">
+        <div class="sec-head"><span class="sec-n">03</span><h2>The system underneath</h2></div>
+        <div>
+          <div class="col">
+            <p>None of this scales as one-off screens. The whole product was built from a symbol library — navigation, cards, pickers, popovers, toasts, modals, form rows, charts, keyboards — so a change to a pattern moved through every state that used it. Master files were organized by surface and versioned by date, and handed to engineering as living documents rather than a one-time delivery.</p>
+            <p>That mattered more than the component count. It meant a new call type or a new compliance rule could be designed as a variation rather than a new screen, and it meant the states nobody demos — the errors, the partial data, the sync failures — stayed current without a redesign each time.</p>
+          </div>
+
+          <div class="tally">
+            <div><span class="num">56</span><span class="lab">Call states</span></div>
+            <div><span class="num">78</span><span class="lab">Planner states</span></div>
+            <div><span class="num">49</span><span class="lab">Account states</span></div>
+            <div><span class="num">4</span><span class="lab">Core surfaces</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid">
+        <div class="sec-head"><span class="sec-n">04</span><h2>How it landed</h2></div>
+        <div>
+          <div class="col">
+            <p>The clearest signal is that the design files kept moving. The four surface masters carry dates spanning more than a year of active revision — the call screen through late 2018, the planner into 2019 — which is what a product in the field looks like, not a pitch shown once.</p>
+            <p>The same system was cut into persona-led demo builds, each one a different rep walking through their own day, with a recorded run used in sales conversations. Designing for the doorway turned out to make the product easier to sell: the demo didn't have to explain the compliance model, it just showed someone getting through a call in a couple of minutes.</p>
+            <p>What I'd carry into the next enterprise product: the hard part of regulated software isn't fitting the rules on screen. It's deciding which rules the user should have to hold in their head. Almost always the answer is none of them.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="endnote">
+    <div class="orb d" aria-hidden="true"></div>
+    <div class="wrap endnote-in">
+      <p class="eyebrow">Work with me</p>
+      <div data-rise>
+        <a class="mail-link" href="mailto:hollie@hollierichmond.com">hollie@hollierichmond.com</a>
+        <div class="elsewhere">
+          <a href="index.html#work">All work</a>
+          <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+          <a href="https://www.linkedin.com/in/holliejrichmond" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="tel:+19739789680">973.978.9680</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <footer>
+      <span>&#169; 2026 Hollie Richmond</span>
+      <span>Designed and built in New Jersey</span>
+    </footer>
+  </div>
+
+</main>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var rise = Array.prototype.slice.call(document.querySelectorAll('[data-rise]'));
+  if (!('IntersectionObserver' in window) || reduce) {
+    rise.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+  rise.forEach(function(el){ io.observe(el); });
+  requestAnimationFrame(function(){
+    rise.forEach(function(el){
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
