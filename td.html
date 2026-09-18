@@ -294,14 +294,14 @@
         <div class="sec-head"><span class="sec-n">01</span><h2>The problem</h2></div>
         <div>
           <div class="col">
-            <p>Territory design is the work of balancing workload against sales potential to build territories that are compact enough to cover, while disturbing the existing sales force as little as possible. Those three goals pull against each other constantly. Give a rep a tidier drive and you have probably handed their best accounts to somebody else, and a territory is somebody's income, so getting it wrong costs you people as well as coverage.</p>
-            <p>The brief was to build that tool for global use. It had to run on whatever geography a market actually used, taking shape files from global and local vendors, so the same interface had to handle American postal codes, European bricks and everything in between without becoming a different product in each country.</p>
-            <p>Two use cases drove it. A new product or a new indication means standing up a sales force from nothing and sizing it, or realigning an existing one to cover new specialties. Separately, a structure already in the field needs periodic rebalancing as physicians move, reps move and the business changes, all inside a defined limit on how much any one rep's patch is allowed to shift.</p>
+            <p>The job is to balance three things at once: how much work each rep is carrying, how much they can realistically sell, and whether the patch is small enough to actually drive. Tighten somebody's drive and you have usually just handed their best accounts to the rep next door. And because a territory is where a rep's income comes from, a bad redraw doesn't only cost you coverage, it costs you people.</p>
+            <p>It also had to work anywhere. Every market carves itself up differently, so the tool took shape files from global and local vendors and had to cope with US ZIP codes, European bricks and whatever else a country used, without turning into a different product in each one.</p>
+            <p>Two situations came up again and again. A company launches a product or gets a new indication approved, and needs a sales force sized from scratch or an existing one realigned to cover new specialties. Or a structure already out in the field drifts, because physicians move and reps move and the business changes, and somebody has to rebalance it without shifting any one rep's patch further than the agreed limit.</p>
           </div>
 
           <figure class="fig" data-rise>
             <div class="plate"><img src="img/td/td-usecases.jpg" alt="The use case document alongside a fan of greyscale wireframes: the scenario dashboard, model creation with a world map, the outlier analysis chart, and a refinement view showing colour-coded territories." width="1900" height="1204" loading="lazy" decoding="async"></div>
-            <figcaption class="figcap">What I started from. Product supplied the use cases and a set of wireframes, and those two documents set the whole shape of the work.</figcaption>
+            <figcaption class="figcap">Where it started. Product handed over the use cases and a set of wireframes, and between them they set the shape of everything that followed.</figcaption>
           </figure>
         </div>
       </div>
@@ -317,8 +317,8 @@
         <div>
           <h3>Read the wireframes for intent, then build the spine</h3>
           <div class="col">
-            <p>I was not starting from a blank page, and I did not want to. The wireframes already knew things about this business that I would have taken months to learn. The job was to work out what they were reaching for and then build it properly.</p>
-            <p>What came out of that reading was the navigation: Create, Refine, Review, Import. It is not a menu of features, it is the actual life of a territory plan, and once it was the permanent spine of the app every screen had an obvious home. The dashboard then had one job, which was to get you back to the scenario you were in the middle of.</p>
+            <p>I wasn't starting from a blank page, and I didn't want to. Those wireframes had years of this business baked into them already. My job was to work out what they were reaching for, then build it properly.</p>
+            <p>That's where the navigation came from: Create, Refine, Review, Import. Those four words are the life of a territory plan rather than a list of features, and once they became the spine of the app, every new screen had an obvious place to live. It also left the dashboard with one job, which is getting you back to whatever scenario you were in the middle of.</p>
           </div>
 
           <div class="duo">
@@ -339,8 +339,8 @@
         <div>
           <h3>Treat the map as the document, not as a panel</h3>
           <div class="col">
-            <p>Refining is where the real work happens, so the map gets the whole canvas and everything else sits on top of it in panels that collapse. The territory outlines, the provider and account pins, the sector labels: that is the document the strategist is editing, and it should never be squeezed into a viewport beside a form.</p>
-            <p>The numbers that move when you edit, coverage and headcount, sit at the top of the left panel where your eye already is after every change. The tools are a short list on purpose. Lasso, undo, redo, delete, plus layer toggles for providers and accounts. Everything else waits behind Optimize, Parameters and Change Log rather than crowding the thing you are pointing at.</p>
+            <p>Refining is where the actual work happens, so the map gets the whole screen and everything else floats on top of it in panels you can collapse. The outlines, the pins, the sector labels: that's the thing being edited, and it shouldn't have to share the screen with a form.</p>
+            <p>Coverage and headcount sit at the top of the left panel, because those are the two numbers that move every time you change something and they're the first thing anyone checks. The tool palette is short on purpose: lasso, undo, redo, delete, and toggles for the provider and account layers. Everything else lives behind Optimize, Parameters and Change Log, well out of the way of the map.</p>
           </div>
 
           <div class="duo">
@@ -350,7 +350,7 @@
             </figure>
             <figure>
               <div class="plate"><img src="img/td/td-refine-final.jpg" alt="The finished refine view: a live Oakland map with sector boundaries and provider pins, a left panel showing 78 percent coverage and 932 full-time salespeople above an outliers scatter plot, and a floating palette with lasso, undo, redo, delete and layer checkboxes." width="1500" height="938" loading="lazy" decoding="async"></div>
-              <figcaption class="figcap">Designed, with live geography and the pins the lasso actually catches.</figcaption>
+              <figcaption class="figcap">Designed, on live geography, with the pins the lasso actually grabs.</figcaption>
             </figure>
           </div>
         </div>
@@ -361,13 +361,13 @@
         <div>
           <h3>Show the outliers, not the average</h3>
           <div class="col">
-            <p>A plan that averages beautifully can still contain the two territories that cause every argument. So the analysis view plots each territory as a point, sales against driving distance, draws the acceptable band across it, and rings everything that falls outside. Tabs carry the other cuts of the same question: customers to sales area, geography to sales area, the employee roster.</p>
-            <p>Averages hide the conversation you are about to have with a regional manager. The outliers are that conversation, so they are what the screen leads with, and each one opens into the detail you would need to defend or fix it.</p>
+            <p>A plan can average out beautifully and still contain the two territories everybody is going to argue about. So the analysis view plots each one as a dot, sales against driving distance, draws the acceptable band across it, and circles anything that falls outside. Tabs hold the other versions of the same question: customers to sales area, geography to sales area, the employee roster.</p>
+            <p>A regional manager is never going to ask you about the average. They're going to ask about the one territory that looks wrong, so that's what the screen leads with, and every dot opens into enough detail to defend it or fix it.</p>
           </div>
 
           <figure class="fig">
             <div class="plate"><img src="img/td/td-outliers.jpg" alt="The outliers analysis view: a scatter plot of sales in thousands of dollars against driving distance in miles, with normal territories in blue, outliers ringed in orange, and dotted boundary lines marking the acceptable band. Tabs above offer territory structure analysis, customer to sales area, geography to sales area and employee roster." width="1900" height="990" loading="lazy" decoding="async"></div>
-            <figcaption class="figcap">Sales against driving distance, with the acceptable band drawn on. The points outside it are the ones somebody will have to justify.</figcaption>
+            <figcaption class="figcap">Sales against driving distance, with the acceptable band drawn on. Anything sitting outside it is a territory somebody will be asked about.</figcaption>
           </figure>
         </div>
       </div>
@@ -377,8 +377,8 @@
         <div>
           <h3>Make importing somebody else's data a designed step</h3>
           <div class="col">
-            <p>Every client arrives with their own columns, named their own way, and none of it matches the schema. In most enterprise tools that becomes a support ticket. Here it is a screen: the incoming file on the left, the schema on the right, drag to match, and save the mapping so the next upload from the same client takes one click.</p>
-            <p>It is unglamorous and it is the difference between a tool a consultant can hand to a client and one they have to run on the client's behalf forever.</p>
+            <p>Every client turns up with their own spreadsheet, their own column names, and none of it matches the schema. In most enterprise software that's a support ticket. Here it's a screen: their file on the left, our schema on the right, drag to match them up, then save the mapping so the next upload from that client is one click.</p>
+            <p>Nobody puts that screen in a pitch deck. It's also the difference between software a consultant can hand over and software they end up running for the client forever.</p>
           </div>
         </div>
       </div>
@@ -391,13 +391,13 @@
         <div class="sec-head"><span class="sec-n">03</span><h2>Designed inside Apollo</h2></div>
         <div>
           <div class="col">
-            <p>IQVIA had a design system, Apollo, and Territory Designer is built from it: type scale, color, cards, form rows, inputs, charts, the lot. Working inside a system on a product this specific is mostly a question of what you do when the system does not have your component, and a map canvas with a lasso tool is not in anybody's UI kit.</p>
-            <p>So the rule I worked to was that anything Apollo covered came from Apollo unchanged, and anything it did not was built to look like it would have if Apollo had got there first. That kept the product recognisably part of the platform, and it meant the map tools did not read as a bolted-on third-party control, which is exactly what they would have become if I had designed them on their own terms.</p>
+            <p>IQVIA had a design system called Apollo, and Territory Designer is built out of it: type scale, color, cards, form rows, inputs, charts. The interesting part of working inside a system on a product this specific is what you do when the system doesn't have what you need, and no UI kit comes with a map canvas and a lasso tool.</p>
+            <p>My rule was simple. If Apollo had it, I used it as it came. If Apollo didn't, I built the thing the way Apollo would have built it. That's what keeps the map tools from feeling like a plugin somebody dropped into another company's product.</p>
           </div>
 
           <figure class="fig">
             <div class="plate"><img src="img/td/td-apollo.jpg" alt="The Apollo UI kit: a color library, type scale, alert bars, buttons, chips, form controls, a date picker, tabs and menus, alongside chart cards showing bar, line and donut examples and an application shell with a navigation bar and notification panel." width="1900" height="1248" loading="lazy" decoding="async"></div>
-            <figcaption class="figcap">The Apollo kit the product had to live inside. Reviewing it properly was step two, before a single Territory Designer screen got drawn.</figcaption>
+            <figcaption class="figcap">The Apollo kit the product had to live inside. Going through it properly was step two, before I drew a single Territory Designer screen.</figcaption>
           </figure>
         </div>
       </div>
@@ -410,8 +410,8 @@
         <div class="sec-head"><span class="sec-n">04</span><h2>Where it got to</h2></div>
         <div>
           <div class="col">
-            <p>The work ran from those first wireframes through to a complete interactive prototype. The exported build comes to 496 screens across login, dashboard, model and scenario creation, refinement and optimization, browsing, review and feedback, import and export, which is every state an engineer would need to build against rather than a walkthrough of the happy path.</p>
-            <p>The part I would carry into any tool like this: a territory plan is an argument someone has to win in a room. The interface is only doing its job if it hands them the evidence in the shape the argument actually takes.</p>
+            <p>The work ran from those first wireframes all the way through to a clickable prototype. The exported build comes to 496 screens: login, dashboard, model and scenario creation, refine and optimize, browsing, review and feedback, import and export. Not a walkthrough of the happy path, but every state an engineer would need to build against.</p>
+            <p>What I took from it: somebody has to stand up and defend this plan to the people it affects. The tool is only doing its job if it hands them what they need for that conversation.</p>
           </div>
 
           <div class="tally">

@@ -297,7 +297,7 @@
           <div class="col">
             <p>Field software in life sciences tends to get built for the audit rather than for the rep. Every sample handed to a physician counts against a per-call limit and a per-period limit. Some products can't go to some accounts at all. A signature only means something if it carries a state license number, a DEA number, expiration dates, lot numbers and a return address. A shared meal split across three attendees has to be allocated to the cent.</p>
             <p>The tools that came before handled all of that by making the rep the compliance engine. They had to know the rules, do the math, and hope the system agreed at submission. So calls got logged in the parking lot an hour later from memory, or they didn't get logged at all.</p>
-            <p>Orchestrated Customer Engagement was the replacement. My brief covered the part the rep actually touches: a tablet interface quick enough for a doorway conversation and careful enough to survive an audit.</p>
+            <p>Orchestrated Customer Engagement was the replacement. I had the part the rep actually touches: a tablet app fast enough for a doorway conversation and careful enough to hold up in an audit.</p>
           </div>
 
           <p class="pull">Screen space was never the hard part. Being wrong had consequences.</p>
@@ -336,7 +336,7 @@
               <text class="acc" x="666" y="192">Tab strip, finished<tspan x="666" dy="17">in any order</tspan></text>
               <text class="acc" x="838" y="192">Named states and a<tspan x="838" dy="17">retry that says why</tspan></text>
             </svg>
-            <figcaption class="figcap">The day we were designing for, and the five places the previous generation of tools let go of the thread.</figcaption>
+            <figcaption class="figcap">The day we were designing for, and the five places the old tools dropped it.</figcaption>
           </figure>
 
           <div class="stories">
@@ -373,8 +373,8 @@
           <h3>Put the rule on the screen, not in a policy document</h3>
           <div class="col">
             <p>The sample flow tells the rep what governs the product they're holding: how many are allowed on this call, how many in the current period, how long the period runs, when the last drop happened, how many are left. Products that sit in a restricted class carry a marker in the picker itself, so nobody discovers it at submission.</p>
-            <p>Of everything we changed, this is the one reps mentioned. The limit stopped being something you carried in your head and became something the screen told you, at the moment you were deciding.</p>
-            <p>Where the rules allowed it, I pushed back on hard blocks. Going over a limit has its own path: here is what continuing means, and the choice gets logged. Block a rep who has a good reason and they will find a way around you. Make the exception visible and attributable and it stays inside the record, where compliance can actually see it.</p>
+            <p>Of everything we changed, this is the one reps brought up. They stopped having to carry the limit in their head, because the screen told them, right when it mattered.</p>
+            <p>Where the rules allowed it, I pushed back on hard blocks. Going over a limit has its own path: here is what continuing means, and the choice gets logged. Block a rep who has a good reason and they'll find a way around you. Let them through with their name on it and compliance actually gets to see it.</p>
           </div>
 
           <figure class="fig">
@@ -436,7 +436,7 @@
         <div>
           <h3>One call screen with a tab strip, not a wizard</h3>
           <div class="col">
-            <p>A call carries attendees, employees, discussion details, samples, direct-to-practitioner shipments, leave-behind items, expenses, presentations and follow-up tasks. A stepped flow is the obvious answer and the wrong one. Reps don't finish a call in order. They finish it in whatever order the conversation went, and they usually start during the visit and finish in the car.</p>
+            <p>A call carries attendees, employees, discussion details, samples, direct-to-practitioner shipments, leave-behind items, expenses, presentations and follow-up tasks. A wizard is the obvious way to handle that much, and it's the wrong one, because reps don't fill out a call in order. They fill it in the order the conversation went, and they usually start during the visit and finish in the car.</p>
             <p>So the strip is composed rather than fixed. A remote call, a call with employees in the room, a call that needs a custom entity, a call with follow-up tasks: each one shows a different set of tabs. One screen covered every call type instead of four.</p>
           </div>
 
@@ -547,7 +547,7 @@
         <div>
           <h3>Design the planner around the drive, not the hour</h3>
           <div class="col">
-            <p>A field day is a route more than it is a calendar. The planner carries month, seven-day, five-day and single-day views, plus a zoom that takes the visible window from twelve hours down to three. You can touch and hold to create, drag to move, drag an edge to change duration, and it handles overlapping events, which happen constantly. A map view shows the route and the drive time between stops. Time off territory is a real event type with repeats and predefined slots, because a calendar nobody can block out is a calendar nobody keeps current.</p>
+            <p>A field day is really a route, not a calendar. The planner carries month, seven-day, five-day and single-day views, plus a zoom that takes the visible window from twelve hours down to three. You can touch and hold to create, drag to move, drag an edge to change duration, and it handles overlapping events, which happen constantly. A map view shows the route and the drive time between stops. Time off territory is a real event type with repeats and predefined slots, because if you can't block out a day, you stop keeping the calendar up to date at all.</p>
           </div>
 
           <figure class="fig">
@@ -590,7 +590,7 @@
               <rect class="acc-box" x="700" y="172" width="280" height="52" stroke-dasharray="4 4"></rect>
               <text class="acc" x="712" y="194">Dragged from 4:00. Drive time<tspan x="712" dy="16">recalculated, overlap resolved.</tspan></text>
             </svg>
-            <figcaption class="figcap">The gaps between appointments carry the drive, so moving a meeting changes the cost of the day and the planner says so straight away.</figcaption>
+            <figcaption class="figcap">The gaps between appointments are the drive, so moving one meeting changes the whole day and the planner says so right away.</figcaption>
           </figure>
 
           <div class="evidence">
@@ -606,7 +606,7 @@
           <h3>Design the offline and empty states first</h3>
           <div class="col">
             <p>Hospitals eat signal, so sync got treated as a real part of the interface with its own vocabulary: last synced, syncing, complete, failed with a reason, tap to retry. Every list has an empty state that tells the rep what to do instead of showing them nothing, and unsubmitted calls stay on the home screen until they are cleared.</p>
-            <p>These are the screens that get cut from a demo. They are also the ones that decide whether anybody is still using the product in March.</p>
+            <p>Nobody demos these screens. They're the ones that decide whether people are still using the thing in March.</p>
           </div>
 
           <figure class="fig">
@@ -646,7 +646,7 @@
 
               <text class="tiny" x="0" y="196">NO STATE IS SILENT. THE FAILURE NAMES ITS REASON AND KEEPS THE WORK.</text>
             </svg>
-            <figcaption class="figcap">The failure path got as much design as the success path, because in a hospital basement it is the one the rep actually meets.</figcaption>
+            <figcaption class="figcap">The failure path got as much attention as the success path, because in a hospital basement that's the one reps actually hit.</figcaption>
           </figure>
         </div>
       </div>
@@ -659,8 +659,8 @@
         <div class="sec-head"><span class="sec-n">03</span><h2>Leading the work</h2></div>
         <div>
           <div class="col">
-            <p>I led a team of five UX/UI designers. We split the product by surface and I reviewed the work as it came through, though at this scale the job has less to do with critiquing individual screens than with keeping five people's instincts pointed the same direction.</p>
-            <p>The harder half happened outside the design team. I worked directly with engineering and the product managers through implementation, because on a product like this a requirement that arrives correct and ships slightly wrong becomes a compliance bug rather than a visual one. I also sat with the visual design team, so the product read as the same brand as the marketing around it.</p>
+            <p>I led a team of five UX/UI designers. We split the product by surface and I reviewed the work as it came through, though most of that job isn't critiquing screens, it's keeping five people's instincts pointed in the same direction.</p>
+            <p>The harder half happened outside the design team. I worked directly with engineering and the product managers through implementation, because on a product like this, a requirement that ships slightly wrong is a compliance bug, not a cosmetic one. I also sat with the visual design team, so the product read as the same brand as the marketing around it.</p>
           </div>
 
           <p class="pull">Consistency at this scale is a coordination problem before it's a design problem.</p>
@@ -675,7 +675,7 @@
         <div class="sec-head"><span class="sec-n">04</span><h2>The system underneath</h2></div>
         <div>
           <div class="col">
-            <p>None of this scales as one-off screens. The whole product came out of a symbol library, with master files organized by surface, versioned by date, and handed to engineering as living documents rather than as a delivery. That mattered more than the component count. A new call type or a new compliance rule got designed as a variation instead of a new screen, and the states nobody puts in a demo stayed current without a redesign every time.</p>
+            <p>None of this works as one-off screens. The whole product came out of a symbol library, with master files organized by surface, versioned by date, and handed to engineering as living documents rather than as a delivery. That mattered more than the component count. A new call type or a new compliance rule got designed as a variation instead of a new screen, and the states nobody puts in a demo stayed current without a redesign every time.</p>
           </div>
 
           <div class="tally">
@@ -706,9 +706,9 @@
           </div>
 
           <div class="col" style="margin-top:clamp(28px,4vw,44px)">
-            <p>That reach is the real argument for the decisions above. Sample limits, eligibility and signature requirements don't match across Japan, Germany and the United States. Drawn as fixed screens, every market would have meant a new one. Built as components whose rules are content, a market with a different limit structure gets a different picker and the same product.</p>
-            <p>In April 2024 IQVIA licensed the OCE CRM software to Salesforce, which folded it into Salesforce Life Sciences Cloud, and committed to supporting existing OCE customers through 2029. The patterns outlasted the roadmap they were built for, which is about as much as a product designer gets to ask for.</p>
-            <p>One thing I took with me. The hard part of regulated software was never fitting the rules onto a screen. It was deciding which rules a person should have to carry in their head, and the answer was almost always none of them.</p>
+            <p>That reach is the real argument for the decisions above. Sample limits, eligibility and signature requirements don't match across Japan, Germany and the United States. If we'd drawn the compliance screens as fixed layouts, every market would have needed its own. Because the rules live as content inside shared components, a market with different limits gets a different picker and the same product.</p>
+            <p>In April 2024 IQVIA licensed the OCE CRM software to Salesforce, which folded it into Salesforce Life Sciences Cloud, and committed to supporting existing OCE customers through 2029. So the work outlived the product it was built for, which doesn't happen often.</p>
+            <p>One thing I took with me. The hard part was never fitting the rules onto a screen. It was working out which ones a person should have to remember, and the answer was usually none of them.</p>
           </div>
 
           <p class="src">Figures from IQVIA's <a href="https://ir.iqvia.com/press-releases/press-release-details/2019/IQVIAs-Orchestrated-Customer-Engagement-OCE-Solution-Adopted-by-More-than-30-Life-Sciences-Companies-in-First-Year-of-Launch/default.aspx" target="_blank" rel="noopener">January 2019 adoption release</a> and its <a href="https://www.iqvia.com/newsroom/2024/04/iqvia-and-salesforce-expand-global-partnership-to-accelerate-the-development-of-life-sciences-cloud" target="_blank" rel="noopener">April 2024 Salesforce partnership announcement</a>. Product screens come from the demo builds, which use fictional accounts, physicians and products.</p>
