@@ -101,9 +101,8 @@
     color:var(--muted);margin:14px 0 0;max-width:74ch;line-height:1.65;
   }
   .lead-plate{margin-top:clamp(30px,5vw,58px)}
-  /* screens exported with transparency sit on the page, not on a mat */
-  .bare{background:none;padding:0;box-shadow:none}
-  .bare img{filter:drop-shadow(0 26px 50px rgba(0,0,0,.55))}
+  /* screens exported with transparency keep the mat behind them */
+  .trans img{filter:drop-shadow(0 16px 30px rgba(0,0,0,.32))}
   .duo{display:grid;gap:clamp(14px,2vw,26px);grid-template-columns:1fr;margin-block:clamp(26px,4vw,44px)}
   @media (min-width:760px){.duo{grid-template-columns:1fr 1fr}}
 
@@ -271,7 +270,7 @@
     <div class="wrap hero-in">
       <p class="eyebrow">Case study <span class="sep">/</span> IQVIA</p>
       <h1>Orchestrated Customer Engagement</h1>
-      <p class="dek">A pharmaceutical sales rep gets a couple of minutes in a physician's doorway, and everything they log afterward is a regulated record. I led the UI design for the iPad CRM they use to do it, from <strong>requirements and flows through to the shipped product</strong>.</p>
+      <p class="dek">A pharmaceutical sales rep gets a couple of minutes in a physician's doorway, and everything they write down afterward becomes a regulated record. I led the UI design for the iPad CRM they do it in, from <strong>requirements and flows all the way to the shipped product</strong>.</p>
 
       <dl class="facts">
         <div class="fact"><dt>Role</dt><dd>UI design lead, team of five</dd></div>
@@ -283,7 +282,7 @@
       </dl>
 
       <div class="lead-plate" data-rise>
-        <div class="plate bare">
+        <div class="plate trans">
           <img src="img/oce/oce-result-launcher.png" alt="The shipped OCE iPad app shown at an angle: a customer dashboard for a cardiologist with contact card, recent activity and a prompt asking whether the rep logged a call from last Friday, with the radial module launcher open above it." width="1800" height="1054" fetchpriority="high" decoding="async">
         </div>
         <p class="plate-cap">The shipped product. Customer dashboard, module launcher, and a nudge to finish a call the rep started on Friday.</p>
@@ -297,8 +296,8 @@
         <div class="sec-head"><span class="sec-n">01</span><h2>The problem</h2></div>
         <div>
           <div class="col">
-            <p>Field software in life sciences usually gets built for the audit rather than for the rep. Samples handed to a physician count against limits. Meetings need approvals from several levels. Every rejection and cancellation has to carry a reason, a name and a timestamp. The previous generation of tools pushed all of that onto the rep, so calls got logged from memory hours later, or not at all.</p>
-            <p>Product management framed the goal in one line at the top of the flow document: <strong>more efficient calls</strong>. That was the measure, and it shaped how I read every requirement that followed. Anything that added a tap without adding certainty was working against it.</p>
+            <p>Most field software in life sciences gets built so the company can pass an audit, which is a real need. Samples count against limits. Meetings need sign-off from several people. Every rejection and cancellation has to record who did it, when, and why. The trouble was that the old tools made the rep carry all of it, so calls got written up from memory hours later, or skipped.</p>
+            <p>Product management put the goal in one line at the top of the flow document: <strong>more efficient calls</strong>. Having something to design against changes how you read a requirements list. If a screen added a tap and didn't make the rep any more certain about anything, it was pulling the wrong way.</p>
           </div>
 
           <figure class="fig" data-rise>
@@ -313,11 +312,30 @@
   <section>
     <div class="wrap">
       <div class="grid">
-        <div class="sec-head"><span class="sec-n">02</span><h2>What I was handed</h2></div>
+        <div class="sec-head"><span class="sec-n">02</span><h2>Where the app sat</h2></div>
+        <div>
+          <div class="col">
+            <p>The field app was the top layer of something much bigger, and it helped to keep that picture in front of me. Underneath the interface sat the AI layer, then a platform stitching Salesforce, master data management and the customer profile together, then the infrastructure, then the data itself.</p>
+            <p>Two things came out of that. The suggestions showing up in the interface came from the AI layer, so I had to understand what it could and could not actually tell a rep before deciding how to show it. And the roles across the top are the same personas the meeting spec was written against, which meant one shell had to work for marketing, sales, market access, medical affairs and the home office.</p>
+          </div>
+
+          <figure class="fig">
+            <div class="plate trans"><img src="img/oce/oce-stack.png" alt="A layered diagram of the platform: at the top, five named personas for marketing, sales, market access, medical affairs and the home office sitting on the Apollo interface layer; then the Ada AI layer; then a platform layer joining Salesforce Marketing Cloud, master data management, the customer profile and Salesforce; then Lexi; then infrastructure on Heroku, Amazon Web Services and Microsoft; and data at the base." width="1800" height="671" loading="lazy" decoding="async"></div>
+            <figcaption class="figcap">The stack diagram I made to explain where the app sat. Apollo is the layer I was designing, and the five people across the top are the personas from the spec.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid">
+        <div class="sec-head"><span class="sec-n">03</span><h2>What I was handed</h2></div>
         <div>
           <div class="col">
             <p>Product management gave me requirements and use cases, not screens. For the meetings work that meant five personas and seven user stories, written as plain statements of what each role must be able to do.</p>
-            <p>Reading them properly took a while, because the roles overlap. A sales rep can organize a meeting. So can a medical science liaison, an account manager, or a consumer health sales rep. An account manager is usually the one approving it. The same person can be organizer on one meeting and approver on the next, which means the interface cannot key off job title. It has to key off what you are to <em>this</em> meeting.</p>
+            <p>It took me a while to work through them, because the roles overlap in a way the list doesn't show. A sales rep can organize a meeting. So can a medical science liaison, an account manager, or a consumer health sales rep. Account managers usually do the approving. And the same person can be the organizer on one meeting and the approver on the next. So the interface can't work off anyone's job title. It has to work off their role in the meeting in front of them.</p>
           </div>
 
           <figure class="fig">
@@ -327,7 +345,7 @@
 
           <figure class="fig">
             <div class="plate"><img src="img/oce/oce-stories.jpg" alt="Seven user stories covering adding and removing reasons, approver reasons, reason enforcement, viewing previous reasons, viewing all reasons, cancellation reasons and viewing a cancellation." width="1900" height="1084" loading="lazy" decoding="async"></div>
-            <figcaption class="figcap">Seven user stories for one epic. This is the whole brief for the work that follows.</figcaption>
+            <figcaption class="figcap">Seven user stories for one epic. That is the entire brief for everything that follows.</figcaption>
           </figure>
         </div>
       </div>
@@ -336,20 +354,20 @@
 
   <section>
     <div class="wrap">
-      <div class="sec-head" style="margin-bottom:clamp(26px,4vw,44px)"><span class="sec-n">03</span><h2>The decisions</h2></div>
+      <div class="sec-head" style="margin-bottom:clamp(26px,4vw,44px)"><span class="sec-n">04</span><h2>The decisions</h2></div>
 
       <div class="dec" data-rise>
         <div class="sec-head"><span class="sec-n">Decision 01</span></div>
         <div>
           <h3>Turn the list of stories into a map</h3>
           <div class="col">
-            <p>Seven stories in a list look like seven small jobs. Drawn as a map they stop looking independent, because the rules between them show up. A meeting can be rejected more than once, by different approvers, sometimes for the same reason. A cancellation can only happen once. Rejection reasons travel from the approver's account to the organizer's, and cancellations go out to every attendee.</p>
-            <p>None of that is in the stories. All of it changes the design. So the first thing I produced was the epic map, with the system's own actions lettered alongside the user's, and the rules written down beside it where product, engineering and I could argue about them in one place.</p>
+            <p>A list of seven stories reads like seven small jobs. Once I drew them as a map, the rules between them turned up. A meeting can be rejected more than once, by different approvers, sometimes for the same reason. A cancellation happens once and that is that. Rejection reasons travel from the approver's account to the organizer's, and cancellations go out to everyone who was invited.</p>
+            <p>Not one of those rules was written down in the stories, and every one of them changes what you build. So the first thing I made was the epic map, with the system's own steps lettered next to the user's and the rules spelled out beside it, somewhere product, engineering and I could argue about them together.</p>
           </div>
 
           <figure class="fig">
             <div class="plate"><img src="img/oce/oce-epicmap.jpg" alt="The epic map: four entry points leading into add or remove reasons, approver reasons, reason enforcement, view previous reasons, cancellation reasons, view cancellation and view all reasons, with seven lettered system actions and a block of general notes explaining the rules." width="1900" height="1084" loading="lazy" decoding="async"></div>
-            <figcaption class="figcap">The epic map. Lettered actions cover what the system does, not only what the user taps, and the notes carry the rules the stories left out.</figcaption>
+            <figcaption class="figcap">The epic map. The lettered steps cover what the system does, not just what the user taps, and the notes hold the rules the stories left out.</figcaption>
           </figure>
         </div>
       </div>
@@ -359,8 +377,8 @@
         <div>
           <h3>Give every story its own screen-by-screen flow</h3>
           <div class="col">
-            <p>Each story then got drawn as a sequence, with every screen numbered and every action lettered. Rejecting a meeting is six steps: meeting preview, details tab, actions drop-down, review meeting, reasons drop-down, confirmation. Written that way it is countable, and engineering can estimate it without a meeting.</p>
-            <p>The numbering does a second job. A QA analyst can walk 2.1 through 2.6 as a test script, and a support ticket can say "breaks at 3.5" instead of describing a screen. Those numbers stayed in use long after the design work was done.</p>
+            <p>Then every story got drawn out as a sequence, with the screens numbered and the actions lettered. Rejecting a meeting turns out to be six steps: meeting preview, details tab, actions drop-down, review meeting, reasons drop-down, confirmation. Once it is written like that, an engineer can size it without having to come and ask me anything.</p>
+            <p>The numbers earned their keep twice over. QA could walk 2.1 through 2.6 as a test script, and a support ticket could say "breaks at 3.5" instead of trying to describe a screen. People were still using those numbers long after I had moved on to something else.</p>
           </div>
 
           <figure class="fig">
@@ -375,8 +393,8 @@
         <div>
           <h3>Wireframe in grey, and design the error at the same time as the happy path</h3>
           <div class="col">
-            <p>Every screen in the flow got a wireframe with the taps called out in order. Working in grey keeps the conversation on what the screen is for rather than what the button should look like, and it makes changes cheap while they are still cheap.</p>
-            <p>It also let me design the failure alongside the success. The story said the system must enforce at least one rejection reason. That is one sentence in a requirements doc and two screens in reality: the error state that tells the approver what is missing, and the confirmation that tells them it went to the organizer. Both got drawn in the same pass, so neither arrived late as a patch.</p>
+            <p>Every screen in the flow got a wireframe with the taps numbered in order. Grey boxes keep everyone talking about what a screen is for instead of what the button should look like, and moving a box costs nothing.</p>
+            <p>Working that way also meant I designed the failure at the same time as the success. One line in the requirements said the system has to enforce at least one rejection reason. In practice that is two more screens: the error telling the approver what is missing, and the confirmation telling them it reached the organizer. Both got drawn in the same pass, so neither turned up late as a patch.</p>
           </div>
 
           <div class="duo">
@@ -397,8 +415,8 @@
         <div>
           <h3>Design the record, not just the transaction</h3>
           <div class="col">
-            <p>A rejection is not one event. A meeting can bounce between district managers, regional managers, home office, finance and legal, and the organizer has to understand the whole chain to fix it. So the history is a sortable table of every transaction: what happened, who did it, when, the comment they left, and the status it moved from and to.</p>
-            <p>I also gave people two ways to reach it, because they arrive from two directions. If you are looking at the meeting, it is a tab. If you saw the notification first, the notification takes you straight there. Cancelled meetings come off the planner, but they show up in the drawer, so nothing disappears without saying why.</p>
+            <p>One rejection is rarely the whole story. A meeting can bounce between district managers, regional managers, home office, finance and legal, and the organizer needs to see that entire chain before they can fix anything. So the history is a sortable table of every transaction: what happened, who did it, when, what they said, and the status it moved from and to.</p>
+            <p>People get there from two directions, so I built two routes in. If you are already looking at the meeting, it is a tab. If you saw the notification first, tapping it takes you straight in. Cancelled meetings drop off the planner but stay in the notification drawer, so nothing just quietly vanishes.</p>
           </div>
 
           <figure class="fig">
@@ -413,10 +431,10 @@
   <section>
     <div class="wrap">
       <div class="grid">
-        <div class="sec-head"><span class="sec-n">04</span><h2>Leading the work</h2></div>
+        <div class="sec-head"><span class="sec-n">05</span><h2>Leading the work</h2></div>
         <div>
           <div class="col">
-            <p>I led a team of five UX/UI designers, split by surface. Most of that job is not critiquing screens, it is keeping five people's instincts pointed in the same direction, which is why the documents above are all built the same way. Anyone on the team could pick up an epic and know what a finished spec looked like.</p>
+            <p>I led a team of five UX/UI designers, split by surface. Most of that job is not critiquing screens. It is keeping five people's instincts pointed in the same direction, which is really why the documents above all look alike. Anyone on the team could pick up an epic and already know what a finished spec was supposed to contain.</p>
             <p>I worked directly with engineering and the product managers through implementation as well, because on a product like this a requirement that ships slightly wrong is a compliance bug, not a cosmetic one. And I sat with the visual design team so the product read as the same brand as the marketing around it.</p>
           </div>
 
@@ -429,16 +447,16 @@
   <section>
     <div class="wrap">
       <div class="grid">
-        <div class="sec-head"><span class="sec-n">05</span><h2>What engineering got</h2></div>
+        <div class="sec-head"><span class="sec-n">06</span><h2>What engineering got</h2></div>
         <div>
           <div class="col">
-            <p>The specs were only half the handover. The other half was the UI guidelines: named color tokens, a type scale from 40px headline down to 11px caption with every step labelled, an icon font, and a worked example of the layout.</p>
-            <p>Naming things is the point. Handing engineering <em>$color-theme-neptune</em> and <em>headline-2, Semibold 32px</em> means a change to the ramp moves everywhere at once, and nobody has to eyedrop a comp to find out what blue this is.</p>
+            <p>The specs were only half of what I handed over. The other half was the UI guidelines: named color tokens, a type scale running from a 40px headline down to an 11px caption with every step labelled, an icon font, and a worked example of the layout.</p>
+            <p>The naming is what makes it useful. If an engineer is building against <em>$color-theme-neptune</em> and <em>headline-2, Semibold 32px</em>, changing the ramp changes everything at once, and nobody has to eyedrop a comp to work out which blue this is.</p>
           </div>
 
           <figure class="fig">
             <div class="plate"><img src="img/oce/oce-uiguidelines.jpg" alt="The OCE app UI guidelines: a named color palette with hex values, an SF Pro type scale running from headline-1 at 40px down to caption-2 at 11px with each step labelled, an icon font sheet, and a layout example on an iPad." width="1400" height="2519" loading="lazy" decoding="async"></div>
-            <figcaption class="figcap">Colors as named tokens, seven labelled type steps, the icon font, and a layout example. This is what stopped 190 screens drifting apart.</figcaption>
+            <figcaption class="figcap">Colors as named tokens, seven labelled type steps, the icon font, and a layout example. This is the thing that kept 190 screens from drifting apart.</figcaption>
           </figure>
         </div>
       </div>
@@ -448,31 +466,31 @@
   <section>
     <div class="wrap">
       <div class="grid">
-        <div class="sec-head"><span class="sec-n">06</span><h2>The result</h2></div>
+        <div class="sec-head"><span class="sec-n">07</span><h2>The result</h2></div>
         <div>
           <div class="col">
-            <p>The same structure runs through every surface. A left rail that never moves, a notification drawer that is always one tap away, and a working area that changes without the rep losing their place.</p>
+            <p>Every surface is built the same way underneath. The left rail never moves, the notification drawer is always one tap away, and the middle changes without the rep losing track of where they are.</p>
           </div>
 
           <div class="duo">
             <figure>
-              <div class="plate bare"><img src="img/oce/oce-result-dashboard.png" alt="The shipped dashboard on iPad: today's four appointments with photos and locations, a to-do card of incomplete call logs colour coded by priority, a goal message, and product and promotional plan cards, beside a recent activity rail." width="1400" height="1120" loading="lazy" decoding="async"></div>
-              <figcaption class="figcap">Dashboard. The day's appointments, then the calls still waiting to be finished, ranked by how much they matter.</figcaption>
+              <div class="plate trans"><img src="img/oce/oce-result-dashboard.png" alt="The shipped dashboard on iPad: today's four appointments with photos and locations, a to-do card of incomplete call logs colour coded by priority, a goal message, and product and promotional plan cards, beside a recent activity rail." width="1400" height="1120" loading="lazy" decoding="async"></div>
+              <figcaption class="figcap">Dashboard. The day's appointments first, then the calls still sitting unfinished, ranked by how much they matter.</figcaption>
             </figure>
             <figure>
-              <div class="plate bare"><img src="img/oce/oce-result-calendar.png" alt="The shipped calendar on iPad: a filterable list of healthcare providers on the left beside a five day week grid of scheduled meetings, with a collapsible tasks row pinned under each day." width="1400" height="1120" loading="lazy" decoding="async"></div>
+              <div class="plate trans"><img src="img/oce/oce-result-calendar.png" alt="The shipped calendar on iPad: a filterable list of healthcare providers on the left beside a five day week grid of scheduled meetings, with a collapsible tasks row pinned under each day." width="1400" height="1120" loading="lazy" decoding="async"></div>
               <figcaption class="figcap">Planner. The provider list and the week sit side by side, so scheduling never means leaving the calendar.</figcaption>
             </figure>
           </div>
 
           <figure class="fig">
-            <div class="plate bare"><img src="img/oce/oce-result-customer.png" alt="The shipped customer dashboard on iPad: a cardiologist's contact card with location, email, phone, role, rating and status, above a recent activity timeline, with floating actions for logging a call, launching a presentation and placing an order." width="1400" height="1120" loading="lazy" decoding="async"></div>
+            <div class="plate trans"><img src="img/oce/oce-result-customer.png" alt="The shipped customer dashboard on iPad: a cardiologist's contact card with location, email, phone, role, rating and status, above a recent activity timeline, with floating actions for logging a call, launching a presentation and placing an order." width="1400" height="1120" loading="lazy" decoding="async"></div>
             <figcaption class="figcap">Customer. Everything the rep needs before walking in, with log a call, launch a presentation and place an order within thumb reach.</figcaption>
           </figure>
 
           <figure class="fig">
-            <div class="plate bare"><img src="img/oce/oce-result-recommend.png" alt="The shipped customer dashboard shown at an angle with the module launcher open, and a recommendation panel advising the rep to inform the medical science liaison on the account about an inquiry received today." width="1800" height="1028" loading="lazy" decoding="async"></div>
-            <figcaption class="figcap">The recommendation layer, designed as a panel that explains itself and can be closed. Reps stop reading suggestions they cannot interrogate.</figcaption>
+            <div class="plate trans"><img src="img/oce/oce-result-recommend.png" alt="The shipped customer dashboard shown at an angle with the module launcher open, and a recommendation panel advising the rep to inform the medical science liaison on the account about an inquiry received today." width="1800" height="1028" loading="lazy" decoding="async"></div>
+            <figcaption class="figcap">The recommendation panel. It says why it is suggesting something and it closes, because reps quit reading advice they cannot question.</figcaption>
           </figure>
         </div>
       </div>
@@ -482,7 +500,7 @@
   <section>
     <div class="wrap">
       <div class="grid">
-        <div class="sec-head"><span class="sec-n">07</span><h2>How it landed</h2></div>
+        <div class="sec-head"><span class="sec-n">08</span><h2>How it landed</h2></div>
         <div>
           <div class="col">
             <p>OCE launched on 12 December 2017. Within twelve months more than thirty life sciences companies had picked it up, Novo Nordisk and Roche among them, and it was running in 115 countries. By 2024 it served close to 400 enterprise customers across more than 130.</p>
@@ -496,9 +514,9 @@
           </div>
 
           <div class="col" style="margin-top:clamp(28px,4vw,44px)">
-            <p>That reach is the argument for working this way. Approval chains, reason lists and enforcement rules are not the same in Japan, Germany and the United States. Because each one was specified as a rule attached to a shared pattern rather than drawn as a fixed screen, a market with a different chain gets a different list and the same product.</p>
-            <p>In April 2024 IQVIA licensed the OCE CRM software to Salesforce, which folded it into Salesforce Life Sciences Cloud, and committed to supporting existing OCE customers through 2029. So the work outlived the product it was built for, which doesn't happen often.</p>
-            <p>One thing I took with me. The hard part was never fitting the rules onto a screen. It was working out which ones a person should have to remember, and the answer was usually none of them.</p>
+            <p>That reach is the reason for working this way. Approval chains, reason lists and enforcement rules do not match up between Japan, Germany and the United States. Because each of them was written as a rule hanging off a shared pattern instead of drawn as a fixed screen, a market with a different chain gets a different list and the same product.</p>
+            <p>In April 2024 IQVIA licensed the OCE CRM software to Salesforce, which folded it into Salesforce Life Sciences Cloud, and committed to supporting existing OCE customers through 2029. So the work ended up outliving the product it was built for. That does not happen often.</p>
+            <p>The thing I took away from it: the hard part was never getting the rules onto a screen. It was working out which ones a person should have to remember. Usually the answer was none.</p>
           </div>
 
           <p class="src">Launch and adoption figures from IQVIA's <a href="https://ir.iqvia.com/press-releases/press-release-details/2019/IQVIAs-Orchestrated-Customer-Engagement-OCE-Solution-Adopted-by-More-than-30-Life-Sciences-Companies-in-First-Year-of-Launch/default.aspx" target="_blank" rel="noopener">January 2019 adoption release</a> and its <a href="https://www.iqvia.com/newsroom/2024/04/iqvia-and-salesforce-expand-global-partnership-to-accelerate-the-development-of-life-sciences-cloud" target="_blank" rel="noopener">April 2024 Salesforce partnership announcement</a>. Specs, wireframes, guidelines and screens are my own project files. Product screens use fictional accounts, physicians and products.</p>
