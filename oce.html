@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Orchestrated Customer Engagement — Case study — Hollie Richmond</title>
-<meta name="description" content="Case study: designing the iPad product UI for IQVIA's Orchestrated Customer Engagement — a regulated field tool for pharmaceutical sales teams.">
+<title>Orchestrated Customer Engagement · Case study · Hollie Richmond</title>
+<meta name="description" content="Case study: designing the iPad product UI for IQVIA's Orchestrated Customer Engagement, a regulated field tool for pharmaceutical sales teams.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +90,7 @@
   }
   .fact dd{margin:0;font-size:15px;line-height:1.5}
 
-  /* ---------- plates ---------- */
+  /* ---------- plates and figures ---------- */
   .plate{
     background:var(--mat);padding:clamp(14px,2.4vw,34px);
     box-shadow:0 30px 70px -30px rgba(0,0,0,.85);
@@ -98,11 +98,43 @@
   .plate img{width:100%;height:auto}
   .plate-cap,.figcap{
     font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.06em;
-    color:var(--muted);margin:14px 0 0;max-width:70ch;
+    color:var(--muted);margin:14px 0 0;max-width:74ch;line-height:1.65;
   }
   .lead-plate{margin-top:clamp(30px,5vw,58px)}
   .duo{display:grid;gap:clamp(14px,2vw,26px);grid-template-columns:1fr;margin-block:clamp(26px,4vw,44px)}
   @media (min-width:760px){.duo{grid-template-columns:1fr 1fr}}
+
+  figure{margin:0}
+  .fig{margin:clamp(30px,4.5vw,52px) 0 0}
+  .fig svg{
+    width:100%;height:auto;display:block;
+    color:var(--paper);
+    background:var(--ink-raised);
+    border:1px solid var(--line);
+    padding:clamp(10px,1.6vw,20px);
+  }
+  .fig .sw-line{stroke:currentColor;stroke-opacity:.34}
+  .fig .sw-box{fill:none;stroke:currentColor;stroke-opacity:.34}
+  .fig .lab{fill:currentColor;font-family:var(--mono);font-size:13px;font-weight:600}
+  .fig .sub{fill:currentColor;fill-opacity:.62;font-family:var(--mono);font-size:12px;font-weight:400}
+  .fig .tiny{fill:currentColor;fill-opacity:.5;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.11em}
+  .fig .acc{fill:#A39BF0;font-family:var(--mono);font-size:12px;font-weight:500}
+  .fig .acc-line{stroke:#A39BF0}
+  .fig .acc-box{fill:none;stroke:#A39BF0}
+
+  /* ---------- user stories ---------- */
+  .stories{
+    display:grid;gap:1px;background:var(--line);
+    border:1px solid var(--line);
+    margin:clamp(30px,4.5vw,52px) 0 0;
+  }
+  @media (min-width:700px){.stories{grid-template-columns:1fr 1fr}}
+  .story{background:var(--ink-raised);padding:clamp(18px,2.4vw,26px)}
+  .story .who{
+    display:block;font-family:var(--mono);font-size:10.5px;font-weight:500;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;
+  }
+  .story p{margin:0;font-size:15px;line-height:1.56;color:#D2CEDA}
 
   /* ---------- body sections ---------- */
   main section{padding-block:clamp(44px,7vw,92px);border-top:var(--rule)}
@@ -111,13 +143,8 @@
     .grid{grid-template-columns:minmax(200px,1fr) minmax(0,2.35fr)}
     .grid > .sec-head{position:sticky;top:calc(96px + env(safe-area-inset-top,0px))}
   }
-  .sec-head{
-    display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
-    margin:0 0 clamp(16px,2vw,0px);
-  }
-  @media (min-width:900px){
-    .sec-head{flex-direction:column;gap:12px;margin-bottom:0}
-  }
+  .sec-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:0 0 clamp(16px,2vw,0px)}
+  @media (min-width:900px){.sec-head{flex-direction:column;gap:12px;margin-bottom:0}}
   .sec-n{font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
   h2{
     font-family:var(--display);font-weight:700;
@@ -141,14 +168,8 @@
     padding-block:clamp(30px,4vw,48px);border-top:1px solid var(--line-soft);
     display:grid;gap:clamp(12px,2vw,54px);grid-template-columns:1fr;align-items:start;
   }
-  @media (min-width:900px){
-    .dec{grid-template-columns:minmax(200px,1fr) minmax(0,2.35fr)}
-  }
+  @media (min-width:900px){.dec{grid-template-columns:minmax(200px,1fr) minmax(0,2.35fr)}}
   .dec:first-of-type{border-top:0;padding-top:0}
-  .dec-n{
-    font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--accent);margin:0 0 10px;
-  }
   h3{
     font-family:var(--display);font-weight:700;
     font-size:clamp(19px,2.1vw,27px);line-height:1.16;letter-spacing:-.022em;
@@ -230,9 +251,9 @@
 
 <header class="bar">
   <div class="wrap bar-in">
-    <a class="sig" href="index.html">Hollie Richmond <span>— Portfolio</span></a>
+    <a class="sig" href="index.html">Hollie Richmond <span>&#183; Portfolio</span></a>
     <nav>
-      <a href="index.html#work">← All work</a>
+      <a href="index.html#work">&#8592; All work</a>
       <a href="index.html#contact">Contact</a>
     </nav>
   </div>
@@ -248,7 +269,7 @@
     <div class="wrap hero-in">
       <p class="eyebrow">Case study <span class="sep">/</span> IQVIA</p>
       <h1>Orchestrated Customer Engagement</h1>
-      <p class="dek">A pharmaceutical sales rep has about two minutes in a physician's doorway. In those two minutes they have to log a regulated transaction — <strong>samples handed over, licenses verified, a signature captured, expenses split, restrictions honored</strong> — on an iPad, often with no signal. I led the UI design for the product that had to make that possible.</p>
+      <p class="dek">A pharmaceutical sales rep gets a couple of minutes in a physician's doorway. In that time they have to log a regulated transaction on an iPad, usually with no signal: <strong>samples handed over, licenses verified, a signature captured, expenses split, restrictions honored</strong>. I led the UI design for the product that had to make all of it fit.</p>
 
       <dl class="facts">
         <div class="fact"><dt>Role</dt><dd>UI design lead, team of five</dd></div>
@@ -261,13 +282,12 @@
 
       <div class="lead-plate" data-rise>
         <div class="plate">
-          <img src="img/full/w12.jpg" alt="Five screens from Orchestrated Customer Engagement: a dashboard of appointments, to-dos and plans; a week calendar of scheduled calls beside a filterable customer list; a branded login; a territory search pairing an HCP list with a map; and a review-and-sign screen capturing a physician signature." width="2600" height="1630" fetchpriority="high" decoding="async">
+          <img src="img/full/w12.jpg" alt="Five screens from Orchestrated Customer Engagement: a dashboard of appointments, to-dos and plans; a week calendar of scheduled calls beside a filterable customer list; a branded login; a territory search pairing a provider list with a map; and a review-and-sign screen capturing a physician signature." width="2600" height="1630" fetchpriority="high" decoding="async">
         </div>
         <p class="plate-cap">Five of roughly 190 designed states. Dashboard, planner, login, territory search, review and sign.</p>
       </div>
     </div>
   </section>
-
 
   <section>
     <div class="wrap">
@@ -275,16 +295,73 @@
         <div class="sec-head"><span class="sec-n">01</span><h2>The problem</h2></div>
         <div>
           <div class="col">
-            <p>Field software in life sciences has a habit of being built for the audit, not for the rep. Every sample handed to a physician counts against a per-call limit and a per-period limit. Some products can't be given to some accounts at all. A signature isn't a scribble — it's a record that has to carry a state license number, a DEA number, expiration dates, lot numbers and a return address. A shared meal split across three attendees has to be allocated to the cent.</p>
-            <p>The previous generation of tools handled all of that by making the rep the compliance engine. They had to know the rules, do the arithmetic, and hope the system agreed with them at submission. So calls got logged in the parking lot hours later from memory, or not at all — the worst outcome for everyone, because incomplete field data is what the rest of the commercial model is built on.</p>
-            <p>Orchestrated Customer Engagement was the replacement. My brief was the part the rep actually touches: a tablet interface fast enough for a doorway conversation and rigorous enough to stand up to an audit.</p>
+            <p>Field software in life sciences tends to get built for the audit rather than for the rep. Every sample handed to a physician counts against a per-call limit and a per-period limit. Some products can't go to some accounts at all. A signature only means something if it carries a state license number, a DEA number, expiration dates, lot numbers and a return address. A shared meal split across three attendees has to be allocated to the cent.</p>
+            <p>The tools that came before handled all of that by making the rep the compliance engine. They had to know the rules, do the math, and hope the system agreed with them at submission. So calls got logged in the parking lot an hour later from memory, or they didn't get logged at all. That hurts the rep, and it hurts the company more, because the entire commercial model runs on field data being complete.</p>
+            <p>Orchestrated Customer Engagement was the replacement. My brief covered the part the rep actually touches: a tablet interface quick enough for a doorway conversation and careful enough to survive an audit.</p>
           </div>
 
-          <p class="pull">The constraint wasn't screen space. It was that being wrong has consequences.</p>
+          <p class="pull">Screen space was never the hard part. Being wrong had consequences.</p>
 
           <div class="col">
-            <p>Three things shaped every decision that followed. <strong>The environment is hostile</strong> — hospital corridors have no signal, and a sync that fails quietly costs a day of work. <strong>The user is expert but rushed</strong> — reps know their products better than any interface can teach them, so the job is removing friction, not explaining. <strong>And the record is legal</strong> — anything the interface implies about a limit or an eligibility rule has to be true, and the rep has to be able to see why.</p>
+            <p>Three things shaped everything that followed. <strong>The environment fights you.</strong> Hospital corridors have no signal, and a sync that fails quietly costs somebody a day of work. <strong>The user is expert but rushed.</strong> Reps know their products better than any interface can teach them, so the job is taking friction out, not explaining things. <strong>And the record is legal.</strong> Whatever the interface claims about a limit or an eligibility rule has to be true, and the rep needs to see where it came from.</p>
           </div>
+
+          <figure class="fig" data-rise>
+            <svg viewBox="0 0 1020 226" role="img" aria-label="A day in the field across five stages: plan the route, drive, in the room, log the call, and sync. For each stage the diagram shows what broke in the previous generation of tools and what the new product does instead.">
+              <text class="tiny" x="0" y="26">STAGE</text>
+              <text class="tiny" x="0" y="130">WHAT BROKE</text>
+              <text class="tiny" x="0" y="204">WHAT WE DID</text>
+
+              <line class="sw-line" x1="150" y1="64" x2="1010" y2="64"></line>
+
+              <circle cx="154" cy="64" r="5" fill="currentColor"></circle>
+              <circle cx="326" cy="64" r="5" fill="currentColor"></circle>
+              <circle cx="498" cy="64" r="5" fill="currentColor"></circle>
+              <circle cx="670" cy="64" r="5" fill="currentColor"></circle>
+              <circle cx="842" cy="64" r="5" fill="currentColor"></circle>
+
+              <text class="lab" x="150" y="32">Plan the route</text>
+              <text class="lab" x="322" y="32">Drive</text>
+              <text class="lab" x="494" y="32">In the room</text>
+              <text class="lab" x="666" y="32">Log the call</text>
+              <text class="lab" x="838" y="32">Sync</text>
+
+              <text class="sub" x="150" y="112">Route built by hand<tspan x="150" dy="17">the night before</tspan></text>
+              <text class="sub" x="322" y="112">Traffic reorders the day,<tspan x="322" dy="17">the calendar doesn't</tspan></text>
+              <text class="sub" x="494" y="112">Sample limits recalled<tspan x="494" dy="17">from memory</tspan></text>
+              <text class="sub" x="666" y="112">Written up hours later,<tspan x="666" dy="17">if at all</tspan></text>
+              <text class="sub" x="838" y="112">Fails quietly, takes<tspan x="838" dy="17">a day's work with it</tspan></text>
+
+              <line class="sw-line" x1="150" y1="160" x2="1010" y2="160"></line>
+
+              <text class="acc" x="150" y="192">Map view with drive<tspan x="150" dy="17">times between stops</tspan></text>
+              <text class="acc" x="322" y="192">Drag to re-time,<tspan x="322" dy="17">overlaps handled</tspan></text>
+              <text class="acc" x="494" y="192">Limits and eligibility<tspan x="494" dy="17">stated on screen</tspan></text>
+              <text class="acc" x="666" y="192">Tab strip, finished<tspan x="666" dy="17">in any order</tspan></text>
+              <text class="acc" x="838" y="192">Named states and a<tspan x="838" dy="17">retry that says why</tspan></text>
+            </svg>
+            <figcaption class="figcap">The day we were designing for, and the five places the previous generation of tools let go of the thread.</figcaption>
+          </figure>
+
+          <div class="stories">
+            <div class="story">
+              <span class="who">Sales rep</span>
+              <p>I need to know a sample limit before I hand something over, not after I hit submit in the car.</p>
+            </div>
+            <div class="story">
+              <span class="who">Sales rep</span>
+              <p>Let me finish a call in whatever order the conversation actually went, and let me start it in the room.</p>
+            </div>
+            <div class="story">
+              <span class="who">Physician</span>
+              <p>Show me exactly what I'm signing for, with the lot numbers, before I sign it.</p>
+            </div>
+            <div class="story">
+              <span class="who">Compliance</span>
+              <p>Every exception needs a name attached to it and a reason recorded at the time it was made.</p>
+            </div>
+          </div>
+          <p class="figcap">Four of the requirements we kept coming back to. The last one is why the product warns instead of blocking.</p>
         </div>
       </div>
     </div>
@@ -297,11 +374,59 @@
       <div class="dec" data-rise>
         <div class="sec-head"><span class="sec-n">Decision 01</span></div>
         <div>
-          <h3>Put the rule on the screen instead of behind a policy document</h3>
+          <h3>Put the rule on the screen, not in a policy document</h3>
           <div class="col">
-            <p>The sample flow shows the rep exactly what governs the product in front of them — how many are allowed on this call, how many in the current period, how long that period runs, when the last drop happened, and how many remain. Products belonging to a restricted class are marked in the picker itself rather than discovered at submission.</p>
-            <p>This was the single biggest change in the rep's day. It moved the limit from something they had to carry in their head to something the interface states plainly, at the moment of the decision.</p>
+            <p>The sample flow tells the rep what governs the product they're holding: how many are allowed on this call, how many in the current period, how long the period runs, when the last drop happened, how many are left. Products that sit in a restricted class carry a marker in the picker itself, so nobody discovers it at submission.</p>
+            <p>Of everything we changed, this is the one reps mentioned. The limit stopped being something you carried in your head and became something the screen told you, at the moment you were deciding.</p>
           </div>
+
+          <figure class="fig">
+            <svg viewBox="0 0 980 268" role="img" aria-label="Flow for adding a sample to a call: the product is checked against per-call and per-period limits; within the limit it is added directly, at the limit the picker shows what remains and offers an over-sampling path that requires confirmation and is logged as an exception before the product is added.">
+              <defs>
+                <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="currentColor"></path>
+                </marker>
+                <marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="#A39BF0"></path>
+                </marker>
+              </defs>
+
+              <rect class="sw-box" x="10" y="104" width="150" height="56"></rect>
+              <text class="sub" x="24" y="128">Rep adds a<tspan x="24" dy="16">product</tspan></text>
+
+              <line class="sw-line" x1="160" y1="132" x2="196" y2="132" marker-end="url(#ar)"></line>
+
+              <rect class="sw-box" x="200" y="104" width="160" height="56"></rect>
+              <text class="sub" x="214" y="128">Per-call and per-<tspan x="214" dy="16">period check</tspan></text>
+
+              <line class="sw-line" x1="360" y1="132" x2="396" y2="132" marker-end="url(#ar)"></line>
+
+              <rect class="acc-box" x="400" y="104" width="140" height="56"></rect>
+              <text class="acc" x="414" y="128">Within the<tspan x="414" dy="16">limit?</tspan></text>
+
+              <path class="sw-line" fill="none" d="M470 104 L470 56 L596 56" marker-end="url(#ar)"></path>
+              <text class="tiny" x="482" y="48">YES</text>
+
+              <rect class="sw-box" x="600" y="28" width="160" height="56"></rect>
+              <text class="sub" x="614" y="52">Added to the<tspan x="614" dy="16">call</tspan></text>
+
+              <path class="acc-line" fill="none" d="M470 160 L470 210 L596 210" marker-end="url(#arA)"></path>
+              <text class="tiny" x="482" y="202">AT THE LIMIT</text>
+
+              <rect class="acc-box" x="600" y="182" width="160" height="56"></rect>
+              <text class="acc" x="614" y="206">Picker shows what<tspan x="614" dy="16">is left, and when</tspan></text>
+
+              <line class="acc-line" x1="760" y1="210" x2="796" y2="210" marker-end="url(#arA)"></line>
+
+              <rect class="acc-box" x="800" y="182" width="170" height="56"></rect>
+              <text class="acc" x="814" y="206">Confirm, logged<tspan x="814" dy="16">as an exception</tspan></text>
+
+              <path class="acc-line" fill="none" d="M885 182 L885 56 L764 56" marker-end="url(#arA)"></path>
+              <text class="tiny" x="828" y="122">PROCEEDS</text>
+            </svg>
+            <figcaption class="figcap">Hitting a limit never dead-ends. It routes through a confirmation that puts the rep's name on the exception, then rejoins the same path.</figcaption>
+          </figure>
+
           <div class="evidence">
             <b>In the file</b>
             Sample limit states include a per-product limit picker, a class-level alert with an expandable breakdown of parent and child products, an inline <em>subject to limits</em> marker, an over-limit picker, and a confirmation for exceeding one.
@@ -314,8 +439,8 @@
         <div>
           <h3>Warn early, warn twice, and let the rep proceed on the record</h3>
           <div class="col">
-            <p>When a product isn't eligible for an account, the interface says so as a toast the moment it's added, and again as a popover that names the products. A warning that only appears at submit arrives after the conversation is over and the sample is already out of the bag.</p>
-            <p>Where the rule allowed it, I argued against hard blocks. Over-sampling gets its own explicit path — the product has reached its limit, here is what proceeding means, and the choice is logged. Blocking a rep who has a legitimate reason teaches them to work around the system. Making the exception visible and attributable keeps it inside the record.</p>
+            <p>When a product isn't eligible for an account, a toast fires the second it's added and a popover names the products. A warning that waits for submit arrives after the conversation is over and the sample is already gone.</p>
+            <p>Where the rules allowed it, I pushed back on hard blocks. Over-sampling got its own path: the product has hit its limit, here's what continuing means, and the choice gets logged. Block a rep who has a good reason and they will find a way around you. Make the exception visible and attributable and it stays inside the record, where compliance can actually see it.</p>
           </div>
           <div class="evidence">
             <b>In the file</b>
@@ -329,24 +454,124 @@
         <div>
           <h3>One call screen with a tab strip, not a wizard</h3>
           <div class="col">
-            <p>A call has attendees, employees, discussion details, samples, direct-to-practitioner shipments, leave-behind items, expenses, presentations and follow-up tasks. The obvious answer is a stepped flow. The right answer was a single screen with a tab strip, because reps don't complete a call in order — they complete it in the order the conversation went, and they often start mid-visit and finish in the car.</p>
-            <p>The tab strip is composed, not fixed: a remote call, a call with employees present, a call needing a custom entity and a call with tasks each show a different set. That kept the screen honest for every call type without shipping four screens.</p>
+            <p>A call carries attendees, employees, discussion details, samples, direct-to-practitioner shipments, leave-behind items, expenses, presentations and follow-up tasks. A stepped flow is the obvious answer and the wrong one. Reps don't finish a call in order. They finish it in whatever order the conversation went, and they usually start during the visit and finish in the car.</p>
+            <p>So the strip is composed rather than fixed. A remote call, a call with employees in the room, a call that needs a custom entity, a call with follow-up tasks: each one shows a different set of tabs. One screen covered every call type instead of four.</p>
           </div>
+
+          <figure class="fig">
+            <svg viewBox="0 0 980 430" role="img" aria-label="Wireframe of the call screen: a header carrying the account and a persistent submit control, a tab strip across the top, and a body showing the samples tab with product rows, lot numbers, quantities and limit markers, plus a signature block. Annotations point to the composed tab strip, the inline limit marker and the persistent submit control.">
+              <defs>
+                <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="currentColor" fill-opacity=".5"></path>
+                </marker>
+              </defs>
+
+              <rect class="sw-box" x="10" y="20" width="620" height="390" rx="6"></rect>
+
+              <line class="sw-line" x1="10" y1="58" x2="630" y2="58"></line>
+              <text class="sub" x="26" y="45">Call with Meyora, Hillary K.</text>
+              <rect class="acc-box" x="512" y="28" width="100" height="22" rx="11"></rect>
+              <text class="acc" x="536" y="44">Submit</text>
+
+              <rect class="acc-box" x="26" y="74" width="84" height="26"></rect>
+              <text class="acc" x="38" y="91">Samples</text>
+              <rect class="sw-box" x="114" y="74" width="92" height="26"></rect>
+              <text class="sub" x="126" y="91">Attendees</text>
+              <rect class="sw-box" x="210" y="74" width="74" height="26"></rect>
+              <text class="sub" x="222" y="91">Details</text>
+              <rect class="sw-box" x="288" y="74" width="52" height="26"></rect>
+              <text class="sub" x="300" y="91">DTP</text>
+              <rect class="sw-box" x="344" y="74" width="62" height="26"></rect>
+              <text class="sub" x="356" y="91">Items</text>
+              <rect class="sw-box" x="410" y="74" width="86" height="26"></rect>
+              <text class="sub" x="422" y="91">Expenses</text>
+              <rect class="sw-box" x="500" y="74" width="112" height="26"></rect>
+              <text class="sub" x="512" y="91">Presentation</text>
+
+              <line class="sw-line" x1="26" y1="124" x2="612" y2="124"></line>
+              <text class="tiny" x="26" y="140">PRODUCT</text>
+              <text class="tiny" x="330" y="140">LOT</text>
+              <text class="tiny" x="440" y="140">QTY</text>
+              <text class="tiny" x="530" y="140">LIMIT</text>
+
+              <line class="sw-line" x1="26" y1="152" x2="612" y2="152"></line>
+              <text class="sub" x="26" y="176">Canalyn 10 MCG Pen 2pk</text>
+              <text class="sub" x="330" y="176">9876-2</text>
+              <text class="sub" x="440" y="176">2</text>
+              <text class="sub" x="530" y="176">2 of 8</text>
+
+              <line class="sw-line" x1="26" y1="192" x2="612" y2="192"></line>
+              <text class="sub" x="26" y="216">Glidim 30 MCG Pen 8pk</text>
+              <text class="sub" x="330" y="216">9876-4</text>
+              <text class="sub" x="440" y="216">1</text>
+              <rect class="acc-box" x="522" y="200" width="84" height="22"></rect>
+              <text class="acc" x="532" y="216">8 of 8</text>
+
+              <line class="sw-line" x1="26" y1="232" x2="612" y2="232"></line>
+              <text class="sub" x="26" y="256">Actyolyn 20 MCG Pen 2pk</text>
+              <text class="sub" x="330" y="256">9876-3</text>
+              <text class="sub" x="440" y="256">4</text>
+              <text class="sub" x="530" y="256">4 of 12</text>
+
+              <line class="sw-line" x1="26" y1="272" x2="612" y2="272"></line>
+              <text class="sub" x="26" y="298">+ Add product</text>
+
+              <rect class="sw-box" x="26" y="322" width="586" height="66"></rect>
+              <text class="tiny" x="42" y="344">SIGNATURE REQUIRED BEFORE SUBMIT</text>
+              <text class="sub" x="42" y="370">Capture above the line, clear and repeat</text>
+
+              <line class="sw-line" x1="640" y1="87" x2="700" y2="87" marker-end="url(#ar2)" stroke-dasharray="3 3"></line>
+              <text class="sub" x="708" y="82">Strip composed per call<tspan x="708" dy="16">type, not a fixed set</tspan></text>
+
+              <line class="sw-line" x1="640" y1="211" x2="700" y2="211" marker-end="url(#ar2)" stroke-dasharray="3 3"></line>
+              <text class="sub" x="708" y="206">Limit sits in the row it<tspan x="708" dy="16">applies to, not at submit</tspan></text>
+
+              <line class="sw-line" x1="640" y1="352" x2="700" y2="352" marker-end="url(#ar2)" stroke-dasharray="3 3"></line>
+              <text class="sub" x="708" y="347">Submit stays visible and<tspan x="708" dy="16">says what is still missing</tspan></text>
+            </svg>
+            <figcaption class="figcap">The call screen at wireframe stage. Every tab is reachable at any point, and nothing about the rep's progress hides behind a next button.</figcaption>
+          </figure>
+
+          <figure class="fig">
+            <svg viewBox="0 0 980 190" role="img" aria-label="Two tab strips compared. A standard face-to-face call shows attendees, details, samples, direct-to-practitioner, items, expenses and presentation. A call with colleagues present and follow-up owed adds an employees tab and a tasks tab to the same strip.">
+              <text class="tiny" x="0" y="26">FACE TO FACE</text>
+              <rect class="sw-box" x="0" y="40" width="96" height="28"></rect><text class="sub" x="12" y="59">Attendees</text>
+              <rect class="sw-box" x="104" y="40" width="80" height="28"></rect><text class="sub" x="116" y="59">Details</text>
+              <rect class="sw-box" x="192" y="40" width="88" height="28"></rect><text class="sub" x="204" y="59">Samples</text>
+              <rect class="sw-box" x="288" y="40" width="56" height="28"></rect><text class="sub" x="300" y="59">DTP</text>
+              <rect class="sw-box" x="352" y="40" width="66" height="28"></rect><text class="sub" x="364" y="59">Items</text>
+              <rect class="sw-box" x="426" y="40" width="92" height="28"></rect><text class="sub" x="438" y="59">Expenses</text>
+              <rect class="sw-box" x="526" y="40" width="118" height="28"></rect><text class="sub" x="538" y="59">Presentation</text>
+
+              <text class="tiny" x="0" y="126">COLLEAGUES PRESENT, FOLLOW-UP OWED</text>
+              <rect class="sw-box" x="0" y="140" width="96" height="28"></rect><text class="sub" x="12" y="159">Attendees</text>
+              <rect class="acc-box" x="104" y="140" width="102" height="28"></rect><text class="acc" x="116" y="159">Employees</text>
+              <rect class="sw-box" x="214" y="140" width="80" height="28"></rect><text class="sub" x="226" y="159">Details</text>
+              <rect class="sw-box" x="302" y="140" width="88" height="28"></rect><text class="sub" x="314" y="159">Samples</text>
+              <rect class="sw-box" x="398" y="140" width="56" height="28"></rect><text class="sub" x="410" y="159">DTP</text>
+              <rect class="sw-box" x="462" y="140" width="66" height="28"></rect><text class="sub" x="474" y="159">Items</text>
+              <rect class="sw-box" x="536" y="140" width="92" height="28"></rect><text class="sub" x="548" y="159">Expenses</text>
+              <rect class="sw-box" x="636" y="140" width="118" height="28"></rect><text class="sub" x="648" y="159">Presentation</text>
+              <rect class="acc-box" x="762" y="140" width="72" height="28"></rect><text class="acc" x="774" y="159">Tasks</text>
+            </svg>
+            <figcaption class="figcap">Same screen, different call. Only the tabs a call actually needs appear, which is how one surface covered every type.</figcaption>
+          </figure>
+
           <div class="evidence">
             <b>In the file</b>
-            The call surface carries 56 designed states across the tabs, including remote-call variants with attendee invitation status — accepted, tentative, and bounced with the reason.
+            The call surface carries 56 designed states across the tabs, including remote-call variants with attendee invitation status: accepted, tentative, and bounced with the reason.
           </div>
         </div>
       </div>
 
       <div class="duo">
-        <figure style="margin:0">
+        <figure>
           <div class="plate"><img src="img/cs/oce-sign.jpg" alt="The review and sign screen: samples disbursed with lot numbers and expiration dates, shipping and return addresses, physician state license and DEA numbers with expiry, and a handwritten signature above the line." width="850" height="630" loading="lazy" decoding="async"></div>
           <figcaption class="figcap">Review and sign. Everything an auditor would ask for, on the screen the physician signs.</figcaption>
         </figure>
-        <figure style="margin:0">
+        <figure>
           <div class="plate"><img src="img/cs/oce-territory.jpg" alt="Territory search: a filterable list of healthcare providers beside a map of plotted locations, with actions for directions, scheduling and logging a call." width="864" height="630" loading="lazy" decoding="async"></div>
-          <figcaption class="figcap">Territory search. The list and the map are one view, because the rep is choosing who to see and how to get there at the same time.</figcaption>
+          <figcaption class="figcap">Territory search. List and map are one view, because the rep is choosing who to see and how to get there at the same time.</figcaption>
         </figure>
       </div>
 
@@ -355,8 +580,8 @@
         <div>
           <h3>Treat the signature screen as the receipt</h3>
           <div class="col">
-            <p>The signature is the moment a call becomes a legal document, so I designed it to be read by the person signing it rather than by the database. The physician sees exactly what they're acknowledging — each product with its lot number, expiration and quantity — alongside their own license details and the rep's, and signs above a line that can be cleared and signed again.</p>
-            <p>It's the least fashionable screen in the product and the one I'd defend hardest. Everything else in the app is convenience. This one is evidence.</p>
+            <p>The signature turns a call into a legal document, so I designed that screen to be read by the person signing it rather than by the database. The physician sees what they're acknowledging, each product with its lot number, expiration and quantity, next to their own license details and the rep's. They sign above a line they can clear and do again.</p>
+            <p>It is the least interesting screen in the product to look at and the one I would argue hardest for. Everything else in the app is convenience. This one is the evidence.</p>
           </div>
         </div>
       </div>
@@ -366,7 +591,7 @@
         <div>
           <h3>Take the arithmetic away from the rep</h3>
           <div class="col">
-            <p>Expenses from a shared meal have to be allocated across attendees and total exactly 100%. Rather than leave that as a math problem with an error message at the end, the header carries the running total as the rep works, one tap distributes evenly, and the error state names what's wrong instead of just refusing.</p>
+            <p>A shared meal has to be allocated across attendees and come to exactly 100%. Rather than leave that as math with an error waiting at the end, the running total sits in the header while the rep works, one tap splits it evenly, and the error state says what is actually wrong instead of refusing to move.</p>
           </div>
         </div>
       </div>
@@ -376,9 +601,53 @@
         <div>
           <h3>Design the planner around the drive, not the hour</h3>
           <div class="col">
-            <p>A field day is a route, not a calendar. So the planner carries month, seven-day, five-day and single-day views, a zoom that changes visible density from twelve hours down to three, touch-and-hold to create, and drag to move or change duration — including the overlapping case, which happens constantly. A map view shows the route and the drive time between appointments. Time off territory is a first-class event type with repeats and predefined slots, because a day that can't be blocked out is a calendar nobody trusts.</p>
-            <p>The zoom gesture was the one thing that needed teaching, so it got coachmarks. Nothing else did.</p>
+            <p>A field day is a route more than it is a calendar. The planner carries month, seven-day, five-day and single-day views, plus a zoom that takes the visible window from twelve hours down to three. You can touch and hold to create, drag to move, drag an edge to change duration, and it handles overlapping events, which happen constantly. A map view shows the route and the drive time between stops. Time off territory is a real event type with repeats and predefined slots, because a calendar nobody can block out is a calendar nobody keeps current.</p>
+            <p>Only the zoom gesture needed teaching, so that got coachmarks. Nothing else did.</p>
           </div>
+
+          <figure class="fig">
+            <svg viewBox="0 0 980 250" role="img" aria-label="A single planner day showing four appointments separated by labelled drive times, with an empty slot that can be created by touch and hold. The same day appears again at a tighter zoom, where an appointment dragged from four o'clock has had its drive time recalculated and its overlap resolved.">
+              <text class="tiny" x="0" y="20">DAY VIEW, TWELVE HOURS</text>
+              <line class="sw-line" x1="0" y1="34" x2="980" y2="34"></line>
+
+              <rect class="sw-box" x="0" y="46" width="150" height="44"></rect>
+              <text class="sub" x="12" y="66">Meyers, M.<tspan x="12" dy="15">9:00</tspan></text>
+              <line class="acc-line" x1="150" y1="68" x2="214" y2="68" stroke-dasharray="4 4"></line>
+              <text class="acc" x="158" y="60">12 min</text>
+
+              <rect class="sw-box" x="218" y="46" width="150" height="44"></rect>
+              <text class="sub" x="230" y="66">Tran, J.<tspan x="230" dy="15">10:30</tspan></text>
+              <line class="acc-line" x1="368" y1="68" x2="432" y2="68" stroke-dasharray="4 4"></line>
+              <text class="acc" x="376" y="60">26 min</text>
+
+              <rect class="sw-box" x="436" y="46" width="150" height="44"></rect>
+              <text class="sub" x="448" y="66">Wilson, G.<tspan x="448" dy="15">1:00</tspan></text>
+              <line class="acc-line" x1="586" y1="68" x2="650" y2="68" stroke-dasharray="4 4"></line>
+              <text class="acc" x="594" y="60">8 min</text>
+
+              <rect class="sw-box" x="654" y="46" width="150" height="44"></rect>
+              <text class="sub" x="666" y="66">Gates, M.<tspan x="666" dy="15">2:30</tspan></text>
+
+              <rect class="sw-box" x="822" y="46" width="158" height="44" stroke-dasharray="4 4"></rect>
+              <text class="tiny" x="834" y="66">TOUCH AND HOLD<tspan x="834" dy="15">TO ADD</tspan></text>
+
+              <text class="tiny" x="0" y="146">SAME DAY, ZOOMED TO THREE HOURS</text>
+              <line class="sw-line" x1="0" y1="160" x2="980" y2="160"></line>
+
+              <rect class="sw-box" x="0" y="172" width="290" height="52"></rect>
+              <text class="sub" x="12" y="194">Wilson, Gary S.<tspan x="12" dy="16">1:00 to 2:00, Northwest Hospital</tspan></text>
+              <line class="acc-line" x1="290" y1="198" x2="362" y2="198" stroke-dasharray="4 4"></line>
+              <text class="acc" x="300" y="190">8 min</text>
+
+              <rect class="sw-box" x="366" y="172" width="290" height="52"></rect>
+              <text class="sub" x="378" y="194">Gates, Melinda<tspan x="378" dy="16">2:30 to 3:00, Gates Medical</tspan></text>
+
+              <rect class="acc-box" x="700" y="172" width="280" height="52" stroke-dasharray="4 4"></rect>
+              <text class="acc" x="712" y="194">Dragged from 4:00. Drive time<tspan x="712" dy="16">recalculated, overlap resolved.</tspan></text>
+            </svg>
+            <figcaption class="figcap">The gaps between appointments carry the drive, so moving a meeting changes the cost of the day and the planner says so straight away.</figcaption>
+          </figure>
+
           <div class="evidence">
             <b>In the file</b>
             78 planner states, including four view densities, drag and overlap behavior, map and route views, legends, and the time-off-territory creation and edit flows.
@@ -391,8 +660,8 @@
         <div>
           <h3>Make the assistant explainable and dismissible</h3>
           <div class="col">
-            <p>The product included a recommendation layer — suggested accounts to visit, messages to deliver, samples to drop. I designed it as a column the rep can collapse, with every suggestion carrying a <em>see why</em> and a single tap to accept it into the call.</p>
-            <p>Recommendations that can't be interrogated get ignored, and recommendations that can't be dismissed get resented. Both end the same way: the rep stops reading them. Making the reasoning visible and the panel optional is what gave the feature a chance of being used.</p>
+            <p>The product shipped with a recommendation layer: accounts worth visiting, messages worth delivering, samples worth dropping. I built it as a column the rep can collapse, and gave every suggestion a <em>see why</em> plus a single tap to pull it into the call.</p>
+            <p>Reps ignore recommendations they can't interrogate, and they resent ones they can't dismiss. Either way they have stopped reading by the second week. Showing the reasoning and letting people close the panel is what gave the feature a chance of being used at all.</p>
           </div>
         </div>
       </div>
@@ -402,9 +671,49 @@
         <div>
           <h3>Design the offline and empty states first</h3>
           <div class="col">
-            <p>Hospitals eat signal, so sync isn't a background detail — it's a visible state with its own vocabulary: last synced, syncing, complete, failed with the reason, and a tap to retry. Every list has a designed empty state that tells the rep what to do rather than showing a blank panel, and the home screen surfaces unsubmitted calls until they're cleared.</p>
-            <p>These are the screens that get cut from a demo and decide whether the product survives a Tuesday.</p>
+            <p>Hospitals eat signal, so sync got treated as a real part of the interface with its own vocabulary: last synced, syncing, complete, failed with a reason, tap to retry. Every list has an empty state that tells the rep what to do instead of showing them nothing, and unsubmitted calls stay on the home screen until they are cleared.</p>
+            <p>These are the screens that get cut from a demo. They are also the ones that decide whether anybody is still using the product in March.</p>
           </div>
+
+          <figure class="fig">
+            <svg viewBox="0 0 980 200" role="img" aria-label="Sync states and the transitions between them. Synced moves to syncing when the rep taps; syncing resolves either to a timestamped complete state or to a failure that names its reason and offers a retry, with the rep's work held in a local queue in the meantime.">
+              <defs>
+                <marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="currentColor"></path>
+                </marker>
+                <marker id="ar3A" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="#A39BF0"></path>
+                </marker>
+              </defs>
+
+              <rect class="sw-box" x="0" y="72" width="150" height="50"></rect>
+              <text class="sub" x="14" y="94">Synced<tspan x="14" dy="16">4 days ago</tspan></text>
+
+              <line class="sw-line" x1="150" y1="97" x2="196" y2="97" marker-end="url(#ar3)"></line>
+              <text class="tiny" x="154" y="88">TAP</text>
+
+              <rect class="sw-box" x="200" y="72" width="150" height="50"></rect>
+              <text class="sub" x="214" y="94">Syncing<tspan x="214" dy="16">in progress</tspan></text>
+
+              <path class="sw-line" fill="none" d="M350 90 L390 90 L390 44 L436 44" marker-end="url(#ar3)"></path>
+              <rect class="sw-box" x="440" y="20" width="170" height="50"></rect>
+              <text class="sub" x="454" y="42">Sync complete<tspan x="454" dy="16">timestamped</tspan></text>
+
+              <path class="acc-line" fill="none" d="M350 104 L390 104 L390 150 L436 150" marker-end="url(#ar3A)"></path>
+              <rect class="acc-box" x="440" y="126" width="240" height="50"></rect>
+              <text class="acc" x="454" y="148">Attempted 9:41 am.<tspan x="454" dy="16">Lost internet connection.</tspan></text>
+
+              <line class="acc-line" x1="680" y1="151" x2="726" y2="151" marker-end="url(#ar3A)"></line>
+              <rect class="acc-box" x="730" y="126" width="160" height="50"></rect>
+              <text class="acc" x="744" y="148">Tap to retry<tspan x="744" dy="16">work stays queued</tspan></text>
+
+              <path class="sw-line" fill="none" d="M810 126 L810 108 L354 108" stroke-dasharray="4 4" marker-end="url(#ar3)"></path>
+              <text class="tiny" x="560" y="103">RETRIES THE SAME QUEUE</text>
+
+              <text class="tiny" x="0" y="196">NO STATE IS SILENT. THE FAILURE NAMES ITS REASON AND KEEPS THE WORK.</text>
+            </svg>
+            <figcaption class="figcap">The failure path got as much design as the success path, because in a hospital basement it is the one the rep actually meets.</figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -416,9 +725,9 @@
         <div class="sec-head"><span class="sec-n">03</span><h2>Leading the work</h2></div>
         <div>
           <div class="col">
-            <p>I led a team of five UX/UI designers, splitting the product by surface and reviewing the work as it came through — which at this scale is less about critiquing screens than about keeping five people's instincts pointed the same way.</p>
-            <p>The harder half of the job was outside the design team. I worked directly with engineering and the product managers through implementation, because on a product like this a requirement that arrives correct and ships slightly wrong is not a visual problem — a sample limit that misses a state is a compliance bug. Being in the build, not just ahead of it, is what kept the intent intact.</p>
-            <p>And I worked alongside the visual design team so the product read as the same brand as everything around it: the marketing site, the collateral, the demos it showed up in. A field tool that looks like it came from a different company undermines the argument the rest of the business is making.</p>
+            <p>I led a team of five UX/UI designers. We split the product by surface and I reviewed the work as it came through, though at this scale the job has less to do with critiquing individual screens than with keeping five people's instincts pointed the same direction.</p>
+            <p>The harder half happened outside the design team. I worked directly with engineering and the product managers through implementation, because on a product like this a requirement that arrives correct and ships slightly wrong becomes a compliance bug rather than a visual one. Staying inside the build, instead of handing off ahead of it, is what kept the intent intact.</p>
+            <p>I also worked alongside the visual design team so the product read as the same brand as everything around it: the marketing site, the collateral, the demos it turned up in. A field tool that looks like it came from another company undercuts whatever the rest of the business is saying.</p>
           </div>
 
           <p class="pull">Consistency at this scale is a coordination problem before it's a design problem.</p>
@@ -433,8 +742,8 @@
         <div class="sec-head"><span class="sec-n">04</span><h2>The system underneath</h2></div>
         <div>
           <div class="col">
-            <p>None of this scales as one-off screens. The whole product was built from a symbol library — navigation, cards, pickers, popovers, toasts, modals, form rows, charts, keyboards — so a change to a pattern moved through every state that used it. Master files were organized by surface and versioned by date, and handed to engineering as living documents rather than a one-time delivery.</p>
-            <p>That mattered more than the component count. It meant a new call type or a new compliance rule could be designed as a variation rather than a new screen, and it meant the states nobody demos — the errors, the partial data, the sync failures — stayed current without a redesign each time.</p>
+            <p>None of this scales as one-off screens. The whole product came out of a symbol library: navigation, cards, pickers, popovers, toasts, modals, form rows, charts, keyboards. Change a pattern and it moved through every state using it. We organized master files by surface, versioned them by date, and handed them to engineering as living documents rather than as a delivery.</p>
+            <p>That mattered more than the component count. A new call type or a new compliance rule could be designed as a variation instead of a new screen, and the states nobody puts in a demo, the errors and the partial data and the sync failures, stayed current without a redesign every time.</p>
           </div>
 
           <div class="tally">
@@ -454,7 +763,7 @@
         <div class="sec-head"><span class="sec-n">05</span><h2>How it landed</h2></div>
         <div>
           <div class="col">
-            <p>OCE launched on 12 December 2017. Inside the first twelve months more than thirty life sciences companies had selected it — Novo Nordisk and Roche among them — and it was running in 115 countries. By 2024 it served close to 400 enterprise customers across more than 130. The field app went out with all of it.</p>
+            <p>OCE launched on 12 December 2017. Within twelve months more than thirty life sciences companies had picked it up, Novo Nordisk and Roche among them, and it was running in 115 countries. By 2024 it served close to 400 enterprise customers across more than 130. The field app went out with all of it.</p>
           </div>
 
           <div class="tally">
@@ -465,12 +774,12 @@
           </div>
 
           <div class="col" style="margin-top:clamp(28px,4vw,44px)">
-            <p>That scale is the real argument for the decisions above. Sample limits, product eligibility and signature requirements are not the same in Japan as in Germany as in the United States. If the compliance surface had been drawn as fixed screens, every market would have meant a new one. Built as components whose rules are content, a market with a different limit structure gets a different picker — not a different product.</p>
-            <p>In April 2024 IQVIA licensed the OCE CRM software to Salesforce, which folded it into Salesforce Life Sciences Cloud, and committed to supporting existing OCE customers through 2029. The patterns outlasted the company's own roadmap for them, which is about as much as a product designer can ask.</p>
-            <p>What I'd carry into the next enterprise product: the hard part of regulated software isn't fitting the rules on screen. It's deciding which rules the user should have to hold in their head. Almost always the answer is none of them.</p>
+            <p>That reach is the real argument for the decisions above. Sample limits, product eligibility and signature requirements don't match across Japan, Germany and the United States. Had we drawn the compliance surface as fixed screens, every market would have meant a new one. Built as components whose rules are content, a market with a different limit structure gets a different picker and the same product.</p>
+            <p>In April 2024 IQVIA licensed the OCE CRM software to Salesforce, which folded it into Salesforce Life Sciences Cloud, and committed to supporting existing OCE customers through 2029. The patterns outlasted the roadmap they were built for, which is about as much as a product designer gets to ask for.</p>
+            <p>One thing I took with me. The hard part of regulated software was never fitting the rules onto a screen. It was deciding which rules a person should have to carry in their head, and the answer was almost always none of them.</p>
           </div>
 
-          <p class="src">Figures from IQVIA's <a href="https://ir.iqvia.com/press-releases/press-release-details/2019/IQVIAs-Orchestrated-Customer-Engagement-OCE-Solution-Adopted-by-More-than-30-Life-Sciences-Companies-in-First-Year-of-Launch/default.aspx" target="_blank" rel="noopener">January 2019 adoption release</a> and its <a href="https://www.iqvia.com/newsroom/2024/04/iqvia-and-salesforce-expand-global-partnership-to-accelerate-the-development-of-life-sciences-cloud" target="_blank" rel="noopener">April 2024 Salesforce partnership announcement</a>.</p>
+          <p class="src">Figures from IQVIA's <a href="https://ir.iqvia.com/press-releases/press-release-details/2019/IQVIAs-Orchestrated-Customer-Engagement-OCE-Solution-Adopted-by-More-than-30-Life-Sciences-Companies-in-First-Year-of-Launch/default.aspx" target="_blank" rel="noopener">January 2019 adoption release</a> and its <a href="https://www.iqvia.com/newsroom/2024/04/iqvia-and-salesforce-expand-global-partnership-to-accelerate-the-development-of-life-sciences-cloud" target="_blank" rel="noopener">April 2024 Salesforce partnership announcement</a>. Product screens come from the demo builds, which use fictional accounts, physicians and products.</p>
         </div>
       </div>
     </div>
