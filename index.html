@@ -462,7 +462,7 @@
         </div>
         <div class="plate-wrap">
           <span class="ghost" aria-hidden="true" data-px="0.3">03</span>
-          <button class="plate" type="button" data-view="07" aria-label="Expand this project's work"><img src="img/w07.jpg" alt="Mobeus Airspace screens: a welcome entry state over live video, an immersive virtual room with participants and an HCP engagement panel, and product training content shared inside the room." width="1500" height="920" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
+          <button class="plate" type="button" data-view="07" aria-label="Expand this project's work"><img src="img/w07.jpg?v=2" alt="Mobeus Airspace screens: a welcome entry state over live video, an immersive virtual room with participants and an HCP engagement panel, and product training content shared inside the room." width="1500" height="920" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
         </div>
       </div>
     </article>
@@ -793,7 +793,7 @@
     if (i < 0 || i >= items.length) return;
     current = i;
     var it = items[i];
-    vImg.src = 'img/full/w' + it.img + '.jpg';
+    vImg.src = 'img/full/w' + it.img + '.jpg' + (it.img === '07' ? '?v=2' : '');
     vImg.alt = it.alt;
     vN.textContent = it.n;
     vTitle.textContent = it.title;
