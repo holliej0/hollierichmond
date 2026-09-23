@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Airspace · Case study · Hollie Richmond</title>
+<meta name="description" content="Case study: designing the product UI and spatial design system for Mobeus Airglass, and the Verizon and United Therapeutics spaces built on it.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&display=swap">
+<style>
+  :root{
+    color-scheme: dark;
+    --ink:#09090C;
+    --ink-raised:#131219;
+    --mat:#A4A1AC;
+    --paper:#EDEBF0;
+    --muted:#8B8796;
+    --line:rgba(237,235,240,.11);
+    --line-soft:rgba(237,235,240,.06);
+    --accent:#A39BF0;
+    --display:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --body:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --mono:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --gut:clamp(20px,5vw,72px);
+    --rule:1px solid var(--line);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--ink);color:var(--paper);
+    font-family:var(--body);font-weight:400;font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:#0b0a10}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+  .wrap{width:100%;max-width:1440px;margin:0 auto;padding-inline:var(--gut)}
+  .col{max-width:64ch}
+
+  /* ---------- top bar ---------- */
+  .bar{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    padding-top:calc(14px + env(safe-area-inset-top,0px));padding-bottom:14px;
+    background:linear-gradient(to bottom,rgba(9,9,12,.92),rgba(9,9,12,.72) 60%,rgba(9,9,12,0));
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  }
+  .bar-in{display:flex;align-items:baseline;justify-content:space-between;gap:10px 16px;flex-wrap:wrap}
+  .sig{font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:-.01em;white-space:nowrap}
+  .sig span{color:var(--muted);font-weight:500;display:none}
+  @media (min-width:520px){.sig span{display:inline}}
+  .bar nav{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px clamp(13px,2.5vw,28px);
+    font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+  .bar nav a{transition:color .25s}
+  .bar nav a:hover{color:var(--paper)}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding-block:clamp(120px,18vh,190px) clamp(40px,6vh,72px);overflow:hidden}
+  .field{position:absolute;inset:-20% -10%;z-index:0;pointer-events:none}
+  .orb{position:absolute;border-radius:50%;filter:blur(90px)}
+  .orb.a{width:46vw;height:46vw;left:-10vw;top:2vh;background:radial-gradient(circle,#4A3FA8 0%,rgba(74,63,168,0) 70%);opacity:.5}
+  .orb.b{width:36vw;height:36vw;right:-6vw;top:-8vh;background:radial-gradient(circle,#2E5C8A 0%,rgba(46,92,138,0) 70%);opacity:.4}
+  .hero-in{position:relative;z-index:1}
+  .eyebrow{
+    font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 clamp(16px,2.4vw,26px);
+  }
+  .eyebrow .sep{color:var(--muted);margin-inline:10px}
+  h1{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(32px,5.4vw,72px);line-height:1.02;letter-spacing:-.034em;
+    margin:0;max-width:15ch;text-wrap:balance;
+  }
+  .dek{
+    margin:clamp(22px,3vw,34px) 0 0;color:#D6D2DC;max-width:62ch;
+    font-size:clamp(16px,1.6vw,20px);line-height:1.58;
+  }
+  .dek strong{color:var(--paper);font-weight:500}
+
+  .facts{
+    display:grid;gap:18px 34px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    margin-top:clamp(34px,5vw,58px);padding-top:clamp(24px,3vw,34px);border-top:var(--rule);
+  }
+  .fact dt{
+    font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 7px;
+  }
+  .fact dd{margin:0;font-size:15px;line-height:1.5}
+
+  /* ---------- plates and figures ---------- */
+  .plate{
+    background:var(--mat);padding:clamp(14px,2.4vw,34px);
+    box-shadow:0 30px 70px -30px rgba(0,0,0,.85);
+  }
+  .plate img{width:100%;height:auto}
+  .plate-cap,.figcap{
+    font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.06em;
+    color:var(--muted);margin:14px 0 0;max-width:74ch;line-height:1.65;
+  }
+  .lead-plate{margin-top:clamp(30px,5vw,58px)}
+  .duo{display:grid;gap:clamp(14px,2vw,26px);grid-template-columns:1fr;margin-block:clamp(26px,4vw,44px)}
+  @media (min-width:760px){.duo{grid-template-columns:1fr 1fr}}
+
+  figure{margin:0}
+  .fig{margin:clamp(30px,4.5vw,52px) 0 0}
+  .fig svg{
+    width:100%;height:auto;display:block;
+    color:var(--paper);
+    background:var(--ink-raised);
+    border:1px solid var(--line);
+    padding:clamp(10px,1.6vw,20px);
+  }
+  .fig .sw-line{stroke:currentColor;stroke-opacity:.34}
+  .fig .sw-box{fill:none;stroke:currentColor;stroke-opacity:.34}
+  .fig .lab{fill:currentColor;font-family:var(--mono);font-size:13px;font-weight:600}
+  .fig .sub{fill:currentColor;fill-opacity:.62;font-family:var(--mono);font-size:12px;font-weight:400}
+  .fig .tiny{fill:currentColor;fill-opacity:.5;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.11em}
+  .fig .acc{fill:#A39BF0;font-family:var(--mono);font-size:12px;font-weight:500}
+  .fig .acc-line{stroke:#A39BF0}
+  .fig .acc-box{fill:none;stroke:#A39BF0}
+
+  /* ---------- user stories ---------- */
+  .stories{
+    display:grid;gap:1px;background:var(--line);
+    border:1px solid var(--line);
+    margin:clamp(30px,4.5vw,52px) 0 0;
+  }
+  @media (min-width:700px){.stories{grid-template-columns:1fr 1fr}}
+  .story{background:var(--ink-raised);padding:clamp(18px,2.4vw,26px)}
+  .story .who{
+    display:block;font-family:var(--mono);font-size:10.5px;font-weight:500;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;
+  }
+  .story p{margin:0;font-size:15px;line-height:1.56;color:#D2CEDA}
+
+  /* ---------- body sections ---------- */
+  main section{padding-block:clamp(44px,7vw,92px);border-top:var(--rule)}
+  .grid{display:grid;gap:clamp(20px,3vw,54px);grid-template-columns:1fr;align-items:start}
+  @media (min-width:900px){
+    .grid{grid-template-columns:minmax(200px,1fr) minmax(0,2.35fr)}
+    .grid > .sec-head{position:sticky;top:calc(96px + env(safe-area-inset-top,0px))}
+  }
+  .sec-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:0 0 clamp(16px,2vw,0px)}
+  @media (min-width:900px){.sec-head{flex-direction:column;gap:12px;margin-bottom:0}}
+  .sec-n{font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  h2{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(24px,3.4vw,42px);line-height:1.04;letter-spacing:-.03em;margin:0;text-wrap:balance;
+  }
+  p{margin:0 0 1.15em;color:#D2CEDA;font-size:clamp(15.5px,1.35vw,17.5px);line-height:1.68}
+  p:last-child{margin-bottom:0}
+  strong{color:var(--paper);font-weight:600}
+  em{font-style:italic;color:var(--paper)}
+
+  .pull{
+    margin:clamp(30px,4.5vw,52px) 0;padding-left:clamp(18px,2.4vw,28px);
+    border-left:2px solid var(--accent);
+    font-family:var(--display);font-weight:600;
+    font-size:clamp(19px,2.4vw,30px);line-height:1.24;letter-spacing:-.022em;
+    color:var(--paper);max-width:24ch;
+  }
+
+  /* ---------- decisions ---------- */
+  .dec{
+    padding-block:clamp(30px,4vw,48px);border-top:1px solid var(--line-soft);
+    display:grid;gap:clamp(12px,2vw,54px);grid-template-columns:1fr;align-items:start;
+  }
+  @media (min-width:900px){.dec{grid-template-columns:minmax(200px,1fr) minmax(0,2.35fr)}}
+  .dec:first-of-type{border-top:0;padding-top:0}
+  h3{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(19px,2.1vw,27px);line-height:1.16;letter-spacing:-.022em;
+    margin:0 0 .7em;max-width:24ch;text-wrap:balance;
+  }
+  .evidence{
+    margin-top:clamp(16px,2vw,22px);padding:clamp(14px,2vw,20px) clamp(16px,2.2vw,24px);
+    background:var(--ink-raised);border-left:1px solid var(--line);
+    font-size:14.5px;line-height:1.62;color:var(--muted);max-width:66ch;
+  }
+  .evidence b{
+    display:block;font-family:var(--mono);font-size:10.5px;font-weight:500;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;
+  }
+
+  .src{
+    margin-top:clamp(26px,3.5vw,40px);padding-top:16px;border-top:1px solid var(--line-soft);
+    font-family:var(--mono);font-size:11.5px;font-weight:500;line-height:1.7;
+    letter-spacing:.04em;color:var(--muted);max-width:66ch;
+  }
+  .src a{color:var(--muted);border-bottom:1px solid var(--line);transition:color .25s,border-color .25s}
+  .src a:hover{color:var(--accent);border-color:var(--accent)}
+
+  .tally{
+    display:grid;gap:22px 34px;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    margin:clamp(26px,4vw,42px) 0 0;padding-top:clamp(22px,3vw,30px);border-top:var(--rule);
+  }
+  .tally div{min-width:0}
+  .tally .num{
+    display:block;font-family:var(--display);font-weight:700;
+    font-size:clamp(30px,4vw,50px);line-height:1;letter-spacing:-.035em;color:var(--paper);
+  }
+  .tally .lab{
+    display:block;margin-top:9px;font-family:var(--mono);font-size:11px;font-weight:500;
+    letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
+  }
+
+  /* ---------- foot ---------- */
+  .endnote{padding-block:clamp(50px,8vw,110px);border-top:var(--rule);position:relative;overflow:hidden}
+  .endnote .orb.d{
+    position:absolute;width:52vw;height:52vw;left:18vw;bottom:-34vw;border-radius:50%;
+    background:radial-gradient(circle,#5347B5 0%,rgba(83,71,181,0) 70%);opacity:.3;filter:blur(100px);pointer-events:none;
+  }
+  .endnote-in{position:relative;z-index:1}
+  .mail-link{
+    display:inline-block;font-family:var(--display);font-weight:700;
+    font-size:clamp(24px,5.4vw,66px);line-height:1;letter-spacing:-.035em;margin:clamp(14px,2vw,22px) 0 0;
+    word-break:break-word;
+    background-image:linear-gradient(var(--accent),var(--accent));
+    background-size:0 2px;background-position:0 100%;background-repeat:no-repeat;
+    transition:background-size .45s cubic-bezier(.2,.7,.3,1),color .3s;
+  }
+  .mail-link:hover{background-size:100% 2px;color:var(--accent)}
+  .elsewhere{
+    display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:clamp(24px,3.5vw,40px);
+    font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
+  }
+  .elsewhere a{transition:color .25s}
+  .elsewhere a:hover{color:var(--accent)}
+  .elsewhere a[target]::after{content:" ↗";letter-spacing:0}
+  footer{
+    padding-block:26px 34px;border-top:var(--rule);
+    font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;
+  }
+
+  /* ---------- motion ---------- */
+  .js [data-rise]{transform:translate3d(0,18px,0);transition:transform 1s cubic-bezier(.16,.84,.34,1)}
+  .js [data-rise].in{transform:none}
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition-duration:.01ms!important}
+    [data-rise]{transform:none!important}
+  }
+
+  /* ---------- airspace additions ---------- */
+  .fig .mk circle{fill:#A39BF0}
+  .fig .mk text{fill:#0b0a10;font-family:var(--mono);font-size:15px;font-weight:700}
+  ol.stories{list-style:none;padding:0}
+  .fig .legend{margin-top:0;border-top:0}
+  @media (min-width:1000px){.stories.legend,.stories.flow{grid-template-columns:1fr 1fr 1fr}}
+  .stories.flow{margin-top:clamp(30px,4.5vw,52px)}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="sig" href="index.html">Hollie Richmond <span>&#183; Portfolio</span></a>
+    <nav>
+      <a href="index.html#work">&#8592; All work</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="field" aria-hidden="true">
+      <div class="orb a"></div>
+      <div class="orb b"></div>
+    </div>
+    <div class="wrap hero-in">
+      <p class="eyebrow">Case study <span class="sep">/</span> Mobeus</p>
+      <h1>Airspace</h1>
+      <p class="dek">Mobeus makes Airglass, a platform that puts people in a shared 3D space through an ordinary web browser. There's no headset and nothing to download. The webcam works out where you are and where your hands are, so you can lean in to look around or reach out and move things. <strong>I designed the product UI and the spatial design system behind those spaces</strong>, and then the client spaces built on it: a retail store for Verizon and a device training room for United Therapeutics.</p>
+
+      <dl class="facts">
+        <div class="fact"><dt>Role</dt><dd>Product UI and spatial design system</dd></div>
+        <div class="fact"><dt>Company</dt><dd>Mobeus</dd></div>
+        <div class="fact"><dt>Platform</dt><dd>Airglass, in any web browser</dd></div>
+        <div class="fact"><dt>Scope</dt><dd>Entry, room, content states, client spaces</dd></div>
+        <div class="fact"><dt>Clients</dt><dd>Verizon, United Therapeutics</dd></div>
+        <div class="fact"><dt>Input</dt><dd>Mouse, voice and hands in the air</dd></div>
+      </dl>
+
+      <div class="lead-plate" data-rise>
+        <div class="plate">
+          <img src="img/full/w07.jpg" alt="Four Airspace screens for United Therapeutics: a welcome screen asking for a first and last name, a 3D training room with two participants between a module menu and a context panel, a Tyvaso DPI how-to video with the participants angled to either side, and a three-step inhaler overview card." width="2600" height="1594" fetchpriority="high" decoding="async">
+        </div>
+        <p class="plate-cap">The United Therapeutics training space, from the welcome screen through the room and its content states.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid">
+        <div class="sec-head"><span class="sec-n">01</span><h2>The problem</h2></div>
+        <div>
+          <div class="col">
+            <p>A 3D room looks great in a demo. The trouble starts when a real person clicks a link and lands in one. They've never been anywhere like it, there's no manual, and they're on a laptop with a trackpad. If the room makes them stop and work out what to do, it's just a slower video call with a nicer background.</p>
+            <p>The platform could already do the hard technical parts: depth from a normal webcam, hands tracked in the air, media generated while people talk. What it didn't have was a way of looking and behaving that someone could pick up in their first thirty seconds, and that would still hold together when the same room had to sell phones for one client and teach an inhaler for another.</p>
+            <p>The first client made the stakes clear. Verizon had shoppers on its website with nobody to talk to, and reps in its stores with gaps in their day. The idea was to put the two in the same room. That only works if the shopper, who never asked for a 3D experience, doesn't bounce straight off it.</p>
+          </div>
+
+          <figure class="fig" data-rise>
+            <div class="plate"><img src="img/airspace/vz-brief.jpg" alt="A Verizon slide titled Opportunity: a new engagement channel that combines the in-store experience with the online web experience. The web is marked impersonal, the store inconvenient, and a plus sign joins them into a personal and convenient experience." width="1800" height="1012" loading="lazy" decoding="async"></div>
+            <figcaption class="figcap">The Verizon brief on one slide. Shopping on the website is impersonal, going to the store is inconvenient, and the space had to be the thing that joined them.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:clamp(26px,4vw,44px)"><span class="sec-n">02</span><h2>The decisions</h2></div>
+
+      <div class="dec" data-rise>
+        <div class="sec-head"><span class="sec-n">Decision 01</span></div>
+        <div>
+          <h3>Borrow the spatial rules, keep the point-and-click habits</h3>
+          <div class="col">
+            <p>Apple had published its spatial design guidance for Vision Pro, and I used it as the starting point: frosted glass panels with real depth, soft rounded shapes, and content that floats in front of an environment instead of sitting in a box. But our users were on laptops, not headsets, so anything they already knew from the web stayed. Buttons look like buttons, menus sit where menus usually sit, and you can do everything with a mouse.</p>
+            <p>The layout of the room came out of that. Everything has a fixed place: the people in the middle, what you can open on the left, who you're with on the right, and one row of controls along the bottom. Learn it once and you know every space built on it.</p>
+          </div>
+
+          <figure class="fig">
+            <svg viewBox="0 0 1200 660" role="img" aria-labelledby="anat-t">
+              <title id="anat-t">The layout of an Airspace room, numbered: 1 the prompt bar at the top, 2 the room controls, 3 the module menu on the left, 4 the participants in the middle, 5 the context panel on the right, 6 the dock of controls along the bottom.</title>
+              <ellipse class="sw-box" cx="600" cy="585" rx="470" ry="46" stroke-dasharray="4 7"/>
+              <rect class="sw-box" x="490" y="26" width="220" height="38" rx="19"/>
+              <text class="sub" x="600" y="51" text-anchor="middle" style="font-size:15px">"next" "details" "close"</text>
+              <rect class="sw-box" x="230" y="92" width="740" height="34" rx="17"/>
+              <circle class="sw-box" cx="252" cy="109" r="8"/>
+              <circle class="sw-box" cx="900" cy="109" r="8"/><circle class="sw-box" cx="924" cy="109" r="8"/><circle class="sw-box" cx="948" cy="109" r="8"/>
+              <rect class="sw-box" x="96" y="170" width="150" height="270" rx="16"/>
+              <line class="sw-line" x1="120" y1="212" x2="222" y2="212"/><line class="sw-line" x1="120" y1="262" x2="222" y2="262"/><line class="sw-line" x1="120" y1="312" x2="222" y2="312"/><line class="sw-line" x1="120" y1="362" x2="222" y2="362"/><line class="sw-line" x1="120" y1="412" x2="210" y2="412"/>
+              <rect class="acc-box" x="270" y="150" width="330" height="320" rx="18" stroke-width="1.5"/>
+              <rect class="acc-box" x="600" y="150" width="330" height="320" rx="18" stroke-width="1.5"/>
+              <circle class="sw-box" cx="435" cy="270" r="54"/><path class="sw-box" d="M355 420 q80 -90 160 0"/>
+              <circle class="sw-box" cx="765" cy="270" r="54"/><path class="sw-box" d="M685 420 q80 -90 160 0"/>
+              <rect class="sw-box" x="954" y="170" width="150" height="270" rx="16"/>
+              <line class="sw-line" x1="976" y1="208" x2="1060" y2="208"/><line class="sw-line" x1="976" y1="226" x2="1030" y2="226"/>
+              <line class="sw-line" x1="976" y1="268" x2="1070" y2="268"/><line class="sw-line" x1="976" y1="286" x2="1024" y2="286"/>
+              <line class="sw-line" x1="976" y1="328" x2="1060" y2="328"/><line class="sw-line" x1="976" y1="346" x2="1036" y2="346"/>
+              <line class="sw-line" x1="976" y1="388" x2="1070" y2="388"/><line class="sw-line" x1="976" y1="406" x2="1020" y2="406"/>
+              <rect class="sw-box" x="410" y="498" width="380" height="54" rx="27"/>
+              <circle class="sw-box" cx="446" cy="525" r="15"/><circle class="sw-box" cx="497" cy="525" r="15"/><circle class="sw-box" cx="548" cy="525" r="15"/>
+              <circle class="acc-box" cx="600" cy="525" r="15" stroke-width="1.5"/>
+              <circle class="sw-box" cx="652" cy="525" r="15"/><circle class="sw-box" cx="703" cy="525" r="15"/><circle class="sw-box" cx="754" cy="525" r="15"/>
+              <g class="mk">
+                <circle cx="736" cy="45" r="17"/><text x="736" y="51" text-anchor="middle">1</text>
+                <circle cx="995" cy="109" r="17"/><text x="995" y="115" text-anchor="middle">2</text>
+                <circle cx="96" cy="170" r="17"/><text x="96" y="176" text-anchor="middle">3</text>
+                <circle cx="600" cy="150" r="17"/><text x="600" y="156" text-anchor="middle">4</text>
+                <circle cx="1104" cy="170" r="17"/><text x="1104" y="176" text-anchor="middle">5</text>
+                <circle cx="818" cy="525" r="17"/><text x="818" y="531" text-anchor="middle">6</text>
+              </g>
+            </svg>
+            <ol class="stories legend">
+              <li class="story"><span class="who">1 · Prompt bar</span><p>The words you can say right now. It changes with whatever is on screen.</p></li>
+              <li class="story"><span class="who">2 · Room controls</span><p>Who's here, refresh the space, go full screen. Settings on the far left.</p></li>
+              <li class="story"><span class="who">3 · Modules</span><p>Everything you can open in this space, as one short list.</p></li>
+              <li class="story"><span class="who">4 · The people</span><p>Always in the middle and always life-size. This is a meeting first.</p></li>
+              <li class="story"><span class="who">5 · Context</span><p>Who you're talking to and where they are in the session, for the host.</p></li>
+              <li class="story"><span class="who">6 · The dock</span><p>Sound, mic, camera, hand tracking and the rest, in the same order in every space.</p></li>
+            </ol>
+            <figcaption class="figcap">The layout every Airspace room is built on. The positions never move, which is what lets a first-time guest find their way around without being told.</figcaption>
+          </figure>
+
+          <figure class="fig">
+            <div class="plate"><img src="img/airspace/ut-room.jpg" alt="The United Therapeutics training room: two participants, Jackie and Amy, side by side in the middle of a grey clinical suite, a menu on the left with Profile, Device Guide, Resources, HCP Engagement and Expert Connect, a context panel on the right showing Amy's training module and progress, and the dock of round controls below." width="1250" height="738" loading="lazy" decoding="async"></div>
+            <figcaption class="figcap">The same layout in the United Therapeutics room, with its own modules on the left and the trainee's progress on the right.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="dec" data-rise>
+        <div class="sec-head"><span class="sec-n">Decision 02</span></div>
+        <div>
+          <h3>Make the way in a single step</h3>
+          <div class="col">
+            <p>Anyone arriving from a link gets one screen and one question: their name. There's no account to create, no app to install and no camera setup wizard. Type your name, press the arrow, and you're in the room.</p>
+            <p>The butterfly in the middle doubles as the loader, so the few seconds it takes to build the space read as part of the welcome instead of a spinner. And the screen carries the client's brand, not Mobeus's. Someone joining a United Therapeutics session should feel like they've arrived somewhere United Therapeutics made.</p>
+          </div>
+
+          <figure class="fig">
+            <div class="plate"><img src="img/airspace/ut-welcome.jpg" alt="The welcome screen: Welcome to the Airspace, set around a glowing butterfly mark over a softly tinted video of a woman, with a single row asking for first and last name and an arrow button, and the United Therapeutics logo below." width="1250" height="738" loading="lazy" decoding="async"></div>
+            <figcaption class="figcap">The whole entry experience. A name and an arrow, with the client's logo underneath.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="dec" data-rise>
+        <div class="sec-head"><span class="sec-n">Decision 03</span></div>
+        <div>
+          <h3>Keep the people in the room when the content arrives</h3>
+          <div class="col">
+            <p>The usual move on a video call is to shrink everyone to thumbnails the moment somebody shares a screen. It's efficient, and it turns a conversation into a presentation. In a space that's meant to feel like being in the same room, that was the one thing to avoid.</p>
+            <p>So when a video, a device guide or a quiz question opens, it takes the centre and the two people swing out to either side, angled toward it like two people standing at a counter. They stay full size and you can still see their faces react. Close the content and they swing back.</p>
+          </div>
+
+          <figure class="fig">
+            <svg viewBox="0 0 1200 400" role="img" aria-labelledby="state-t">
+              <title id="state-t">Two states of the room. Talking: the two participants sit side by side in the middle. Showing: a content card takes the middle and the participants turn to face it from either side.</title>
+              <text class="tiny" x="70" y="40" style="font-size:18px">TALKING</text>
+              <rect class="acc-box" x="70" y="80" width="190" height="220" rx="14" stroke-width="1.5"/>
+              <rect class="acc-box" x="260" y="80" width="190" height="220" rx="14" stroke-width="1.5"/>
+              <circle class="sw-box" cx="165" cy="170" r="36"/><path class="sw-box" d="M115 280 q50 -60 100 0"/>
+              <circle class="sw-box" cx="355" cy="170" r="36"/><path class="sw-box" d="M305 280 q50 -60 100 0"/>
+              <rect class="sw-box" x="170" y="330" width="180" height="30" rx="15"/>
+              <line class="acc-line" x1="530" y1="190" x2="640" y2="190" stroke-width="1.5"/>
+              <path d="M628 180 L642 190 L628 200" fill="none" class="acc-line" stroke-width="1.5"/>
+              <text class="sub" x="585" y="170" text-anchor="middle" style="font-size:18px">open</text>
+              <text class="tiny" x="690" y="40" style="font-size:18px">SHOWING</text>
+              <polygon class="acc-box" points="690,98 800,74 800,306 690,282" stroke-width="1.5"/>
+              <circle class="sw-box" cx="748" cy="170" r="28"/>
+              <rect class="sw-box" x="822" y="64" width="236" height="252" rx="14"/>
+              <line class="sw-line" x1="850" y1="110" x2="1000" y2="110"/><line class="sw-line" x1="850" y1="134" x2="960" y2="134"/>
+              <rect class="sw-box" x="850" y="160" width="180" height="96" rx="8"/>
+              <rect class="sw-box" x="900" y="272" width="80" height="26" rx="13"/>
+              <polygon class="acc-box" points="1080,74 1190,98 1190,282 1080,306" stroke-width="1.5"/>
+              <circle class="sw-box" cx="1134" cy="170" r="28"/>
+              <rect class="sw-box" x="850" y="330" width="180" height="30" rx="15"/>
+            </svg>
+            <figcaption class="figcap">Talking and showing. The content never pushes the people out of the room, it just gives them somewhere to turn.</figcaption>
+          </figure>
+
+          <div class="duo">
+            <figure>
+              <div class="plate"><img src="img/airspace/ut-content.jpg" alt="A Tyvaso DPI How to Use video playing in the centre of the room, with Jackie angled on the left and Amy angled on the right, a Whiteboard and Lightboard toggle above the video and a resources panel behind." width="1250" height="738" loading="lazy" decoding="async"></div>
+              <figcaption class="figcap">A training video in the middle, with both people turned toward it.</figcaption>
+            </figure>
+            <figure>
+              <div class="plate"><img src="img/airspace/ut-overview.jpg" alt="A dark overview card titled How to use Tyvaso with three steps, open, load and inhale, and a View Details button, between a product training lead on the left and Amy on the right, with the HCP Engagement panel behind." width="1250" height="738" loading="lazy" decoding="async"></div>
+              <figcaption class="figcap">The same pattern for a step-by-step card, with a product expert brought in on the left.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="dec" data-rise>
+        <div class="sec-head"><span class="sec-n">Decision 04</span></div>
+        <div>
+          <h3>Give the host the notes, not the guest</h3>
+          <div class="col">
+            <p>The two people in the room need different things. The customer needs the product. The rep needs to know who they're talking to. So the context panel on the right is for the host. In the Verizon store it pulls the customer's Salesforce record: case history, current device, plan and what they came in wanting. In the training room it shows the trainee's module and how far through it they are.</p>
+            <p>The AI suggestions live there too. When the conversation turns up something worth recording, like a customer settling on an iPhone 15 Pro Max, a small card offers to update the CRM. One click, and nobody has to stop talking. A Host View and Customer View switch at the top lets the rep check exactly what the customer can see.</p>
+          </div>
+
+          <figure class="fig">
+            <div class="plate"><img src="img/airspace/vz-crm.jpg" alt="The Verizon room: a rep and a customer side by side, a purple AI suggestion card reading Update desired device to iPhone 15 Pro Max with an Update CRM button, and a Salesforce panel on the right listing case priority, reason and recent case activity." width="924" height="567" loading="lazy" decoding="async"></div>
+            <figcaption class="figcap">In the Verizon store, the rep's panel carries the Salesforce record and the AI suggestion sits on the call, one click from done.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="dec" data-rise>
+        <div class="sec-head"><span class="sec-n">Decision 05</span></div>
+        <div>
+          <h3>Show every command, whichever way you give it</h3>
+          <div class="col">
+            <p>The room takes voice, hands in the air, and a mouse. The risk with voice and gesture is that nobody knows what they're allowed to say or do, and they won't guess. So the prompt bar at the top lists the words that work right now, like "details", "next", "previous", "go back" and "close", and the list changes with what's on screen.</p>
+            <p>Every one of those commands is also a button. Hand tracking is a toggle in the dock, not a requirement, and nothing in the room can only be reached by waving at it. The gestures are the part people remember from the demo. The buttons are why the demo works for the person who has never tried it.</p>
+          </div>
+
+          <figure class="fig">
+            <div class="plate"><img src="img/airspace/vz-hands.jpg" alt="From the Verizon deck: two iPhones floating in the centre of the store with red hand icons showing a customer reaching into the room to pick one up, a View Details button beneath, and the rep and customer on either side." width="1245" height="484" loading="lazy" decoding="async"></div>
+            <figcaption class="figcap">Reaching into the room to pick up a phone, as shown in the Verizon deck. The same View Details action is a button for anyone on a trackpad.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid">
+        <div class="sec-head"><span class="sec-n">03</span><h2>One system, many spaces</h2></div>
+        <div>
+          <div class="col">
+            <p>Every client space is the same room underneath. I built the glass panels, the dock, the prompt bar and the content cards with all their states as one system, then decided what a client is allowed to change: the environment, the brand color, the modules on the left, the fields on the right, and the content itself. Everything else stays put.</p>
+            <p>Put the Verizon store next to the United Therapeutics training room and they look like different products, a red retail floor and a quiet grey clinical suite. But a host who has run one could run a session in the other without being shown how.</p>
+          </div>
+
+          <div class="duo">
+            <figure>
+              <div class="plate"><img src="img/airspace/vz-room.jpg" alt="The Verizon Airstore room: a rep and a customer side by side over a red store floor, a menu on the left with Clients, Experts, Documents, Promotions, Phones and Services, customer details on the right, and the dock below." width="1114" height="658" loading="lazy" decoding="async"></div>
+              <figcaption class="figcap">Verizon Airstore.</figcaption>
+            </figure>
+            <figure>
+              <div class="plate"><img src="img/airspace/ut-room.jpg" alt="The United Therapeutics room with the same layout: participants in the middle, a module menu on the left, training progress on the right and the dock below, in a grey clinical suite." width="1250" height="738" loading="lazy" decoding="async"></div>
+              <figcaption class="figcap">United Therapeutics.</figcaption>
+            </figure>
+          </div>
+
+          <div class="stories">
+            <div class="story"><span class="who">Stays the same in every space</span><p>The layout, the glass panels, the dock and its order, the prompt bar, the entry screen, and how content opens and closes.</p></div>
+            <div class="story"><span class="who">Changes for each client</span><p>The environment, the brand color and logo, the modules on the left, the fields in the context panel, and the content people open.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid">
+        <div class="sec-head"><span class="sec-n">04</span><h2>How it landed</h2></div>
+        <div>
+          <div class="col">
+            <p>Verizon Airstore was the first space built on the system, as a proof of value for connecting website visitors with in-store reps. The business case Mobeus modelled with it used Verizon's own footprint: 6,500 stores, two reps each, and 5 percent of their time adding up to about 7.2 million sessions a year. At a 1 percent conversion to a new line, that comes to roughly $145 million a year. The deck is clear that it's a simulation that still needs refining, not a result. But it's the argument the space was designed to make, and the design had to hold up while someone made it.</p>
+            <p>The United Therapeutics room took the same system into life sciences. It's a 28-screen flow for training sales teams on the Tyvaso DPI inhaler, from the welcome screen to a five-question knowledge check, with Expert Connect for bringing a product training lead into the room when the content runs out of answers.</p>
+            <p>Mobeus has since pointed the same platform at AI, with generated agents it calls teles taking the host's seat. What I took from it: new technology usually gets one chance with people who didn't ask for it. The job was to make the room feel familiar enough that nobody noticed how new it was.</p>
+          </div>
+
+          <ol class="stories flow">
+            <li class="story"><span class="who">Step 1 · Welcome</span><p>One question, your name, and you're in the room.</p></li>
+            <li class="story"><span class="who">Step 2 · The room</span><p>Host and trainee side by side, with the trainee's module and progress on the right.</p></li>
+            <li class="story"><span class="who">Step 3 · Device guide and resources</span><p>Recommended material opens as panels, and anything can be shared into the middle.</p></li>
+            <li class="story"><span class="who">Step 4 · HCP engagement</span><p>Open, load, inhale. How to walk a physician through the device, one card per step.</p></li>
+            <li class="story"><span class="who">Step 5 · Knowledge check</span><p>Five true or false questions, answered by voice or by tapping.</p></li>
+            <li class="story"><span class="who">Step 6 · Expert Connect</span><p>A product training lead joins, with their expertise and history in the side panel.</p></li>
+          </ol>
+
+          <div class="tally">
+            <div><span class="num">28</span><span class="lab">Screens in the training flow</span></div>
+            <div><span class="num">2</span><span class="lab">Client spaces</span></div>
+            <div><span class="num">3</span><span class="lab">Ways to give a command</span></div>
+            <div><span class="num">0</span><span class="lab">Headsets or downloads</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="endnote">
+    <div class="orb d" aria-hidden="true"></div>
+    <div class="wrap endnote-in">
+      <p class="eyebrow">Work with me</p>
+      <div data-rise>
+        <a class="mail-link" href="mailto:hollie@hollierichmond.com">hollie@hollierichmond.com</a>
+        <div class="elsewhere">
+          <a href="index.html#work">All work</a>
+          <a href="td.html">Territory Designer case study</a>
+          <a href="oce.html">OCE case study</a>
+          <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+          <a href="https://www.linkedin.com/in/holliejrichmond" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <footer>
+      <span>&#169; 2026 Hollie Richmond</span>
+      <span>Designed and built in New Jersey</span>
+    </footer>
+  </div>
+
+</main>
+
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var rise = Array.prototype.slice.call(document.querySelectorAll('[data-rise]'));
+  if (!('IntersectionObserver' in window) || reduce) {
+    rise.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+  rise.forEach(function(el){ io.observe(el); });
+  requestAnimationFrame(function(){
+    rise.forEach(function(el){
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
