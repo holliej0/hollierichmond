@@ -126,6 +126,26 @@
     font-size:clamp(19px,2.3vw,28px);line-height:1.28;letter-spacing:-.015em;margin:0;
   }
 
+
+  /* ---------- headshot: background removed, edges feathered in the image itself ---------- */
+  .holo{display:none}
+  @media (min-width:960px){
+    .holo{
+      display:block;position:absolute;z-index:0;right:var(--gut);top:clamp(-40px,-3vw,-10px);
+      width:clamp(240px,22vw,340px);aspect-ratio:3/4;pointer-events:none;
+      animation:holo-float 7s ease-in-out infinite;
+    }
+    .holo-glow{
+      position:absolute;inset:4% -12% 10%;border-radius:50%;
+      background:radial-gradient(ellipse at 50% 42%,rgba(163,155,240,.42) 0%,rgba(60,130,200,.2) 42%,rgba(9,9,12,0) 70%);
+      filter:blur(34px);
+    }
+    .holo-frame{position:absolute;inset:0}
+    .holo-frame img{width:100%;height:100%;object-fit:contain;display:block}
+  }
+  @keyframes holo-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  @media (prefers-reduced-motion:reduce){.holo{animation:none}}
+
   /* ---------- section labels ---------- */
   .sec-label{
     font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
@@ -371,6 +391,10 @@
     </div>
     <div class="grid-lines" aria-hidden="true"></div>
     <div class="wrap hero-in">
+      <div class="holo" aria-hidden="true">
+        <div class="holo-glow"></div>
+        <div class="holo-frame"><img src="img/headshot.webp" alt="" width="900" height="1200" fetchpriority="high" decoding="async"></div>
+      </div>
       <h1 data-px="-0.06">Product design for complex <em>enterprise and healthcare</em> software.</h1>
       <div class="hero-lede" data-px="0.04">
         <p>I'm a senior product/UI designer who specializes in turning <strong>complex enterprise and healthcare products</strong> into polished, scalable experiences, with deep design-system expertise and increasingly AI-native product experience.</p>
