@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Hollie Richmond, senior UI and product designer for big brands and complex products. Selected work for IQVIA, KKR, Unisys, Mobeus, Northeastern University, Underscore Marketing and Rebound.">
-<meta name="theme-color" content="#09090C">
+<title>Hollie Richmond</title>
+<meta name="description" content="Hollie Richmond, product design leader who makes complex products easier to use, scale, and ship. Selected work for IQVIA, KKR, Unisys, Mobeus, Northeastern University, Underscore Marketing and Rebound.">
+<meta name="theme-color" content="#ffffff">
 <link rel="canonical" href="https://hollierichmond.com/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hollie Richmond">
@@ -13,704 +14,227 @@
 <meta property="og:image" content="https://hollierichmond.com/img/w01.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<style>
-  :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-  body{margin:0}
-  img{max-width:100%}
-  [hidden]{display:none!important}
-</style>
-<title>Hollie Richmond</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&display=swap">
-<style>
-  :root{
-    color-scheme: dark;
-    --ink:#09090C;
-    --ink-raised:#131219;
-    --mat:#A4A1AC;
-    --paper:#EDEBF0;
-    --muted:#8B8796;
-    --line:rgba(237,235,240,.11);
-    --line-soft:rgba(237,235,240,.06);
-    --accent:#A39BF0;
-    /* one typeface throughout — Archivo. The three roles differ only by
-       weight, size and letter-spacing. --label was formerly a mono face. */
-    --display:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
-    --body:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
-    --mono:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
-    --gut:clamp(20px,5vw,72px);
-    --rule:1px solid var(--line);
-  }
-
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    background:var(--ink);
-    color:var(--paper);
-    font-family:var(--body);
-    font-weight:400;
-    font-size:16px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  img{max-width:100%;display:block}
-  a{color:inherit;text-decoration:none}
-  ::selection{background:var(--accent);color:#0b0a10}
-  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
-
-  .wrap{width:100%;max-width:1440px;margin:0 auto;padding-inline:var(--gut)}
-
-  /* ---------- top bar ---------- */
-  .bar{
-    position:fixed;top:0;left:0;right:0;z-index:50;
-    padding-top:calc(14px + env(safe-area-inset-top,0px));
-    padding-bottom:14px;
-    background:linear-gradient(to bottom,rgba(9,9,12,.92),rgba(9,9,12,.72) 60%,rgba(9,9,12,0));
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
-  }
-  .bar-in{display:flex;align-items:baseline;justify-content:space-between;gap:10px 16px;flex-wrap:wrap}
-  .sig{font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:-.01em;white-space:nowrap}
-  .sig span{color:var(--muted);font-weight:500;display:none}
-  @media (min-width:520px){.sig span{display:inline}}
-  .bar nav{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px clamp(13px,2.5vw,28px);font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
-  .bar nav a{transition:color .25s}
-  .bar nav a:hover{color:var(--paper)}
-  .bar nav .mail{display:none}
-  @media (min-width:720px){.bar nav .mail{display:inline}}
-
-  /* ---------- hero ---------- */
-  .hero{
-    position:relative;
-    padding-block:clamp(130px,20vh,210px) clamp(56px,9vh,104px);
-    overflow:hidden;
-  }
-  .field{position:absolute;inset:-20% -10%;z-index:0;pointer-events:none}
-  .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5}
-  .orb.a{width:46vw;height:46vw;left:-8vw;top:6vh;background:radial-gradient(circle,#4A3FA8 0%,rgba(74,63,168,0) 70%)}
-  .orb.b{width:38vw;height:38vw;right:-6vw;top:-6vh;background:radial-gradient(circle,#2E5C8A 0%,rgba(46,92,138,0) 70%);opacity:.42}
-  .orb.c{width:30vw;height:30vw;left:42vw;top:40vh;background:radial-gradient(circle,#7A5F9E 0%,rgba(122,95,158,0) 70%);opacity:.3}
-  .grid-lines{
-    position:absolute;inset:0;z-index:0;pointer-events:none;
-    background-image:linear-gradient(to right,var(--line-soft) 1px,transparent 1px);
-    background-size:calc(100% / 6) 100%;
-    mask-image:linear-gradient(to bottom,transparent,#000 22%,#000 70%,transparent);
-    -webkit-mask-image:linear-gradient(to bottom,transparent,#000 22%,#000 70%,transparent);
-  }
-  .hero-in{position:relative;z-index:1}
-  h1{
-    font-family:var(--display);font-weight:700;
-    font-size:clamp(30px,4.9vw,66px);
-    line-height:1.04;letter-spacing:-.032em;
-    margin:0;max-width:17ch;text-wrap:balance;
-  }
-  h1 em{font-style:normal;color:var(--accent)}
-  .hero-lede{
-    display:grid;gap:clamp(18px,2.6vw,40px);
-    grid-template-columns:1fr;
-    margin-top:clamp(32px,5vw,60px);
-    padding-top:clamp(24px,3vw,36px);
-    border-top:var(--rule);
-  }
-  .hero-lede p{max-width:70ch}
-  .hero-lede p{
-    margin:0;color:#D6D2DC;
-    font-size:clamp(15.5px,1.5vw,19px);line-height:1.6;
-  }
-  .hero-lede strong{color:var(--paper);font-weight:500}
-  /* the contact line still uses .role */
-  .role{
-    font-family:var(--display);font-weight:600;
-    font-size:clamp(19px,2.3vw,28px);line-height:1.28;letter-spacing:-.015em;margin:0;
-  }
-
-
-  /* ---------- headshot: background removed, edges feathered in the image itself ---------- */
-  .holo{display:none}
-  @media (min-width:960px){
-    .holo{
-      display:block;position:absolute;z-index:0;right:var(--gut);top:clamp(-40px,-3vw,-10px);
-      width:clamp(260px,24vw,370px);aspect-ratio:900/1093;pointer-events:none;
-      animation:holo-float 7s ease-in-out infinite;
-    }
-    .holo-glow{
-      position:absolute;inset:4% -12% 10%;border-radius:50%;
-      background:radial-gradient(ellipse at 50% 42%,rgba(163,155,240,.38) 0%,rgba(110,90,210,.22) 42%,rgba(9,9,12,0) 70%);
-      filter:blur(34px);
-    }
-    .holo-frame{position:absolute;inset:0}
-    .holo-frame img{width:100%;height:100%;object-fit:contain;display:block}
-  }
-  @keyframes holo-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-  @media (prefers-reduced-motion:reduce){.holo{animation:none}}
-
-  /* ---------- section labels ---------- */
-  .sec-label{
-    font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--muted);margin:0 0 clamp(20px,3vw,32px);
-    display:flex;align-items:center;gap:14px;
-  }
-  .sec-label::after{content:"";flex:1;height:1px;background:var(--line)}
-
-  /* ---------- work ---------- */
-  .work{padding-bottom:clamp(40px,7vw,90px)}
-  .proj{
-    position:relative;
-    padding-block:clamp(52px,9vw,120px);
-    border-top:var(--rule);
-  }
-  .proj-in{
-    display:grid;gap:clamp(22px,3.5vw,54px);
-    grid-template-columns:1fr;
-    align-items:start;
-  }
-  @media (min-width:900px){
-    .proj-in{grid-template-columns:minmax(210px,1fr) minmax(0,2.35fr)}
-    .proj:nth-child(even) .proj-in{grid-template-columns:minmax(0,2.35fr) minmax(210px,1fr)}
-    .proj:nth-child(even) .rail{order:2}
-    .proj:nth-child(even) .plate-wrap{order:1}
-    .rail{position:sticky;top:calc(96px + env(safe-area-inset-top,0px))}
-  }
-  .rail{display:flex;flex-direction:column;gap:18px}
-  .rail-n{
-    font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--accent);
-  }
-  .rail h2{
-    font-family:var(--display);font-weight:700;
-    font-size:clamp(25px,3.6vw,44px);line-height:1.02;letter-spacing:-.03em;
-    margin:0;text-wrap:balance;
-  }
-  .client{
-    font-family:var(--mono);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;
-    color:var(--muted);margin:0;
-  }
-  .spec{
-    margin:0;padding-top:16px;border-top:1px solid var(--line-soft);
-    display:grid;grid-template-columns:auto 1fr;gap:6px 18px;
-    font-family:var(--mono);font-size:11.5px;line-height:1.55;
-  }
-  .spec dt{color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
-  .spec dd{margin:0;color:var(--paper)}
-
-  .cs-link{
-    align-self:start;
-    font-family:var(--mono);font-size:11.5px;font-weight:500;
-    letter-spacing:.11em;text-transform:uppercase;color:var(--accent);
-    padding-bottom:4px;
-    background-image:linear-gradient(var(--accent),var(--accent));
-    background-size:100% 1px;background-position:0 100%;background-repeat:no-repeat;
-    transition:color .25s,background-size .35s cubic-bezier(.2,.7,.3,1);
-  }
-  .cs-link:hover{color:var(--paper);background-size:0 1px}
-
-  .plate-wrap{position:relative}
-  .ghost{
-    position:absolute;z-index:0;pointer-events:none;
-    font-family:var(--display);font-weight:800;
-    font-size:clamp(88px,15vw,210px);line-height:.8;letter-spacing:-.05em;
-    color:rgba(237,235,240,.045);
-    top:-.28em;right:-.06em;
-    user-select:none;
-  }
-  .proj:nth-child(even) .ghost{right:auto;left:-.06em}
-  .plate{
-    position:relative;z-index:1;overflow:hidden;display:block;width:100%;
-    background:var(--mat);
-    padding:5.5% 4.5%;
-    border:0;cursor:zoom-in;
-    box-shadow:0 30px 70px -30px rgba(0,0,0,.85);
-    transition:box-shadow .5s cubic-bezier(.2,.7,.3,1);
-  }
-  .plate img{width:100%;height:auto;will-change:transform}
-  .plate::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(to top,rgba(9,9,12,.34),rgba(9,9,12,0) 42%);
-    opacity:0;transition:opacity .45s ease;pointer-events:none;
-  }
-  .plate:hover::after,.plate:focus-visible::after{opacity:1}
-  .plate:hover{box-shadow:0 40px 90px -30px rgba(0,0,0,.95)}
-  .expand{
-    position:absolute;z-index:2;right:14px;bottom:14px;
-    display:inline-flex;align-items:center;gap:8px;
-    padding:8px 13px;
-    font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
-    color:var(--paper);background:rgba(9,9,12,.72);
-    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-    opacity:0;transform:translateY(6px);
-    transition:opacity .4s ease,transform .4s cubic-bezier(.2,.7,.3,1);
-    pointer-events:none;
-  }
-  .plate:hover .expand,.plate:focus-visible .expand{opacity:1;transform:none}
-  @media (hover:none){.expand{opacity:1;transform:none}}
-
-  /* ---------- expanded view ---------- */
-  .viewer{
-    position:fixed;inset:0;z-index:100;
-    display:none;
-    background:rgba(6,6,9,.97);
-    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  }
-  .viewer[data-open]{display:grid;grid-template-rows:auto 1fr}
-  .viewer-bar{
-    display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;
-    padding:calc(16px + env(safe-area-inset-top,0px)) var(--gut) 14px;
-    border-bottom:var(--rule);
-  }
-  .viewer-meta{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;min-width:0}
-  .viewer-n{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--accent)}
-  .viewer-title{
-    font-family:var(--display);font-weight:700;font-size:clamp(15px,2.2vw,22px);
-    letter-spacing:-.02em;margin:0;
-  }
-  .viewer-client{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
-  .viewer-tools{display:flex;align-items:center;gap:6px}
-  .vbtn{
-    appearance:none;border:1px solid var(--line);background:transparent;color:var(--muted);
-    font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-    padding:7px 12px;cursor:pointer;line-height:1;
-    transition:color .25s,border-color .25s;
-  }
-  .vbtn:hover:not(:disabled){color:var(--paper);border-color:var(--paper)}
-  .vbtn:disabled{opacity:.3;cursor:default}
-  .vbtn.close{color:var(--paper)}
-  .viewer-stage{
-    overflow:auto;
-    padding:clamp(14px,2.5vw,32px) var(--gut) calc(clamp(14px,2.5vw,32px) + env(safe-area-inset-bottom,0px));
-    display:grid;place-items:start center;
-    -webkit-overflow-scrolling:touch;
-  }
-  .viewer-stage img{
-    background:var(--mat);
-    max-width:100%;height:auto;
-    cursor:zoom-in;
-    box-shadow:0 30px 80px -30px rgba(0,0,0,.9);
-  }
-  .viewer-stage.zoom{place-items:start}
-  .viewer-stage.zoom img{max-width:none;width:2600px;cursor:zoom-out}
-  .viewer-hint{
-    font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
-    color:var(--muted);
-  }
-  @media (max-width:620px){.viewer-hint{display:none}}
-  body.locked{overflow:hidden}
-
-  /* ---------- capability columns (in the hero) ---------- */
-  .caps{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
-  .hero-caps{
-    margin-top:clamp(28px,4vw,48px);
-    padding-top:clamp(24px,3vw,36px);
-    border-top:var(--rule);
-  }
-  @media (min-width:640px){.hero-caps{grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px)}}
-  .cap h3{
-    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--accent);margin:0 0 10px;padding-bottom:9px;border-bottom:1px solid var(--line-soft);
-  }
-  .cap ul{list-style:none;margin:0;padding:0;font-size:14px;color:var(--muted);line-height:1.85}
-
-  /* ---------- contact ---------- */
-  .contact{padding-block:clamp(64px,11vw,140px);border-top:var(--rule);position:relative;overflow:hidden}
-  .contact .orb.d{width:52vw;height:52vw;left:20vw;bottom:-32vw;background:radial-gradient(circle,#5347B5 0%,rgba(83,71,181,0) 70%);opacity:.34;position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none}
-  .contact-in{position:relative;z-index:1}
-  .contact .mail-link{
-    display:inline-block;
-    font-family:var(--display);font-weight:700;
-    font-size:clamp(25px,6.2vw,80px);line-height:1;letter-spacing:-.035em;
-    margin:clamp(16px,2.5vw,26px) 0 0;
-    word-break:break-word;
-    background-image:linear-gradient(var(--accent),var(--accent));
-    background-size:0 2px;background-position:0 100%;background-repeat:no-repeat;
-    transition:background-size .45s cubic-bezier(.2,.7,.3,1),color .3s;
-  }
-  .contact .mail-link:hover{background-size:100% 2px;color:var(--accent)}
-  .resume-row{margin:clamp(26px,3.5vw,40px) 0 0}
-  .btn{
-    display:inline-flex;align-items:center;gap:10px;
-    font-family:var(--mono);font-size:12px;font-weight:500;
-    letter-spacing:.12em;text-transform:uppercase;
-    color:var(--ink);background:var(--accent);
-    padding:15px 26px;border-radius:999px;
-    transition:background .25s,transform .25s cubic-bezier(.2,.7,.3,1);
-  }
-  .btn:hover{background:var(--paper);transform:translateY(-2px)}
-  .elsewhere{
-    display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:clamp(26px,4vw,44px);
-    font-family:var(--mono);font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
-  }
-  .elsewhere a{transition:color .25s}
-  .elsewhere a:hover{color:var(--accent)}
-  .elsewhere a[target]::after{content:" ↗";letter-spacing:0}
-
-  footer{
-    padding-block:26px 34px;border-top:var(--rule);
-    font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
-    display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;
-  }
-
-  /* Archivo is lighter than the mono face these labels used to be set in —
-     medium weight keeps them reading as labels at small sizes. */
-  .bar nav, .sec-label, .rail-n, .client, .spec dt, .cap h3,
-  .expand, .viewer-n, .viewer-client, .vbtn, .viewer-hint,
-  .elsewhere, footer{font-weight:500}
-
-  /* ---------- motion ---------- */
-  /* transform only — text stays legible even if the observer never fires */
-  .js [data-rise]{transform:translate3d(0,18px,0);transition:transform 1s cubic-bezier(.16,.84,.34,1)}
-  .js [data-rise].in{transform:none}
-  @media (prefers-reduced-motion:reduce){
-    *{animation:none!important;transition-duration:.01ms!important}
-    [data-rise]{transform:none!important;opacity:1!important}
-    .rail{position:static}
-  }
-</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="light.css?v=1">
 </head>
 <body>
 <script>document.documentElement.classList.add('js');</script>
 
 <header class="bar">
   <div class="wrap bar-in">
-    <a class="sig" href="#top">Hollie Richmond <span>· Portfolio</span></a>
+    <a class="sig" href="#top">Hollie Richmond</a>
     <nav>
       <a href="#work">Work</a>
+      <a class="opt" href="#more">More work</a>
       <a href="#contact">Contact</a>
-      <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
-      <a class="mail" href="mailto:hollie@hollierichmond.com">hollie@hollierichmond.com</a>
+      <a class="opt" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
 
-  <section class="hero">
-    <div class="field" aria-hidden="true">
-      <div class="orb a" data-px="-0.14"></div>
-      <div class="orb b" data-px="0.18"></div>
-      <div class="orb c" data-px="-0.26"></div>
-    </div>
-    <div class="grid-lines" aria-hidden="true"></div>
-    <div class="wrap hero-in">
-      <div class="holo" aria-hidden="true">
-        <div class="holo-glow"></div>
-        <div class="holo-frame"><img src="img/headshot.webp?v=2" alt="" width="900" height="1093" fetchpriority="high" decoding="async"></div>
+  <section class="home-hero">
+    <div class="wrap">
+      <img class="hero-photo" src="img/headshot-light.jpg" alt="Hollie Richmond" width="480" height="480" fetchpriority="high" decoding="async">
+      <p class="eyebrow">Hollie Richmond · Product/UI Designer</p>
+      <h1>Complex products, made simple.</h1>
+      <p class="lede">I design enterprise, healthcare and AI products, and the design systems that keep them consistent.</p>
+      <div class="cta">
+        <a class="btn" href="#work">See the work</a>
+        <a class="btn ghost" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
       </div>
-      <h1 data-px="-0.06">UI and product design for <em>big brands and complex products</em>.</h1>
-      <div class="hero-lede" data-px="0.04">
-        <p>I'm a senior UI designer who turns <strong>complex products and well-known brands</strong> into polished, consistent experiences. I bring deep design-system expertise, years of agency and enterprise work, and hands-on experience designing AI-native products.</p>
+
+      <div class="caps two" data-rise>
+        <div class="cap">
+          <h3>Product</h3>
+          <ul><li>Enterprise UX/UI</li><li>Data visualization</li><li>Wireframing</li><li>Prototyping</li></ul>
+        </div>
+        <div class="cap">
+          <h3>Systems</h3>
+          <ul><li>Design systems</li><li>Component libraries</li><li>Style guides</li><li>Design tokens</li></ul>
+        </div>
       </div>
-    <div class="caps hero-caps" data-rise>
-      <div class="cap">
-        <h3>Product</h3>
-        <ul>
-          <li>Enterprise UX/UI</li>
-          <li>Data visualization</li>
-          <li>Wireframing</li>
-          <li>Prototyping</li>
-        </ul>
-      </div>
-      <div class="cap">
-        <h3>Systems</h3>
-        <ul>
-          <li>Design systems</li>
-          <li>Component libraries</li>
-          <li>Style guides</li>
-          <li>Design tokens</li>
-        </ul>
-      </div>
-      <div class="cap">
-        <h3>Brand</h3>
-        <ul>
-          <li>Web design</li>
-          <li>Campaign design</li>
-          <li>Social and motion</li>
-          <li>Editorial and print</li>
-        </ul>
-      </div>
-    </div>
     </div>
   </section>
 
-  <section class="work wrap" id="work" aria-label="Selected work">
+  <section class="band alt" id="work" aria-label="Case studies">
+    <div class="wrap wide">
+      <div class="sec-title" data-rise>
+        <h2>Case studies.</h2>
+        <p>Four products, start to finish: the problem, the decisions, and what shipped.</p>
+      </div>
 
-    <article class="proj" id="p1">
-      <div class="proj-in">
-        <div class="rail" data-rise>
-          <span class="rail-n">01</span>
+      <div class="tiles">
+        <a class="tile" href="oce.html" data-rise>
           <p class="client">IQVIA</p>
-          <h2>Territory Designer</h2>
-          <dl class="spec">
-            <dt>Role</dt><dd>Product design</dd>
-            <dt>Scope</dt><dd>Scenario builder, data import, map refinement</dd>
-            <dt>Output</dt><dd>Enterprise SaaS UI</dd>
-          </dl>
-          <a class="cs-link" href="td.html">Read the case study <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">01</span>
-          <button class="plate" type="button" data-view="01" aria-label="Expand this project's work"><img src="img/w01.jpg" alt="Territory Designer interface screens for IQVIA: a scenario dashboard over a mapped sales territory, a model creation panel, a data import mapping step, and a refinement view with coverage metrics and plotted accounts." width="1500" height="1094" loading="eager" fetchpriority="high" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
-        </div>
-      </div>
-    </article>
-    <article class="proj" id="p2">
-      <div class="proj-in">
-        <div class="rail" data-rise>
-          <span class="rail-n">02</span>
-          <p class="client">IQVIA</p>
-          <h2>Orchestrated Customer Engagement</h2>
-          <dl class="spec">
-            <dt>Role</dt><dd>UI design lead</dd>
-            <dt>Scope</dt><dd>Login, dashboard, calendar, territory search, review and sign</dd>
-            <dt>Output</dt><dd>iPad product UI</dd>
-          </dl>
-          <a class="cs-link" href="oce.html">Read the case study <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">02</span>
-          <button class="plate" type="button" data-view="12" aria-label="Expand this project's work"><img src="img/w12.jpg" alt="Five OCE iPad screens: a dashboard of appointments, to-dos and plans; a week calendar of scheduled calls; a branded login; a territory search pairing an HCP list with a map; and a review-and-sign screen capturing a physician signature." width="1500" height="940" loading="eager" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
-        </div>
-      </div>
-    </article>
-    <article class="proj" id="p3">
-      <div class="proj-in">
-        <div class="rail" data-rise>
-          <span class="rail-n">03</span>
-          <p class="client">Mobeus</p>
-          <h2>Immersive AI Meeting Platform</h2>
-          <dl class="spec">
-            <dt>Role</dt><dd>Product UI and spatial design system</dd>
-            <dt>Scope</dt><dd>Entry experience, immersive meeting room, content states</dd>
-            <dt>Output</dt><dd>Spatial product UI</dd>
-          </dl>
-          <a class="cs-link" href="airspace.html">Read the case study <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">03</span>
-          <button class="plate" type="button" data-view="07" aria-label="Expand this project's work"><img src="img/w07.jpg?v=2" alt="Mobeus Airspace screens: a welcome entry state over live video, an immersive virtual room with participants and an HCP engagement panel, and product training content shared inside the room." width="1500" height="920" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
-        </div>
-      </div>
-    </article>
-    <article class="proj" id="p4">
-      <div class="proj-in">
-        <div class="rail" data-rise>
-          <span class="rail-n">04</span>
+          <h3>Orchestrated Customer Engagement</h3>
+          <p class="sum">The iPad CRM pharmaceutical reps use to log regulated calls. I led the UI design with a team of five.</p>
+          <span class="more">Read the case study</span>
+          <div class="shot"><img src="img/w12.jpg" alt="Five OCE iPad screens: a dashboard of appointments, to-dos and plans; a week calendar of scheduled calls; a branded login; a territory search pairing an HCP list with a map; and a review-and-sign screen capturing a physician signature." width="1500" height="940" loading="eager" decoding="async"></div>
+        </a>
+
+        <a class="tile" href="unisys.html" data-rise>
           <p class="client">Unisys</p>
-          <h2>Design System</h2>
-          <dl class="spec">
-            <dt>Role</dt><dd>Design systems</dd>
-            <dt>Scope</dt><dd>Color ramps, type scale, icons, controls, alerts</dd>
-            <dt>Output</dt><dd>Documented component library</dd>
-          </dl>
-        </div>
-        <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">04</span>
-          <button class="plate" type="button" data-view="04" aria-label="Expand this project's work"><img src="img/w04.jpg" alt="Unisys design system pages: cover, icon grid, checkbox and radio states, a Tomato Grotesk type scale, button states, twelve-step color ramps, and alert message patterns." width="1500" height="1272" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
-        </div>
-      </div>
-    </article>
-    <article class="proj" id="p5">
-      <div class="proj-in">
-        <div class="rail" data-rise>
-          <span class="rail-n">05</span>
-          <p class="client">Sola Salons</p>
-          <h2>UI Style Guide</h2>
-          <dl class="spec">
-            <dt>Role</dt><dd>Design systems</dd>
-            <dt>Scope</dt><dd>Color, typography, buttons, cards, accessibility standards</dd>
-            <dt>Output</dt><dd>Published Figma library</dd>
-          </dl>
-        </div>
-        <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">05</span>
-          <button class="plate" type="button" data-view="13" aria-label="Expand this project's work"><img src="img/w13.jpg" alt="Four pages of the Sola UI Style Guide: brand and accent colors with usage rules, the primary button matrix across four sizes and three states, a contrast table giving measured ratios and pass or fail for every text-on-background pairing, and card surface rules with the card type scale." width="1500" height="1062" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
-        </div>
-      </div>
-    </article>
-    <article class="proj" id="p6">
-      <div class="proj-in">
-        <div class="rail" data-rise>
-          <span class="rail-n">06</span>
-          <p class="client">IQVIA</p>
-          <h2>Data Visualizations Redesign</h2>
-          <dl class="spec">
-            <dt>Role</dt><dd>Data visualization, UI</dd>
-            <dt>Scope</dt><dd>Audit of current charts, redesigned component set, tapped states</dd>
-            <dt>Output</dt><dd>Mobile chart library</dd>
-          </dl>
-        </div>
-        <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">06</span>
-          <button class="plate" type="button" data-view="02" aria-label="Expand this project's work"><img src="img/w02.jpg" alt="Before-and-after chart component sheets: the existing IQVIA chart set beside a redesigned library of line, bar, donut, funnel and calendar components with tooltip states." width="1500" height="1433" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
-        </div>
-      </div>
-    </article>
-    <article class="proj" id="p7">
-      <div class="proj-in">
-        <div class="rail" data-rise>
-          <span class="rail-n">07</span>
-          <p class="client">KKR</p>
-          <h2>Style Guide &amp; Web Design</h2>
-          <dl class="spec">
-            <dt>Role</dt><dd>Web design, UI systems</dd>
-            <dt>Scope</dt><dd>Annotated wireframes, UI style guide, page design</dd>
-            <dt>Output</dt><dd>K-PRIME product site</dd>
-          </dl>
-        </div>
-        <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">07</span>
-          <button class="plate" type="button" data-view="05" aria-label="Expand this project's work"><img src="img/w05.jpg" alt="KKR K-PRIME work: an annotated wireframe of the About page, a UI style guide covering color palette, cards and form fields with redlines, and the finished web pages." width="1500" height="1305" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
-        </div>
-      </div>
-    </article>
-    <article class="proj" id="p8">
-      <div class="proj-in">
-        <div class="rail" data-rise>
-          <span class="rail-n">08</span>
-          <p class="client">Northeastern University</p>
-          <h2>Research Building Site</h2>
-          <dl class="spec">
-            <dt>Role</dt><dd>Web design, art direction</dd>
-            <dt>Scope</dt><dd>Home, mission, research and facilities pages</dd>
-            <dt>Output</dt><dd>Research building site</dd>
-          </dl>
-        </div>
-        <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">08</span>
-          <button class="plate" type="button" data-view="09" aria-label="Expand this project's work"><img src="img/w09.jpg" alt="Three full page designs for Northeastern's EXP research building: a welcome page, a mission page with building statistics, and a research page with facility galleries and news." width="1500" height="1328" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
-        </div>
-      </div>
-    </article>
-    <article class="proj" id="p9">
-      <div class="proj-in">
-        <div class="rail" data-rise>
-          <span class="rail-n">09</span>
-          <p class="client">IQVIA</p>
-          <h2>Marketing &amp; Launch Collateral</h2>
-          <dl class="spec">
-            <dt>Role</dt><dd>Brand and marketing design</dd>
-            <dt>Scope</dt><dd>Presentation, white paper, banner, product launch</dd>
-            <dt>Output</dt><dd>Print and digital collateral</dd>
-          </dl>
-        </div>
-        <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">09</span>
-          <button class="plate" type="button" data-view="03" aria-label="Expand this project's work"><img src="img/w03.jpg" alt="IQVIA marketing collateral: presentation slides on technology for life sciences, a multi-page Salesforce white paper, a vertical trade banner, and an Apollo product launch graphic." width="1500" height="1299" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
-        </div>
-      </div>
-    </article>
-    <article class="proj" id="p10">
-      <div class="proj-in">
-        <div class="rail" data-rise>
-          <span class="rail-n">10</span>
-          <p class="client">Underscore Marketing</p>
-          <h2>Brand &amp; Web Refresh</h2>
-          <dl class="spec">
-            <dt>Role</dt><dd>Brand and web design</dd>
-            <dt>Scope</dt><dd>White paper, site refresh, product page</dd>
-            <dt>Output</dt><dd>Brand and web system</dd>
-          </dl>
-        </div>
-        <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">10</span>
-          <button class="plate" type="button" data-view="10" aria-label="Expand this project's work"><img src="img/w10.jpg" alt="Underscore Marketing refresh: a pharma marketing white paper spread across six pages, and two web page designs including the PINNACLE Planning Suite product page." width="1500" height="1331" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
-        </div>
-      </div>
-    </article>
-    <article class="proj" id="p11">
-      <div class="proj-in">
-        <div class="rail" data-rise>
-          <span class="rail-n">11</span>
-          <p class="client">Northeastern University</p>
-          <h2>Global Leadership Summit</h2>
-          <dl class="spec">
-            <dt>Role</dt><dd>Campaign design</dd>
-            <dt>Scope</dt><dd>One pager, direct mail, email sequence</dd>
-            <dt>Output</dt><dd>London 2026 campaign</dd>
-          </dl>
-        </div>
-        <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">11</span>
-          <button class="plate" type="button" data-view="08" aria-label="Expand this project's work"><img src="img/w08.jpg" alt="Global Leadership Summit campaign: a London 2026 one pager with speaker lineup, a two-sided postcard, and a run of eight email designs in the same system." width="1500" height="1292" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
-        </div>
-      </div>
-    </article>
-    <article class="proj" id="p12">
-      <div class="proj-in">
-        <div class="rail" data-rise>
-          <span class="rail-n">12</span>
-          <p class="client">KKR</p>
-          <h2>Social Content System</h2>
-          <dl class="spec">
-            <dt>Role</dt><dd>Brand and social design</dd>
-            <dt>Scope</dt><dd>Card system, motion templates, vertical video</dd>
-            <dt>Output</dt><dd>Cards, videos, YouTube Shorts</dd>
-          </dl>
-        </div>
-        <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">12</span>
-          <button class="plate" type="button" data-view="06" aria-label="Expand this project's work"><img src="img/w06.jpg" alt="KKR social media system: announcement and quote cards, statistic cards on investor sentiment, vertical video frames, and YouTube Shorts covers featuring partners." width="1500" height="1185" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
-        </div>
-      </div>
-    </article>
-    <article class="proj" id="p13">
-      <div class="proj-in">
-        <div class="rail" data-rise>
-          <span class="rail-n">13</span>
-          <p class="client">Rebound</p>
-          <h2>GTM Content Series</h2>
-          <dl class="spec">
-            <dt>Role</dt><dd>Visual communications</dd>
-            <dt>Scope</dt><dd>Card series, fact sheets, process infographic</dd>
-            <dt>Output</dt><dd>Life sciences GTM content</dd>
-          </dl>
-        </div>
-        <div class="plate-wrap">
-          <span class="ghost" aria-hidden="true" data-px="0.3">13</span>
-          <button class="plate" type="button" data-view="11" aria-label="Expand this project's work"><img src="img/w11.jpg" alt="Rebound visual communications: a numbered social card series on GTM decision friction, team spotlight and holiday cards, two fact sheets, and a marketing independence map infographic." width="1500" height="1121" loading="lazy" decoding="async" data-px="0.05"><span class="expand" aria-hidden="true">Expand &nbsp;↗</span></button>
-        </div>
-      </div>
-    </article>
+          <h3>Design System</h3>
+          <p class="sum">Tokens, type, icons and components with light and dark modes, and the dashboard and AI screens built on them.</p>
+          <span class="more">Read the case study</span>
+          <div class="shot"><img src="img/unisys/cover.jpg" alt="The Unisys Design System cover: the Unisys logo and the words Design System over a green field with a flowing glass and ribbon form." width="1920" height="1080" loading="lazy" decoding="async"></div>
+        </a>
 
-  </section>
+        <a class="tile" href="airspace.html" data-rise>
+          <p class="client">Mobeus</p>
+          <h3>Immersive AI Meeting Platform</h3>
+          <p class="sum">Product UI and the spatial design system behind Airglass, a shared 3D space that runs in an ordinary browser.</p>
+          <span class="more">Read the case study</span>
+          <div class="shot"><img src="img/w07.jpg?v=2" alt="Mobeus Airspace screens: a welcome entry state over live video, an immersive virtual room with participants and an HCP engagement panel, and product training content shared inside the room." width="1500" height="920" loading="eager" decoding="async"></div>
+        </a>
 
-  <section class="contact" id="contact">
-    <div class="orb d" aria-hidden="true" data-px="-0.12"></div>
-    <div class="wrap contact-in">
-      <p class="sec-label">Contact</p>
-      <div data-rise>
-        <a class="mail-link" href="mailto:hollie@hollierichmond.com">hollie@hollierichmond.com</a>
-        <p class="resume-row">
-          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span></a>
-        </p>
-        <div class="elsewhere">
-          <a href="https://www.linkedin.com/in/holliejrichmond" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="tel:+19739789680">973.978.9680</a>
-        </div>
+        <a class="tile" href="td.html" data-rise>
+          <p class="client">IQVIA</p>
+          <h3>Territory Designer</h3>
+          <p class="sum">A tool for splitting a country into fair sales territories, comparing versions, and showing the work before sign-off.</p>
+          <span class="more">Read the case study</span>
+          <div class="shot"><img src="img/w01.jpg" alt="Territory Designer interface screens for IQVIA: a scenario dashboard over a mapped sales territory, a model creation panel, a data import mapping step, and a refinement view with coverage metrics and plotted accounts." width="1500" height="1094" loading="lazy" decoding="async"></div>
+        </a>
       </div>
     </div>
   </section>
 
-  <div class="wrap">
+  <section class="band" id="more" aria-label="More systems work">
+    <div class="wrap wide">
+      <div class="sec-title" data-rise>
+        <h2>More systems work.</h2>
+        <p>Style guides, component libraries and data visualization. Select any project to see it full size.</p>
+      </div>
+      <div class="grid-work">
+        <button class="card" type="button" data-view="13" data-n="05" data-rise aria-label="Expand UI Style Guide">
+          <div class="img"><img src="img/w13.jpg" alt="Four pages of the Sola UI Style Guide: brand and accent colors with usage rules, the primary button matrix across four sizes and three states, a contrast table giving measured ratios and pass or fail for every text-on-background pairing, and card surface rules with the card type scale." width="1500" height="1062" loading="lazy" decoding="async"></div>
+          <div class="meta">
+            <p class="client">Sola Salons</p>
+            <h3>UI Style Guide</h3>
+            <p class="role">Color, typography, buttons, cards, accessibility standards</p>
+          </div>
+        </button>
+        <button class="card" type="button" data-view="02" data-n="06" data-rise aria-label="Expand Data Visualizations Redesign">
+          <div class="img"><img src="img/w02.jpg" alt="Before-and-after chart component sheets: the existing IQVIA chart set beside a redesigned library of line, bar, donut, funnel and calendar components with tooltip states." width="1500" height="1433" loading="lazy" decoding="async"></div>
+          <div class="meta">
+            <p class="client">IQVIA</p>
+            <h3>Data Visualizations Redesign</h3>
+            <p class="role">Audit of current charts, redesigned component set, tapped states</p>
+          </div>
+        </button>
+        <button class="card" type="button" data-view="05" data-n="07" data-rise aria-label="Expand Style Guide &amp; Web Design">
+          <div class="img"><img src="img/w05.jpg" alt="KKR K-PRIME work: an annotated wireframe of the About page, a UI style guide covering color palette, cards and form fields with redlines, and the finished web pages." width="1500" height="1305" loading="lazy" decoding="async"></div>
+          <div class="meta">
+            <p class="client">KKR</p>
+            <h3>Style Guide &amp; Web Design</h3>
+            <p class="role">Annotated wireframes, UI style guide, page design</p>
+          </div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="earlier" aria-label="Earlier brand and web work">
+    <div class="wrap wide">
+      <div class="sec-title" data-rise>
+        <h2>Earlier brand and web work.</h2>
+        <p>Sites, campaigns and content systems for KKR, Northeastern, IQVIA and others.</p>
+      </div>
+      <div class="grid-work">
+        <button class="card" type="button" data-view="09" data-n="08" data-rise aria-label="Expand Research Building Site">
+          <div class="img"><img src="img/w09.jpg" alt="Three full page designs for Northeastern's EXP research building: a welcome page, a mission page with building statistics, and a research page with facility galleries and news." width="1500" height="1328" loading="lazy" decoding="async"></div>
+          <div class="meta">
+            <p class="client">Northeastern University</p>
+            <h3>Research Building Site</h3>
+            <p class="role">Home, mission, research and facilities pages</p>
+          </div>
+        </button>
+        <button class="card" type="button" data-view="03" data-n="09" data-rise aria-label="Expand Marketing &amp; Launch Collateral">
+          <div class="img"><img src="img/w03.jpg" alt="IQVIA marketing collateral: presentation slides on technology for life sciences, a multi-page Salesforce white paper, a vertical trade banner, and an Apollo product launch graphic." width="1500" height="1299" loading="lazy" decoding="async"></div>
+          <div class="meta">
+            <p class="client">IQVIA</p>
+            <h3>Marketing &amp; Launch Collateral</h3>
+            <p class="role">Presentation, white paper, banner, product launch</p>
+          </div>
+        </button>
+        <button class="card" type="button" data-view="10" data-n="10" data-rise aria-label="Expand Brand &amp; Web Refresh">
+          <div class="img"><img src="img/w10.jpg" alt="Underscore Marketing refresh: a pharma marketing white paper spread across six pages, and two web page designs including the PINNACLE Planning Suite product page." width="1500" height="1331" loading="lazy" decoding="async"></div>
+          <div class="meta">
+            <p class="client">Underscore Marketing</p>
+            <h3>Brand &amp; Web Refresh</h3>
+            <p class="role">White paper, site refresh, product page</p>
+          </div>
+        </button>
+        <button class="card" type="button" data-view="08" data-n="11" data-rise aria-label="Expand Global Leadership Summit">
+          <div class="img"><img src="img/w08.jpg" alt="Global Leadership Summit campaign: a London 2026 one pager with speaker lineup, a two-sided postcard, and a run of eight email designs in the same system." width="1500" height="1292" loading="lazy" decoding="async"></div>
+          <div class="meta">
+            <p class="client">Northeastern University</p>
+            <h3>Global Leadership Summit</h3>
+            <p class="role">One pager, direct mail, email sequence</p>
+          </div>
+        </button>
+        <button class="card" type="button" data-view="06" data-n="12" data-rise aria-label="Expand Social Content System">
+          <div class="img"><img src="img/w06.jpg" alt="KKR social media system: announcement and quote cards, statistic cards on investor sentiment, vertical video frames, and YouTube Shorts covers featuring partners." width="1500" height="1185" loading="lazy" decoding="async"></div>
+          <div class="meta">
+            <p class="client">KKR</p>
+            <h3>Social Content System</h3>
+            <p class="role">Card system, motion templates, vertical video</p>
+          </div>
+        </button>
+        <button class="card" type="button" data-view="11" data-n="13" data-rise aria-label="Expand GTM Content Series">
+          <div class="img"><img src="img/w11.jpg" alt="Rebound visual communications: a numbered social card series on GTM decision friction, team spotlight and holiday cards, two fact sheets, and a marketing independence map infographic." width="1500" height="1121" loading="lazy" decoding="async"></div>
+          <div class="meta">
+            <p class="client">Rebound</p>
+            <h3>GTM Content Series</h3>
+            <p class="role">Card series, fact sheets, process infographic</p>
+          </div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="band contact" id="contact">
+    <div class="wrap" data-rise>
+      <p class="eyebrow">Contact</p>
+      <h2>Let's talk.</h2>
+      <p class="avail">Open to Staff, Principal and Lead product design roles. Remote, US (Eastern time).</p>
+      <a class="mail-link" href="mailto:hollie@hollierichmond.com">hollie@hollierichmond.com</a>
+      <div class="row">
+        <a class="btn" href="mailto:hollie@hollierichmond.com">Email me</a>
+        <a class="btn ghost" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+      <div class="elsewhere">
+        <a href="https://www.linkedin.com/in/holliejrichmond" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="tel:+19739789680">973.978.9680</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="foot-wrap"><div class="wrap">
     <footer>
       <span>© 2026 Hollie Richmond</span>
       <span>Designed and built in New Jersey</span>
     </footer>
-  </div>
+  </div></div>
 
 </main>
 
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-title" hidden>
   <div class="viewer-bar">
     <div class="viewer-meta">
-      <span class="viewer-n" id="viewer-n">01</span>
-      <span class="viewer-client" id="viewer-client">IQVIA</span>
-      <h2 class="viewer-title" id="viewer-title">Territory Designer</h2>
+      <span class="viewer-client" id="viewer-client"></span>
+      <h2 class="viewer-title" id="viewer-title"></h2>
+      <span class="viewer-n" id="viewer-n"></span>
     </div>
     <div class="viewer-tools">
       <span class="viewer-hint">Click image to zoom · ← → to browse · Esc to close</span>
       <button class="vbtn" type="button" id="v-prev" aria-label="Previous project">←</button>
       <button class="vbtn" type="button" id="v-next" aria-label="Next project">→</button>
-      <button class="vbtn close" type="button" id="v-close" aria-label="Close expanded view">Close ✕</button>
+      <button class="vbtn" type="button" id="v-close" aria-label="Close expanded view">✕</button>
     </div>
   </div>
   <div class="viewer-stage" id="viewer-stage">
@@ -721,8 +245,6 @@
 <script>
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* reveal on enter — elements rest visible if observer is unavailable */
   var rise = Array.prototype.slice.call(document.querySelectorAll('[data-rise]'));
   if (!('IntersectionObserver' in window) || reduce) {
     rise.forEach(function(el){ el.classList.add('in'); });
@@ -731,147 +253,83 @@
       entries.forEach(function(e){
         if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
     rise.forEach(function(el){ io.observe(el); });
-    /* anything already on screen at load shows immediately */
     requestAnimationFrame(function(){
-      rise.forEach(function(el){
-        var r = el.getBoundingClientRect();
-        if (r.top < window.innerHeight) el.classList.add('in');
-      });
+      rise.forEach(function(el){ if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in'); });
     });
   }
 
-  if (reduce) return;
-
-  var layers = Array.prototype.slice.call(document.querySelectorAll('[data-px]')).map(function(el){
-    return { el: el, speed: parseFloat(el.getAttribute('data-px')) || 0 };
-  });
-
-  var ticking = false;
-  function frame(){
-    ticking = false;
-    var vh = window.innerHeight;
-    for (var i = 0; i < layers.length; i++) {
-      var l = layers[i];
-      var r = l.el.getBoundingClientRect();
-      if (r.bottom < -vh * 0.6 || r.top > vh * 1.6) continue;
-      var mid = r.top + r.height / 2;
-      var p = (mid - vh / 2) / vh;          /* -1 above centre, +1 below */
-      if (p > 1.4) p = 1.4; else if (p < -1.4) p = -1.4;
-      l.el.style.transform = 'translate3d(0,' + (p * l.speed * 100).toFixed(2) + 'px,0)';
-    }
-  }
-  function onScroll(){
-    if (!ticking) { ticking = true; requestAnimationFrame(frame); }
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  frame();
-
-  /* smooth anchor scrolling with a little room under the fixed bar */
   document.addEventListener('click', function(ev){
     var a = ev.target.closest && ev.target.closest('a[href^="#"]');
     if (!a) return;
     var id = a.getAttribute('href');
-    if (id === '#' ) return;
+    if (id === '#') return;
     var t = document.querySelector(id);
     if (!t) return;
     ev.preventDefault();
-    var y = t.getBoundingClientRect().top + window.pageYOffset - 72;
-    window.scrollTo({ top: y, behavior: 'smooth' });
+    var y = t.getBoundingClientRect().top + window.pageYOffset - 48;
+    window.scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' });
   });
 })();
 
-/* ---------- expanded image viewer ---------- */
 (function(){
-  var plates = Array.prototype.slice.call(document.querySelectorAll('.plate[data-view]'));
-  if (!plates.length) return;
-
-  var items = plates.map(function(btn){
-    var proj = btn.closest('.proj');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card[data-view]'));
+  if (!cards.length) return;
+  var items = cards.map(function(btn){
     return {
-      btn: btn,
-      n: proj.querySelector('.rail-n').textContent.trim(),
       img: btn.getAttribute('data-view'),
-      title: proj.querySelector('.rail h2').textContent.trim(),
-      client: proj.querySelector('.client').textContent.trim(),
+      n: btn.getAttribute('data-n'),
+      title: btn.querySelector('h3').textContent.trim(),
+      client: btn.querySelector('.client').textContent.trim(),
       alt: btn.querySelector('img').getAttribute('alt') || ''
     };
   });
-
-  var viewer  = document.getElementById('viewer');
-  var stage   = document.getElementById('viewer-stage');
-  var vImg    = document.getElementById('viewer-img');
-  var vN      = document.getElementById('viewer-n');
-  var vTitle  = document.getElementById('viewer-title');
-  var vClient = document.getElementById('viewer-client');
-  var bPrev   = document.getElementById('v-prev');
-  var bNext   = document.getElementById('v-next');
-  var bClose  = document.getElementById('v-close');
-
-  var current = -1;
-  var lastFocus = null;
+  var viewer = document.getElementById('viewer'), stage = document.getElementById('viewer-stage'),
+      vImg = document.getElementById('viewer-img'), vN = document.getElementById('viewer-n'),
+      vTitle = document.getElementById('viewer-title'), vClient = document.getElementById('viewer-client'),
+      bPrev = document.getElementById('v-prev'), bNext = document.getElementById('v-next'), bClose = document.getElementById('v-close');
+  var current = -1, lastFocus = null;
 
   function show(i){
     if (i < 0 || i >= items.length) return;
     current = i;
     var it = items[i];
-    vImg.src = 'img/full/w' + it.img + '.jpg' + (it.img === '07' ? '?v=2' : '');
+    vImg.src = 'img/full/w' + it.img + '.jpg';
     vImg.alt = it.alt;
-    vN.textContent = it.n;
+    vN.textContent = (i + 1) + ' of ' + items.length;
     vTitle.textContent = it.title;
     vClient.textContent = it.client;
     bPrev.disabled = (i === 0);
     bNext.disabled = (i === items.length - 1);
     stage.classList.remove('zoom');
-    stage.scrollTop = 0;
-    stage.scrollLeft = 0;
+    stage.scrollTop = 0; stage.scrollLeft = 0;
   }
-
   function open(i){
     lastFocus = document.activeElement;
-    viewer.hidden = false;
-    viewer.setAttribute('data-open', '');
+    viewer.hidden = false; viewer.setAttribute('data-open', '');
     document.body.classList.add('locked');
-    show(i);
-    bClose.focus();
+    show(i); bClose.focus();
   }
-
   function close(){
-    viewer.removeAttribute('data-open');
-    viewer.hidden = true;
+    viewer.removeAttribute('data-open'); viewer.hidden = true;
     document.body.classList.remove('locked');
-    stage.classList.remove('zoom');
-    vImg.removeAttribute('src');
+    stage.classList.remove('zoom'); vImg.removeAttribute('src');
     if (lastFocus && lastFocus.focus) lastFocus.focus();
     current = -1;
   }
-
-  plates.forEach(function(btn, i){
-    btn.addEventListener('click', function(){ open(i); });
-  });
-
+  cards.forEach(function(btn, i){ btn.addEventListener('click', function(){ open(i); }); });
   bClose.addEventListener('click', close);
   bPrev.addEventListener('click', function(){ show(current - 1); });
   bNext.addEventListener('click', function(){ show(current + 1); });
-
-  /* click the image to toggle full-resolution, click the backdrop to close */
-  vImg.addEventListener('click', function(ev){
-    ev.stopPropagation();
-    stage.classList.toggle('zoom');
-  });
-  stage.addEventListener('click', function(ev){
-    if (ev.target === stage) close();
-  });
-
+  vImg.addEventListener('click', function(ev){ ev.stopPropagation(); stage.classList.toggle('zoom'); });
+  stage.addEventListener('click', function(ev){ if (ev.target === stage) close(); });
   document.addEventListener('keydown', function(ev){
     if (current < 0) return;
     if (ev.key === 'Escape') { ev.preventDefault(); close(); }
     else if (ev.key === 'ArrowRight') { ev.preventDefault(); show(current + 1); }
-    else if (ev.key === 'ArrowLeft')  { ev.preventDefault(); show(current - 1); }
+    else if (ev.key === 'ArrowLeft') { ev.preventDefault(); show(current - 1); }
     else if (ev.key === 'Tab') {
-      /* keep focus inside the dialog */
       var f = viewer.querySelectorAll('button:not(:disabled)');
       if (!f.length) return;
       var first = f[0], last = f[f.length - 1];

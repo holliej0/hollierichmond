@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Unisys Design System · Case study · Hollie Richmond</title>
+<meta name="description" content="Case study: the Unisys design system in Figma. Two layers of variables with light and dark modes, a Tomato Grotesk type scale, icons, components, and the dashboard and AI screens built on them.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="Unisys Design System · Hollie Richmond">
+<meta property="og:image" content="https://hollierichmond.com/img/unisys/cover.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="light.css?v=1">
+<style>
+  .type-table td:first-child{color:var(--text)}
+  .type-table td{color:var(--text-2);font-variant-numeric:tabular-nums}
+  .contents{display:grid;gap:12px;grid-template-columns:1fr;margin-top:clamp(28px,4vw,40px)}
+  @media (min-width:760px){.contents{grid-template-columns:repeat(4,1fr)}}
+  .contents div{background:var(--bg-alt);border-radius:var(--radius);padding:22px 22px 24px}
+  .contents h4{margin:0 0 10px;font-size:14px;font-weight:600;color:var(--text)}
+  .contents ul{list-style:none;margin:0;padding:0;font-size:14px;line-height:1.8;color:var(--text-2)}
+  .brand-row{display:flex;gap:10px;align-items:center;margin-top:18px;font-size:14px;color:var(--text-2)}
+  .brand-row .chip{width:28px;height:28px;border-radius:8px;margin:0}
+  .scroll-x{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .spacing{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .spacing div{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;color:var(--text-3)}
+  .spacing i{display:block;background:#00e28b;border-radius:3px;width:14px}
+  .radii{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+  .radii div{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;color:var(--text-3)}
+  .radii i{display:block;width:48px;height:48px;background:var(--bg-alt);box-shadow:inset 0 0 0 1.5px #008853}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="sig" href="index.html">Hollie Richmond</a>
+    <nav>
+      <a href="index.html#work">All work</a>
+      <a class="opt" href="oce.html">OCE</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap hero-in">
+      <p class="eyebrow">Case study <span class="sep">/</span> Unisys</p>
+      <h1>Unisys Design System</h1>
+      <p class="dek">A single Figma library for Unisys product work: <strong>color, type, spacing and components set up as variables with a light and a dark mode</strong>, and a full set of dashboard and AI tool screens built from those same parts.</p>
+
+      <dl class="facts">
+        <div class="fact"><dt>Role</dt><dd>UI/ML Designer, design systems</dd></div>
+        <div class="fact"><dt>Company</dt><dd>Unisys</dd></div>
+        <div class="fact"><dt>When</dt><dd>July 2025 to April 2026</dd></div>
+        <div class="fact"><dt>Tool</dt><dd>Figma variables, modes and components</dd></div>
+        <div class="fact"><dt>Typeface</dt><dd>Tomato Grotesk</dd></div>
+        <div class="fact"><dt>Output</dt><dd>Documented component library and screen set</dd></div>
+      </dl>
+
+      <div class="hero-media" data-rise>
+        <img src="img/unisys/cover.jpg" alt="The cover of the Unisys design system file: the Unisys logo and the words Design System over a green field with a flowing glass and ribbon form." width="1920" height="1080" fetchpriority="high" decoding="async">
+      </div>
+
+      <div class="stat-row" data-rise>
+        <div><span class="num">478</span><span class="lab">Variables in two collections</span></div>
+        <div><span class="num">2</span><span class="lab">Modes, light and dark</span></div>
+        <div><span class="num">44</span><span class="lab">Text styles</span></div>
+        <div><span class="num">11</span><span class="lab">Component families</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-n">01</span><h2>What's in the file</h2></div>
+      <div class="col">
+        <p>The file is laid out the way people use it. Foundations first, then components, then the dashboard parts, then finished screens. Each page opens with the same header: the page name on the left, the Unisys mark on the right, and a green rule across the top.</p>
+      </div>
+      <div class="contents" data-rise>
+        <div><h4>Foundations</h4><ul><li>Colors</li><li>Typography</li><li>Icons</li><li>Shadows</li><li>Spacing</li><li>Grid layouts</li><li>Border radius</li></ul></div>
+        <div><h4>Components</h4><ul><li>Alerts</li><li>Avatar</li><li>Buttons</li><li>Badges</li><li>Checkbox</li><li>Input fields</li><li>Progress bar</li><li>Toggle</li><li>Popovers</li><li>Tooltips</li><li>Pagination</li></ul></div>
+        <div><h4>Dashboard parts</h4><ul><li>Sidebar navigation</li><li>Header and search</li><li>Metric cards</li><li>Charts</li><li>Tables and lists</li><li>Documentation blocks</li></ul></div>
+        <div><h4>Screens</h4><ul><li>Seven dashboards</li><li>AI tools</li><li>Calendar, task, profile</li><li>Forms and tables</li><li>Chat, email, support</li><li>Charts, UI elements</li><li>Authentication</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-n">02</span><h2>Color, in two layers</h2></div>
+      <div class="col">
+        <p>The colors live in two variable collections. <strong>Primitives</strong> hold the raw values: a twelve-step ramp for the Unisys green and twelve more for gray, status and accent colors, plus spacing, radius and type sizes. There are 323 of them.</p>
+        <p><strong>Tokens</strong> sit on top and say what a color is for, like <em>Text/Title Color</em> or <em>Border/Border</em>. Each one points at a primitive in light mode and a different primitive in dark mode. Components only use tokens, so switching a screen to dark is one mode change and nothing has to be redrawn. There are 155 tokens.</p>
+      </div>
+
+      <div class="ramps" data-rise>
+<div class="ramp"><span class="nm">Unisys</span><div class="steps"><span class="sw" tabindex="0" style="background:#f2fef9" data-tip="Unisys 25 · #F2FEF9" aria-label="Unisys 25 #F2FEF9"></span><span class="sw" tabindex="0" style="background:#e6fcf3" data-tip="Unisys 50 · #E6FCF3" aria-label="Unisys 50 #E6FCF3"></span><span class="sw" tabindex="0" style="background:#ccf9e8" data-tip="Unisys 100 · #CCF9E8" aria-label="Unisys 100 #CCF9E8"></span><span class="sw" tabindex="0" style="background:#99f3d1" data-tip="Unisys 200 · #99F3D1" aria-label="Unisys 200 #99F3D1"></span><span class="sw" tabindex="0" style="background:#66eeb9" data-tip="Unisys 300 · #66EEB9" aria-label="Unisys 300 #66EEB9"></span><span class="sw" tabindex="0" style="background:#33e8a2" data-tip="Unisys 400 · #33E8A2" aria-label="Unisys 400 #33E8A2"></span><span class="sw" tabindex="0" style="background:#00e28b" data-tip="Unisys 500 · #00E28B" aria-label="Unisys 500 #00E28B"></span><span class="sw" tabindex="0" style="background:#00b56f" data-tip="Unisys 600 · #00B56F" aria-label="Unisys 600 #00B56F"></span><span class="sw" tabindex="0" style="background:#008853" data-tip="Unisys 700 · #008853" aria-label="Unisys 700 #008853"></span><span class="sw" tabindex="0" style="background:#005a38" data-tip="Unisys 800 · #005A38" aria-label="Unisys 800 #005A38"></span><span class="sw" tabindex="0" style="background:#002d1c" data-tip="Unisys 900 · #002D1C" aria-label="Unisys 900 #002D1C"></span><span class="sw" tabindex="0" style="background:#00170e" data-tip="Unisys 950 · #00170E" aria-label="Unisys 950 #00170E"></span></div></div>
+<div class="ramp"><span class="nm">Gray</span><div class="steps"><span class="sw" tabindex="0" style="background:#fcfcfd" data-tip="Gray 25 · #FCFCFD" aria-label="Gray 25 #FCFCFD"></span><span class="sw" tabindex="0" style="background:#f9fafb" data-tip="Gray 50 · #F9FAFB" aria-label="Gray 50 #F9FAFB"></span><span class="sw" tabindex="0" style="background:#f2f4f7" data-tip="Gray 100 · #F2F4F7" aria-label="Gray 100 #F2F4F7"></span><span class="sw" tabindex="0" style="background:#e4e7ec" data-tip="Gray 200 · #E4E7EC" aria-label="Gray 200 #E4E7EC"></span><span class="sw" tabindex="0" style="background:#d0d5dd" data-tip="Gray 300 · #D0D5DD" aria-label="Gray 300 #D0D5DD"></span><span class="sw" tabindex="0" style="background:#98a2b3" data-tip="Gray 400 · #98A2B3" aria-label="Gray 400 #98A2B3"></span><span class="sw" tabindex="0" style="background:#667085" data-tip="Gray 500 · #667085" aria-label="Gray 500 #667085"></span><span class="sw" tabindex="0" style="background:#475467" data-tip="Gray 600 · #475467" aria-label="Gray 600 #475467"></span><span class="sw" tabindex="0" style="background:#344054" data-tip="Gray 700 · #344054" aria-label="Gray 700 #344054"></span><span class="sw" tabindex="0" style="background:#1d2939" data-tip="Gray 800 · #1D2939" aria-label="Gray 800 #1D2939"></span><span class="sw" tabindex="0" style="background:#101828" data-tip="Gray 900 · #101828" aria-label="Gray 900 #101828"></span><span class="sw" tabindex="0" style="background:#0c111d" data-tip="Gray 950 · #0C111D" aria-label="Gray 950 #0C111D"></span></div></div>
+<div class="ramp"><span class="nm">Error</span><div class="steps"><span class="sw" tabindex="0" style="background:#fffbfa" data-tip="Error 25 · #FFFBFA" aria-label="Error 25 #FFFBFA"></span><span class="sw" tabindex="0" style="background:#fef3f2" data-tip="Error 50 · #FEF3F2" aria-label="Error 50 #FEF3F2"></span><span class="sw" tabindex="0" style="background:#fee4e2" data-tip="Error 100 · #FEE4E2" aria-label="Error 100 #FEE4E2"></span><span class="sw" tabindex="0" style="background:#fecdca" data-tip="Error 200 · #FECDCA" aria-label="Error 200 #FECDCA"></span><span class="sw" tabindex="0" style="background:#fda29b" data-tip="Error 300 · #FDA29B" aria-label="Error 300 #FDA29B"></span><span class="sw" tabindex="0" style="background:#f97066" data-tip="Error 400 · #F97066" aria-label="Error 400 #F97066"></span><span class="sw" tabindex="0" style="background:#f04438" data-tip="Error 500 · #F04438" aria-label="Error 500 #F04438"></span><span class="sw" tabindex="0" style="background:#d92d20" data-tip="Error 600 · #D92D20" aria-label="Error 600 #D92D20"></span><span class="sw" tabindex="0" style="background:#b42318" data-tip="Error 700 · #B42318" aria-label="Error 700 #B42318"></span><span class="sw" tabindex="0" style="background:#912018" data-tip="Error 800 · #912018" aria-label="Error 800 #912018"></span><span class="sw" tabindex="0" style="background:#7a271a" data-tip="Error 900 · #7A271A" aria-label="Error 900 #7A271A"></span><span class="sw" tabindex="0" style="background:#55160c" data-tip="Error 950 · #55160C" aria-label="Error 950 #55160C"></span></div></div>
+<div class="ramp"><span class="nm">Warning</span><div class="steps"><span class="sw" tabindex="0" style="background:#fffcf5" data-tip="Warning 25 · #FFFCF5" aria-label="Warning 25 #FFFCF5"></span><span class="sw" tabindex="0" style="background:#fffaeb" data-tip="Warning 50 · #FFFAEB" aria-label="Warning 50 #FFFAEB"></span><span class="sw" tabindex="0" style="background:#fef0c7" data-tip="Warning 100 · #FEF0C7" aria-label="Warning 100 #FEF0C7"></span><span class="sw" tabindex="0" style="background:#fedf89" data-tip="Warning 200 · #FEDF89" aria-label="Warning 200 #FEDF89"></span><span class="sw" tabindex="0" style="background:#fec84b" data-tip="Warning 300 · #FEC84B" aria-label="Warning 300 #FEC84B"></span><span class="sw" tabindex="0" style="background:#fdb022" data-tip="Warning 400 · #FDB022" aria-label="Warning 400 #FDB022"></span><span class="sw" tabindex="0" style="background:#f79009" data-tip="Warning 500 · #F79009" aria-label="Warning 500 #F79009"></span><span class="sw" tabindex="0" style="background:#dc6803" data-tip="Warning 600 · #DC6803" aria-label="Warning 600 #DC6803"></span><span class="sw" tabindex="0" style="background:#b54708" data-tip="Warning 700 · #B54708" aria-label="Warning 700 #B54708"></span><span class="sw" tabindex="0" style="background:#93370d" data-tip="Warning 800 · #93370D" aria-label="Warning 800 #93370D"></span><span class="sw" tabindex="0" style="background:#7a2e0e" data-tip="Warning 900 · #7A2E0E" aria-label="Warning 900 #7A2E0E"></span><span class="sw" tabindex="0" style="background:#4e1d09" data-tip="Warning 950 · #4E1D09" aria-label="Warning 950 #4E1D09"></span></div></div>
+<div class="ramp"><span class="nm">Success</span><div class="steps"><span class="sw" tabindex="0" style="background:#f6fef9" data-tip="Success 25 · #F6FEF9" aria-label="Success 25 #F6FEF9"></span><span class="sw" tabindex="0" style="background:#ecfdf3" data-tip="Success 50 · #ECFDF3" aria-label="Success 50 #ECFDF3"></span><span class="sw" tabindex="0" style="background:#d1fadf" data-tip="Success 100 · #D1FADF" aria-label="Success 100 #D1FADF"></span><span class="sw" tabindex="0" style="background:#a6f4c5" data-tip="Success 200 · #A6F4C5" aria-label="Success 200 #A6F4C5"></span><span class="sw" tabindex="0" style="background:#6ce9a6" data-tip="Success 300 · #6CE9A6" aria-label="Success 300 #6CE9A6"></span><span class="sw" tabindex="0" style="background:#32d583" data-tip="Success 400 · #32D583" aria-label="Success 400 #32D583"></span><span class="sw" tabindex="0" style="background:#12b76a" data-tip="Success 500 · #12B76A" aria-label="Success 500 #12B76A"></span><span class="sw" tabindex="0" style="background:#039855" data-tip="Success 600 · #039855" aria-label="Success 600 #039855"></span><span class="sw" tabindex="0" style="background:#027a48" data-tip="Success 700 · #027A48" aria-label="Success 700 #027A48"></span><span class="sw" tabindex="0" style="background:#05603a" data-tip="Success 800 · #05603A" aria-label="Success 800 #05603A"></span><span class="sw" tabindex="0" style="background:#054f31" data-tip="Success 900 · #054F31" aria-label="Success 900 #054F31"></span><span class="sw" tabindex="0" style="background:#053321" data-tip="Success 950 · #053321" aria-label="Success 950 #053321"></span></div></div>
+<div class="ramp"><span class="nm">Blue</span><div class="steps"><span class="sw" tabindex="0" style="background:#f5faff" data-tip="Blue 25 · #F5FAFF" aria-label="Blue 25 #F5FAFF"></span><span class="sw" tabindex="0" style="background:#eff8ff" data-tip="Blue 50 · #EFF8FF" aria-label="Blue 50 #EFF8FF"></span><span class="sw" tabindex="0" style="background:#d1e9ff" data-tip="Blue 100 · #D1E9FF" aria-label="Blue 100 #D1E9FF"></span><span class="sw" tabindex="0" style="background:#b2ddff" data-tip="Blue 200 · #B2DDFF" aria-label="Blue 200 #B2DDFF"></span><span class="sw" tabindex="0" style="background:#84caff" data-tip="Blue 300 · #84CAFF" aria-label="Blue 300 #84CAFF"></span><span class="sw" tabindex="0" style="background:#53b1fd" data-tip="Blue 400 · #53B1FD" aria-label="Blue 400 #53B1FD"></span><span class="sw" tabindex="0" style="background:#2e90fa" data-tip="Blue 500 · #2E90FA" aria-label="Blue 500 #2E90FA"></span><span class="sw" tabindex="0" style="background:#1570ef" data-tip="Blue 600 · #1570EF" aria-label="Blue 600 #1570EF"></span><span class="sw" tabindex="0" style="background:#175cd3" data-tip="Blue 700 · #175CD3" aria-label="Blue 700 #175CD3"></span><span class="sw" tabindex="0" style="background:#1849a9" data-tip="Blue 800 · #1849A9" aria-label="Blue 800 #1849A9"></span><span class="sw" tabindex="0" style="background:#194185" data-tip="Blue 900 · #194185" aria-label="Blue 900 #194185"></span><span class="sw" tabindex="0" style="background:#102a56" data-tip="Blue 950 · #102A56" aria-label="Blue 950 #102A56"></span></div></div>
+<div class="ramp"><span class="nm">Bluelight</span><div class="steps"><span class="sw" tabindex="0" style="background:#f5fbff" data-tip="Bluelight 25 · #F5FBFF" aria-label="Bluelight 25 #F5FBFF"></span><span class="sw" tabindex="0" style="background:#f0f9ff" data-tip="Bluelight 50 · #F0F9FF" aria-label="Bluelight 50 #F0F9FF"></span><span class="sw" tabindex="0" style="background:#e0f2fe" data-tip="Bluelight 100 · #E0F2FE" aria-label="Bluelight 100 #E0F2FE"></span><span class="sw" tabindex="0" style="background:#b9e6fe" data-tip="Bluelight 200 · #B9E6FE" aria-label="Bluelight 200 #B9E6FE"></span><span class="sw" tabindex="0" style="background:#7cd4fd" data-tip="Bluelight 300 · #7CD4FD" aria-label="Bluelight 300 #7CD4FD"></span><span class="sw" tabindex="0" style="background:#36bffa" data-tip="Bluelight 400 · #36BFFA" aria-label="Bluelight 400 #36BFFA"></span><span class="sw" tabindex="0" style="background:#0ba5ec" data-tip="Bluelight 500 · #0BA5EC" aria-label="Bluelight 500 #0BA5EC"></span><span class="sw" tabindex="0" style="background:#0086c9" data-tip="Bluelight 600 · #0086C9" aria-label="Bluelight 600 #0086C9"></span><span class="sw" tabindex="0" style="background:#026aa2" data-tip="Bluelight 700 · #026AA2" aria-label="Bluelight 700 #026AA2"></span><span class="sw" tabindex="0" style="background:#065986" data-tip="Bluelight 800 · #065986" aria-label="Bluelight 800 #065986"></span><span class="sw" tabindex="0" style="background:#0b4a6f" data-tip="Bluelight 900 · #0B4A6F" aria-label="Bluelight 900 #0B4A6F"></span><span class="sw" tabindex="0" style="background:#062c41" data-tip="Bluelight 950 · #062C41" aria-label="Bluelight 950 #062C41"></span></div></div>
+<div class="ramp"><span class="nm">Bluegray</span><div class="steps"><span class="sw" tabindex="0" style="background:#fcfcfd" data-tip="Bluegray 25 · #FCFCFD" aria-label="Bluegray 25 #FCFCFD"></span><span class="sw" tabindex="0" style="background:#f8f9fc" data-tip="Bluegray 50 · #F8F9FC" aria-label="Bluegray 50 #F8F9FC"></span><span class="sw" tabindex="0" style="background:#eaecf5" data-tip="Bluegray 100 · #EAECF5" aria-label="Bluegray 100 #EAECF5"></span><span class="sw" tabindex="0" style="background:#c8cce5" data-tip="Bluegray 200 · #C8CCE5" aria-label="Bluegray 200 #C8CCE5"></span><span class="sw" tabindex="0" style="background:#9ea5d1" data-tip="Bluegray 300 · #9EA5D1" aria-label="Bluegray 300 #9EA5D1"></span><span class="sw" tabindex="0" style="background:#717bbc" data-tip="Bluegray 400 · #717BBC" aria-label="Bluegray 400 #717BBC"></span><span class="sw" tabindex="0" style="background:#4e5ba6" data-tip="Bluegray 500 · #4E5BA6" aria-label="Bluegray 500 #4E5BA6"></span><span class="sw" tabindex="0" style="background:#3e4784" data-tip="Bluegray 600 · #3E4784" aria-label="Bluegray 600 #3E4784"></span><span class="sw" tabindex="0" style="background:#363f72" data-tip="Bluegray 700 · #363F72" aria-label="Bluegray 700 #363F72"></span><span class="sw" tabindex="0" style="background:#293056" data-tip="Bluegray 800 · #293056" aria-label="Bluegray 800 #293056"></span><span class="sw" tabindex="0" style="background:#101323" data-tip="Bluegray 900 · #101323" aria-label="Bluegray 900 #101323"></span><span class="sw" tabindex="0" style="background:#0d0f1c" data-tip="Bluegray 950 · #0D0F1C" aria-label="Bluegray 950 #0D0F1C"></span></div></div>
+<div class="ramp"><span class="nm">Indigo</span><div class="steps"><span class="sw" tabindex="0" style="background:#f5f8ff" data-tip="Indigo 25 · #F5F8FF" aria-label="Indigo 25 #F5F8FF"></span><span class="sw" tabindex="0" style="background:#eef4ff" data-tip="Indigo 50 · #EEF4FF" aria-label="Indigo 50 #EEF4FF"></span><span class="sw" tabindex="0" style="background:#e0eaff" data-tip="Indigo 100 · #E0EAFF" aria-label="Indigo 100 #E0EAFF"></span><span class="sw" tabindex="0" style="background:#c7d7fe" data-tip="Indigo 200 · #C7D7FE" aria-label="Indigo 200 #C7D7FE"></span><span class="sw" tabindex="0" style="background:#a4bcfd" data-tip="Indigo 300 · #A4BCFD" aria-label="Indigo 300 #A4BCFD"></span><span class="sw" tabindex="0" style="background:#8098f9" data-tip="Indigo 400 · #8098F9" aria-label="Indigo 400 #8098F9"></span><span class="sw" tabindex="0" style="background:#6172f3" data-tip="Indigo 500 · #6172F3" aria-label="Indigo 500 #6172F3"></span><span class="sw" tabindex="0" style="background:#444ce7" data-tip="Indigo 600 · #444CE7" aria-label="Indigo 600 #444CE7"></span><span class="sw" tabindex="0" style="background:#3538cd" data-tip="Indigo 700 · #3538CD" aria-label="Indigo 700 #3538CD"></span><span class="sw" tabindex="0" style="background:#2d31a6" data-tip="Indigo 800 · #2D31A6" aria-label="Indigo 800 #2D31A6"></span><span class="sw" tabindex="0" style="background:#2d3282" data-tip="Indigo 900 · #2D3282" aria-label="Indigo 900 #2D3282"></span><span class="sw" tabindex="0" style="background:#1f235b" data-tip="Indigo 950 · #1F235B" aria-label="Indigo 950 #1F235B"></span></div></div>
+<div class="ramp"><span class="nm">Purple</span><div class="steps"><span class="sw" tabindex="0" style="background:#fafaff" data-tip="Purple 25 · #FAFAFF" aria-label="Purple 25 #FAFAFF"></span><span class="sw" tabindex="0" style="background:#f4f3ff" data-tip="Purple 50 · #F4F3FF" aria-label="Purple 50 #F4F3FF"></span><span class="sw" tabindex="0" style="background:#ebe9fe" data-tip="Purple 100 · #EBE9FE" aria-label="Purple 100 #EBE9FE"></span><span class="sw" tabindex="0" style="background:#d9d6fe" data-tip="Purple 200 · #D9D6FE" aria-label="Purple 200 #D9D6FE"></span><span class="sw" tabindex="0" style="background:#bdb4fe" data-tip="Purple 300 · #BDB4FE" aria-label="Purple 300 #BDB4FE"></span><span class="sw" tabindex="0" style="background:#9b8afb" data-tip="Purple 400 · #9B8AFB" aria-label="Purple 400 #9B8AFB"></span><span class="sw" tabindex="0" style="background:#7a5af8" data-tip="Purple 500 · #7A5AF8" aria-label="Purple 500 #7A5AF8"></span><span class="sw" tabindex="0" style="background:#6938ef" data-tip="Purple 600 · #6938EF" aria-label="Purple 600 #6938EF"></span><span class="sw" tabindex="0" style="background:#5925dc" data-tip="Purple 700 · #5925DC" aria-label="Purple 700 #5925DC"></span><span class="sw" tabindex="0" style="background:#4a1fb8" data-tip="Purple 800 · #4A1FB8" aria-label="Purple 800 #4A1FB8"></span><span class="sw" tabindex="0" style="background:#3e1c96" data-tip="Purple 900 · #3E1C96" aria-label="Purple 900 #3E1C96"></span><span class="sw" tabindex="0" style="background:#27115f" data-tip="Purple 950 · #27115F" aria-label="Purple 950 #27115F"></span></div></div>
+<div class="ramp"><span class="nm">Pink</span><div class="steps"><span class="sw" tabindex="0" style="background:#fef6fb" data-tip="Pink 25 · #FEF6FB" aria-label="Pink 25 #FEF6FB"></span><span class="sw" tabindex="0" style="background:#fdf2fa" data-tip="Pink 50 · #FDF2FA" aria-label="Pink 50 #FDF2FA"></span><span class="sw" tabindex="0" style="background:#fce7f6" data-tip="Pink 100 · #FCE7F6" aria-label="Pink 100 #FCE7F6"></span><span class="sw" tabindex="0" style="background:#fcceee" data-tip="Pink 200 · #FCCEEE" aria-label="Pink 200 #FCCEEE"></span><span class="sw" tabindex="0" style="background:#faa7e0" data-tip="Pink 300 · #FAA7E0" aria-label="Pink 300 #FAA7E0"></span><span class="sw" tabindex="0" style="background:#f670c7" data-tip="Pink 400 · #F670C7" aria-label="Pink 400 #F670C7"></span><span class="sw" tabindex="0" style="background:#ee46bc" data-tip="Pink 500 · #EE46BC" aria-label="Pink 500 #EE46BC"></span><span class="sw" tabindex="0" style="background:#dd2590" data-tip="Pink 600 · #DD2590" aria-label="Pink 600 #DD2590"></span><span class="sw" tabindex="0" style="background:#c11574" data-tip="Pink 700 · #C11574" aria-label="Pink 700 #C11574"></span><span class="sw" tabindex="0" style="background:#9e165f" data-tip="Pink 800 · #9E165F" aria-label="Pink 800 #9E165F"></span><span class="sw" tabindex="0" style="background:#851651" data-tip="Pink 900 · #851651" aria-label="Pink 900 #851651"></span><span class="sw" tabindex="0" style="background:#4e0d30" data-tip="Pink 950 · #4E0D30" aria-label="Pink 950 #4E0D30"></span></div></div>
+<div class="ramp"><span class="nm">Rose</span><div class="steps"><span class="sw" tabindex="0" style="background:#fff5f6" data-tip="Rose 25 · #FFF5F6" aria-label="Rose 25 #FFF5F6"></span><span class="sw" tabindex="0" style="background:#fff1f3" data-tip="Rose 50 · #FFF1F3" aria-label="Rose 50 #FFF1F3"></span><span class="sw" tabindex="0" style="background:#ffe4e8" data-tip="Rose 100 · #FFE4E8" aria-label="Rose 100 #FFE4E8"></span><span class="sw" tabindex="0" style="background:#fecdd6" data-tip="Rose 200 · #FECDD6" aria-label="Rose 200 #FECDD6"></span><span class="sw" tabindex="0" style="background:#fea3b4" data-tip="Rose 300 · #FEA3B4" aria-label="Rose 300 #FEA3B4"></span><span class="sw" tabindex="0" style="background:#fd6f8e" data-tip="Rose 400 · #FD6F8E" aria-label="Rose 400 #FD6F8E"></span><span class="sw" tabindex="0" style="background:#f63d68" data-tip="Rose 500 · #F63D68" aria-label="Rose 500 #F63D68"></span><span class="sw" tabindex="0" style="background:#e31b54" data-tip="Rose 600 · #E31B54" aria-label="Rose 600 #E31B54"></span><span class="sw" tabindex="0" style="background:#c01048" data-tip="Rose 700 · #C01048" aria-label="Rose 700 #C01048"></span><span class="sw" tabindex="0" style="background:#a11043" data-tip="Rose 800 · #A11043" aria-label="Rose 800 #A11043"></span><span class="sw" tabindex="0" style="background:#89123e" data-tip="Rose 900 · #89123E" aria-label="Rose 900 #89123E"></span><span class="sw" tabindex="0" style="background:#510b24" data-tip="Rose 950 · #510B24" aria-label="Rose 950 #510B24"></span></div></div>
+<div class="ramp"><span class="nm">Orange</span><div class="steps"><span class="sw" tabindex="0" style="background:#fffaf5" data-tip="Orange 25 · #FFFAF5" aria-label="Orange 25 #FFFAF5"></span><span class="sw" tabindex="0" style="background:#fff6ed" data-tip="Orange 50 · #FFF6ED" aria-label="Orange 50 #FFF6ED"></span><span class="sw" tabindex="0" style="background:#ffead5" data-tip="Orange 100 · #FFEAD5" aria-label="Orange 100 #FFEAD5"></span><span class="sw" tabindex="0" style="background:#fddcab" data-tip="Orange 200 · #FDDCAB" aria-label="Orange 200 #FDDCAB"></span><span class="sw" tabindex="0" style="background:#feb273" data-tip="Orange 300 · #FEB273" aria-label="Orange 300 #FEB273"></span><span class="sw" tabindex="0" style="background:#fd853a" data-tip="Orange 400 · #FD853A" aria-label="Orange 400 #FD853A"></span><span class="sw" tabindex="0" style="background:#fb6514" data-tip="Orange 500 · #FB6514" aria-label="Orange 500 #FB6514"></span><span class="sw" tabindex="0" style="background:#ec4a0a" data-tip="Orange 600 · #EC4A0A" aria-label="Orange 600 #EC4A0A"></span><span class="sw" tabindex="0" style="background:#c4320a" data-tip="Orange 700 · #C4320A" aria-label="Orange 700 #C4320A"></span><span class="sw" tabindex="0" style="background:#9c2a10" data-tip="Orange 800 · #9C2A10" aria-label="Orange 800 #9C2A10"></span><span class="sw" tabindex="0" style="background:#7e2410" data-tip="Orange 900 · #7E2410" aria-label="Orange 900 #7E2410"></span><span class="sw" tabindex="0" style="background:#511c10" data-tip="Orange 950 · #511C10" aria-label="Orange 950 #511C10"></span></div></div>
+<div class="ramp-key" aria-hidden="true"><span></span><div class="steps"><span>25</span><span>50</span><span>100</span><span>200</span><span>300</span><span>400</span><span>500</span><span>600</span><span>700</span><span>800</span><span>900</span><span>950</span></div></div>
+      </div>
+      <p class="figcap">The primitive ramps, read straight from the Figma variables. Hover or tab to a swatch for its name and hex value.</p>
+
+      <div class="scroll-x" data-rise>
+<table class="token-table"><thead><tr><th>Token</th><th>Light</th><th>Dark</th></tr></thead><tbody><tr><td><code>Text/Title Color</code></td><td><span class="chip" style="background:#1d2939"></span>Gray/800</td><td><span class="chip" style="background:#f2f4f7"></span>White 90%</td></tr><tr><td><code>Text/Text Color</code></td><td><span class="chip" style="background:#344054"></span>Gray/700</td><td><span class="chip" style="background:#98a2b3"></span>Gray/400</td></tr><tr><td><code>Text/Brand Color</code></td><td><span class="chip" style="background:#008853"></span>Unisys/700</td><td><span class="chip" style="background:#33e8a2"></span>Unisys/400</td></tr><tr><td><code>Background/Body</code></td><td><span class="chip" style="background:#ffffff"></span>White</td><td><span class="chip" style="background:#101828"></span>Gray/900</td></tr><tr><td><code>Border/Border</code></td><td><span class="chip" style="background:#e4e7ec"></span>Gray/200</td><td><span class="chip" style="background:#1d2939"></span>Gray/800</td></tr><tr><td><code>Input/Brand focus border color</code></td><td><span class="chip" style="background:#66eeb9"></span>Unisys/300</td><td><span class="chip" style="background:#005a38"></span>Unisys/800</td></tr><tr><td><code>Sidebar navigation/Nav Item/Nav Active Text</code></td><td><span class="chip" style="background:#008853"></span>Unisys/700</td><td><span class="chip" style="background:#33e8a2"></span>Unisys/400</td></tr><tr><td><code>Status/Warning/Light Text</code></td><td><span class="chip" style="background:#dc6803"></span>Warning/600</td><td><span class="chip" style="background:#fd853a"></span>Orange/400</td></tr></tbody></table>
+      </div>
+      <p class="figcap">A few of the 155 tokens. The name says where it's used, and each mode points at a different step of the ramps above.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-n">03</span><h2>One typeface, eleven sizes</h2></div>
+      <div class="col">
+        <p>Everything is set in Tomato Grotesk, the Unisys brand face. The scale runs from Display 2xl at 72px down to Text xs at 12px, and every size comes in Regular, Medium, Semibold and Bold. That makes 44 text styles, each with its line height and rem value written next to it so engineering doesn't have to measure anything.</p>
+      </div>
+      <div class="split" style="margin-top:clamp(28px,4vw,40px)">
+        <figure data-rise>
+          <div class="plate"><img src="img/unisys/typography.jpg" alt="The Typography page: a Tomato Grotesk specimen with the full alphabet and numerals, then eleven rows of the type scale from Display 2xl to Text xs, each shown in Regular, Medium, Semibold and Bold with size and line height noted." width="1072" height="2000" loading="lazy" decoding="async"></div>
+        </figure>
+        <div class="scroll-x" data-rise>
+<table class="token-table type-table"><thead><tr><th>Style</th><th>Size</th><th>Line height</th><th>Rem</th></tr></thead><tbody><tr><td style="font-size:40px;line-height:1.15;font-weight:600;letter-spacing:-.01em">Display 2xl</td><td>72px</td><td>90px</td><td>4.5rem</td></tr><tr><td style="font-size:40px;line-height:1.15;font-weight:600;letter-spacing:-.01em">Display xl</td><td>60px</td><td>72px</td><td>3.75rem</td></tr><tr><td style="font-size:40px;line-height:1.15;font-weight:600;letter-spacing:-.01em">Display lg</td><td>48px</td><td>60px</td><td>3rem</td></tr><tr><td style="font-size:36px;line-height:1.15;font-weight:600;letter-spacing:-.01em">Display md</td><td>36px</td><td>44px</td><td>2.25rem</td></tr><tr><td style="font-size:30px;line-height:1.15;font-weight:600;letter-spacing:-.01em">Display sm</td><td>30px</td><td>38px</td><td>1.875rem</td></tr><tr><td style="font-size:24px;line-height:1.15;font-weight:600;letter-spacing:-.01em">Display xs</td><td>24px</td><td>32px</td><td>1.5rem</td></tr><tr><td style="font-size:20px;line-height:1.15;font-weight:600;letter-spacing:-.01em">Text xl</td><td>20px</td><td>30px</td><td>1.25rem</td></tr><tr><td style="font-size:18px;line-height:1.15;font-weight:600;letter-spacing:-.01em">Text lg</td><td>18px</td><td>28px</td><td>1.125rem</td></tr><tr><td style="font-size:16px;line-height:1.15;font-weight:600;letter-spacing:-.01em">Text md</td><td>16px</td><td>24px</td><td>1rem</td></tr><tr><td style="font-size:14px;line-height:1.15;font-weight:600;letter-spacing:-.01em">Text sm</td><td>14px</td><td>20px</td><td>0.875rem</td></tr><tr><td style="font-size:12px;line-height:1.15;font-weight:600;letter-spacing:-.01em">Text xs</td><td>12px</td><td>18px</td><td>0.75rem</td></tr></tbody></table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-n">04</span><h2>Spacing, radius and depth</h2></div>
+      <div class="col">
+        <p>Spacing runs on a 4px base, from 2px up to 384px. Corners have nine named steps, from none through 8px for cards and inputs to full for pills and avatars. Depth is seven shadow styles plus four focus rings, one each for default, brand, error and success.</p>
+      </div>
+      <div class="spacing" data-rise aria-label="Spacing steps from 4 to 64 pixels">
+        <div><i style="height:4px"></i>4</div><div><i style="height:8px"></i>8</div><div><i style="height:12px"></i>12</div><div><i style="height:16px"></i>16</div><div><i style="height:20px"></i>20</div><div><i style="height:24px"></i>24</div><div><i style="height:32px"></i>32</div><div><i style="height:40px"></i>40</div><div><i style="height:48px"></i>48</div><div><i style="height:64px"></i>64</div><div><i style="height:80px"></i>80</div><div><i style="height:96px"></i>96</div>
+      </div>
+      <div class="radii" data-rise aria-label="Border radius steps">
+        <div><i style="border-radius:0"></i>None</div><div><i style="border-radius:2px"></i>SM 2</div><div><i style="border-radius:4px"></i>4</div><div><i style="border-radius:6px"></i>MD 6</div><div><i style="border-radius:8px"></i>LG 8</div><div><i style="border-radius:12px"></i>XL 12</div><div><i style="border-radius:16px"></i>2XL 16</div><div><i style="border-radius:24px"></i>3XL 24</div><div><i style="border-radius:999px"></i>Full</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-n">05</span><h2>Icons and components</h2></div>
+      <div class="col">
+        <p>The icon set is a single outline style on a 24px grid, covering navigation, actions, files, communication and commerce. Country flags and brand marks sit on their own pages next to it.</p>
+        <p>Every component shows its states laid out in rows: default, hover, focused and disabled. Buttons come in a filled and an outlined style, with and without leading and trailing icons, for 64 variants. Alerts come in success, warning, error and hint, each with and without a "Learn more" link.</p>
+      </div>
+
+      <figure class="fig" data-rise>
+        <div class="plate"><img src="img/unisys/icons.jpg" alt="The Icons page: about 130 outline icons on a 24px grid, including arrows, files, people, settings, charts, communication, commerce and status icons." width="1000" height="729" loading="lazy" decoding="async"></div>
+        <figcaption class="figcap">The core icon set.</figcaption>
+      </figure>
+
+      <figure class="fig" data-rise>
+        <div class="plate"><img src="img/unisys/buttons.jpg" alt="The Buttons page: filled green and outlined white buttons shown in rows for default, hover, focused and disabled, with text only, leading icon, trailing icon and both." width="1629" height="1114" loading="lazy" decoding="async"></div>
+        <figcaption class="figcap">Buttons, every state in one view. The focused rows carry the focus ring style so keyboard users can see where they are.</figcaption>
+      </figure>
+
+      <div class="duo">
+        <figure data-rise>
+          <div class="plate"><img src="img/unisys/alerts.jpg" alt="The Alerts page: success, warning, error and hint messages, each shown with and without a Learn more link." width="1032" height="1352" loading="lazy" decoding="async"></div>
+          <figcaption class="figcap">Alerts in four kinds. Background, border and icon each come from their own token, so dark mode keeps the same meaning.</figcaption>
+        </figure>
+        <figure data-rise>
+          <div class="plate"><img src="img/w04.jpg" alt="Unisys design system pages: cover, icon grid, checkbox and radio states, a Tomato Grotesk type scale, button states, twelve-step color ramps, and alert message patterns." width="1500" height="1272" loading="lazy" decoding="async"></div>
+          <figcaption class="figcap">The documentation pages side by side.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-n">06</span><h2>Screens built from the parts</h2></div>
+      <div class="col">
+        <p>The second half of the file puts the system to work. There are seven dashboards (analytics, e-commerce, marketing, CRM, stocks, SaaS and logistics), each in a desktop and a mobile layout, plus AI tools, calendar, tables, forms, chat, email and sign-in screens. Every one exists in light and dark, built from the same components with the dark mode applied.</p>
+      </div>
+    </div>
+    <div class="wrap wide" style="margin-top:clamp(32px,4vw,48px)">
+      <div class="center">
+        <div class="mode-switch" role="group" aria-label="Show light or dark mode">
+          <button type="button" data-mode="light" aria-pressed="true">Light</button>
+          <button type="button" data-mode="dark" aria-pressed="false">Dark</button>
+        </div>
+      </div>
+      <div class="compare" data-mode="light" data-rise>
+        <div class="crop">
+          <img class="light-shot" src="img/unisys/analytics-light.jpg" alt="The analytics dashboard in light mode: sidebar navigation, four metric cards, a 30-day visitor bar chart, top channels, top pages, active users, acquisition channels, sessions by device, customer demographics and recent orders." width="1440" height="1921" loading="lazy" decoding="async">
+          <img class="dark-shot" src="img/unisys/analytics-dark.jpg" alt="The same analytics dashboard in dark mode, with identical layout and the Unisys green carried through charts and active states." width="1440" height="1921" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <p class="figcap center">The analytics dashboard. Same layout and components, with the dark mode applied.</p>
+    </div>
+
+    <div class="wrap wide" style="margin-top:clamp(56px,7vw,88px)">
+      <div class="split">
+        <div data-rise>
+          <h3>AI tools on the same shell</h3>
+          <p>The AI section adds text, image, code and video generators. They reuse the sidebar, header, inputs and buttons from the dashboards and add a conversation layout: prompts on the right in the brand tint, responses on the left with a copy action, and a history panel grouped by day.</p>
+        </div>
+        <div class="compare" data-mode="light" data-rise>
+          <img class="light-shot" src="img/unisys/ai-light.jpg" alt="The Text Generator screen in light mode: a chat thread with prompts in green bubbles and responses with copy buttons, a prompt box with attach and send, and a chat history panel with a New Chat button." width="1440" height="1594" loading="lazy" decoding="async">
+          <img class="dark-shot" src="img/unisys/ai-dark.jpg" alt="The Text Generator screen in dark mode." width="1440" height="1594" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap" style="margin-top:clamp(56px,7vw,88px)">
+      <div class="col" style="margin:0 auto clamp(28px,4vw,40px);text-align:center">
+        <h3 style="margin-inline:auto">Every dashboard on a phone</h3>
+        <p>On mobile the sidebar folds into a menu button and the cards stack into one column. Charts keep their legend and scroll sideways rather than squeezing the data.</p>
+      </div>
+      <div class="phones" data-rise>
+        <div>
+          <div class="phone"><div class="screen"><img src="img/unisys/mobile.jpg" alt="The analytics dashboard on a phone: metric cards stacked in one column above the visitor chart." width="720" height="1560" loading="lazy" decoding="async"></div></div>
+          <p class="phone-cap">Analytics</p>
+        </div>
+        <div>
+          <div class="phone"><div class="screen"><img src="img/unisys/mobile-crm.jpg" alt="The CRM dashboard on a phone: active deal, revenue and closed deal cards above a monthly statistics chart." width="720" height="1560" loading="lazy" decoding="async"></div></div>
+          <p class="phone-cap">CRM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-n">07</span><h2>Why it's built this way</h2></div>
+      <div class="col">
+        <p>A system only saves time if people trust that the parts already do the right thing. Putting every color behind a named token, and every component behind those tokens, means a designer picking up a new screen starts from finished parts in both modes, and an engineer reading a spec sees a name instead of a hex value.</p>
+        <p>It's the same idea I used on the OCE guidelines at IQVIA, with better tools. There it was named color tokens and a labelled type scale. Here the names are live variables in Figma, and a change to a ramp shows up everywhere at once.</p>
+      </div>
+      <p class="pull">Name it once, use it everywhere, change it in one place.</p>
+      <p class="src">Counts of variables, styles, components and screens are taken directly from the Figma file. Dashboard data, names and photos in the screens are placeholders.</p>
+    </div>
+  </section>
+
+  <section class="endnote">
+    <div class="wrap endnote-in">
+      <p class="eyebrow">Work with me</p>
+      <div data-rise>
+        <a class="mail-link" href="mailto:hollie@hollierichmond.com">hollie@hollierichmond.com</a>
+        <div class="elsewhere">
+          <a href="index.html#work">All work</a>
+          <a href="oce.html">OCE case study</a>
+          <a href="airspace.html">Airspace case study</a>
+          <a href="td.html">Territory Designer case study</a>
+          <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+          <a href="https://www.linkedin.com/in/holliejrichmond" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="foot-wrap"><div class="wrap">
+    <footer>
+      <span>© 2026 Hollie Richmond</span>
+      <span>Designed and built in New Jersey</span>
+    </footer>
+  </div></div>
+
+</main>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var rise = Array.prototype.slice.call(document.querySelectorAll('[data-rise]'));
+  if (!('IntersectionObserver' in window) || reduce) {
+    rise.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.04 });
+    rise.forEach(function(el){ io.observe(el); });
+    requestAnimationFrame(function(){
+      rise.forEach(function(el){ if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in'); });
+    });
+  }
+  /* light / dark switch: flips every comparison on the page together */
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.mode-switch button'));
+  var frames = Array.prototype.slice.call(document.querySelectorAll('.compare'));
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      var m = b.getAttribute('data-mode');
+      btns.forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      frames.forEach(function(f){ f.setAttribute('data-mode', m); });
+    });
+  });
+})();
+</script>
+</body>
+</html>
